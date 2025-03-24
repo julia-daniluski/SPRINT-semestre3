@@ -9,3 +9,5 @@ Observação: o projeto ainda não foi finalizado.
 Criamos o site "Cine&Place", que consiste em alugueis de locações e imóveis conhecidos por terem sido usados em filmes e séries, ou inspirada neles.
 
 ![Glow (1)](https://github.com/user-attachments/assets/99b4b286-c854-426b-b4bb-b4fe1c737ee5)
+###  Sprint 1:
+Durante a Sprint 1, realizamos atividades importantes para o início do projeto. Desenvolvemos o protótipo no Figma, organizamos a documentação inicial, criamos o cronograma com os prazos e etapas, além de definirmos a divisão de tarefas entre os membros do grupo. Essas ações foram essenciais para alinhar o time e estabelecer uma base sólida para as próximas etapas do desenvolvimento.
