@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Define o modelo de caixa para incluir padding e borda no tamanho total do elemento */
+}
+
+html{
+    font-family: 'Inter', 'sans-serif';
+    font-weight: 500;
+}
+
+body {
+    /* para navegadores antigos */
+    background: #FEE7C3;
+
+    /* Gradiente para navegadores modernos */
+    background: linear-gradient(0deg, rgba(71, 191, 158, 1)  0%, rgba(254, 231, 195, 1) 100%);
+    height: auto;
+    margin: 0;
+    background-repeat: no-repeat;
+}
+
+
+
+/*  Cabeçalho */
+header{
+    background-color: #001D47;
+    color: #fff;
+    padding: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+header .logo {
+    max-width: 80px;
+    height: 80px;
+}
+
+
+header .empresa{
+    display: flex;
+    flex-direction: row;
+}
+
+.navlist{
+    display: flex;
+    flex-direction: row;
+}
+
+li{
+    list-style-type: none;
+}
+
+li a{
+    text-decoration: none;
+    margin: 10px;
+    color: #fff;
+    font-size: 22px;
+}
+
+.usuario{
+    display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+}
+
+#sair{
+    background-color:crimson;
+}
+
+h3{
+    text-transform: uppercase;
+}
+
+h1{
+    text-align: center;
+}
+/* PADRONIZAÇÃO DAS IMAGENS DA GALERIA */
+.small-image-container {
+    width: 100%;
+    height: 220px; /* Altura padrão da imagem */
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+  
+.small-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantém proporção, cobre totalmente o container */
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+  
+.small-image-container:hover img {
+    transform: scale(1.03); /* Zoom leve ao passar o mouse */
+}
+
+.mansao {
+    border-radius: 10px; /* Arredondamento dos cantos */
+    object-fit: cover;   /* Preenche sem distorcer */
+    width: 100%;         /* Ocupa toda a largura */
+    height: auto;        /* Altura automática */
+    display: block;
+}
+
+.imagem-container {
+    padding: 20px; /* Espaçamento ao redor da imagem */
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #001D47;
+    color: #78C2E2;
+    padding: 7px 18px;
+    border-radius: 40px;
+    margin-bottom: 20px;
+
+}
+
+.btn:hover{
+    background-color: #78C2E2;
+    color: #001D47;
+}
