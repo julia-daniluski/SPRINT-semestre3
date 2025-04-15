@@ -17,8 +17,9 @@ body {
 
     /* Gradiente para navegadores modernos */
     background: linear-gradient(0deg, rgba(71, 191, 158, 1)  0%, rgba(254, 231, 195, 1) 100%);
-    height: 100vh;
+    height: auto;
     margin: 0;
+    background-repeat: no-repeat;
 }
 
 
