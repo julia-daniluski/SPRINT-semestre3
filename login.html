@@ -21,46 +21,47 @@
         </div>
     </header>
     <main>
-        <div class="login">
-            <div class="introducao">
-                <p>Quer um "rolê" diferente? Na Cine&Places você consegue!</p>
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ZhlqoygmDLI?si=pxSgXNjmSyKq_ZAy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="container mt-3">
+            <div class="row justify-content-center align-items-stretch">
+                
+              <!-- Lado esquerdo: vídeo e texto -->
+              <div class="col-md-6 mb-4">
+                <div class="p-4 bg-light rounded">
+                  <p>Quer um "rolê" diferente? Na Cine&Places você consegue!</p>
+                  <div class="ratio ratio-16x9 mb-3">
+                    <iframe src="https://www.youtube.com/embed/ZhlqoygmDLI?si=pxSgXNjmSyKq_ZAy"
+                      title="YouTube video player" allowfullscreen></iframe>
+                  </div>
+                  <p>Aqui, você aluga seus quartos, casas e mansões saídas diretamente de seus filmes e séries favoritos!</p>
                 </div>
-                <p>Aqui, você aluga seu quartos, casas e mansões saídas diretamente de seus filmes e séries favoritos de forma prática e segura! Você dentro da sua série favorita!</p>
-            </div>
-            
-            <div class="login-container">
-                <div class="card">
-                    <!-- Título do card -->
-                    <div class="card-header">
-                        <h4 class="mb-1">Login</h4>
-                    </div>
-                    <!-- Corpo do card -->
-                    <div class="card-body">
-                        <form action="post" class="needs-validation" novalidate>
-                            <input type="hidden">
-                            <div class="mb-3">
-                                <label for="user" class="form-label">
-                                    Usuário:
-                                </label>
-                                <input type="text" name="username" class="form-control" required autocomplete="off" placeholder="Digite o usuário">
-                            </div>
-                            <div class="mb-3 position-relative">
-                                <label for="password" class="form-label">
-                                    Senha:
-                                </label>
-                                <input type="password" name="password" class="form-control" id="password" required placeholder="Digite a senha">
-                                <span class="password-toggle mt-3" onclick="togglePassword()">
-                                    <i class="bi bi-eye"></i>
-                                </span>
-                            </div>
-                            <button type="submit" class="btn btn-warning w-100">Entrar</button>
-                        </form>
-                    </div>
+              </div>
+          
+              <!-- Lado direito -->
+              <div class="col-md-4 d-flex">
+                <div class="card w-100">
+                  <div class="card-header">
+                    <h4 class="mb-0">Login</h4>
+                  </div>
+                  <div class="card-body w-80">
+                    <form class="needs-validation" novalidate>
+                      <div class="mb-3">
+                        <label for="user" class="form-label">Usuário:</label>
+                        <input type="text" name="username" id="user" class="form-control" required placeholder="Digite o usuário">
+                      </div>
+                      <div class="mb-3 position-relative">
+                        <label for="password" class="form-label">Senha:</label>
+                        <input type="password" name="password" id="password" class="form-control" required placeholder="Digite a senha">
+                        <span class="password-toggle mt-3" onclick="togglePassword()">
+                          <i class="bi bi-eye"></i>
+                        </span>
+                      </div>
+                      <button type="submit" class="btn btn-warning w-100">Entrar</button>
+                    </form>
+                  </div>
                 </div>
-            </div>
-        </div>
+              </div>
+              
+          
     </main>
 
 </body>

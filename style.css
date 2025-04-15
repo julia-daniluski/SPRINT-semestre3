@@ -43,7 +43,7 @@ header .empresa{
     flex-direction: row;
 }
 
-.introducao{
+/* .introducao{
     max-width:400px;
     margin: 100px auto;
     padding: 30px;
@@ -54,19 +54,27 @@ header .empresa{
     background: #fdf3ffb1;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     max-width: 1000px; /* Limita a largura máxima das seções */
-    border: groove 2px #6D6D6D; /* Borda do aside */
+    border: groove 2px #6D6D6D; /* Borda do aside  }*/
+    
+    .login {
+        display: flex;
+        flex-direction: row;
+        justify-content: center; /* Centraliza tudo horizontalmente */
+        align-items: flex-start; /* Alinha ao topo */
+        gap: 40px; /* Espaço entre os containers */
+        padding: 50px;
     }
     
-.login{
-    display: flex;
-    flex-direction: row;
-}
+    .login-container {
+        width: 400px;
+        margin: 100px auto;
+        /* background: #fdf3ffb1;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box; */
+    }
+    
 
-.login-container{
-    max-width:400px;
-    margin: 100px auto;
-    background: #fdf3ffb1;
-}
 .password-toggle{
     position: absolute;
     right: 15px;
