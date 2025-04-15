@@ -17,8 +17,9 @@ body {
 
     /* Gradiente para navegadores modernos */
     background: linear-gradient(0deg, rgba(71, 191, 158, 1)  0%, rgba(254, 231, 195, 1) 100%);
-    height: 100vh;
+    height: auto;
     margin: 0;
+    background-repeat: no-repeat;
 }
 
 
@@ -45,7 +46,6 @@ header .empresa{
     flex-direction: row;
 }
 
-<<<<<<< HEAD
 .navlist{
     display: flex;
     flex-direction: row;
@@ -73,8 +73,6 @@ li a{
 
 
 /* login */
-.login-container{
-=======
 /* .introducao{
 >>>>>>> f6fd16751ca92e53347ae5f6b340a14c964cd04a
     max-width:400px;
@@ -115,6 +113,129 @@ li a{
     transform: translateY(-50%);
     cursor: pointer;
 }
+
+/*tela login*/
+.info{
+    color: #1A4C64;
+    font-size: 28px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.slogan{
+    color: #1A4C64;
+    font-size: 20px;
+    text-align: center;  
+}
+
+/*Esqueceu a senha?*/
+.esqueci{
+    text-decoration: none;
+    color: gray;
+}
+
+/*Cadastre-se*/
+.cadastre{
+    text-decoration: none;
+    color: gray;
+    align-items: center;
+    text-align: center;
+}
+
+/*botões login*/
+.btn-google{
+    color:#fff;
+    background-color:#dd4b39;
+    border-color:rgba(0,0,0,0.2)
+}
+.btn-google:focus,
+.btn-google.focus{
+    color:#fff;
+    background-color:#c23321;
+    border-color:rgba(0,0,0,0.2)
+}
+.btn-google:hover{
+    color:#fff;
+    background-color:#c23321;
+    border-color:rgba(0,0,0,0.2)
+}
+
+.btn-facebook{
+    color:#fff;
+    background-color:#3b5998;
+    border-color:rgba(0,0,0,0.2)
+}
+.btn-facebook:focus,
+.btn-facebook.focus{
+    color:#fff;
+    background-color:#2d4373;
+    border-color:rgba(0,0,0,0.2)
+}
+.btn-facebook:hover{
+    color:#fff;
+    background-color:#2d4373;
+    border-color:rgba(0,0,0,0.2)
+}
+.btn-facebook:active,
+.btn-facebook.active,
+.open>.dropdown-toggle.btn-facebook{
+    color:#fff;
+    background-color:#2d4373;
+    border-color:rgba(0,0,0,0.2)
+}
+.btn-facebook:active:hover,
+.btn-facebook.active:hover,
+.open>.dropdown-toggle.btn-facebook:hover,
+.btn-facebook:active:focus,
+.btn-facebook.active:focus,
+.open>.dropdown-toggle.btn-facebook:focus,
+.btn-facebook:active.focus,
+.btn-facebook.active.focus,
+.open>.dropdown-toggle.btn-facebook.focus{
+    color:#fff;
+    background-color:#23345a;
+    border-color:rgba(0,0,0,0.2)
+}
+.btn-facebook:active,.btn-facebook.active,
+.open>.dropdown-toggle.btn-facebook{
+    background-image:none
+}
+.btn-facebook.disabled:hover,
+.btn-facebook[disabled]:hover,
+fieldset[disabled] .btn-facebook:hover,
+.btn-facebook.disabled:focus,
+.btn-facebook[disabled]:focus,
+fieldset[disabled] .btn-facebook:focus,
+.btn-facebook.disabled.focus,
+.btn-facebook[disabled].focus,
+fieldset[disabled] .btn-facebook.focus{
+    background-color:#3b5998;
+    border-color:rgba(0,0,0,0.2)
+}
+.btn-facebook .badge{
+    color:#3b5998;
+    background-color:#fff
+}
+
+.jeitosentrar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap; /* para responsividade */
+}
+
+.jeitosentrar .btn {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 @media{
     /*Diminuir container*/
