@@ -8,19 +8,22 @@
 
 html{
     font-family: 'Inter', 'sans-serif';
-    font-weight: 500;
-}
-
+    height: 100%;
+    }
+    
 body {
     /* para navegadores antigos */
     background: #FEE7C3;
 
     /* Gradiente para navegadores modernos */
     background: linear-gradient(0deg, rgba(71, 191, 158, 1)  0%, rgba(254, 231, 195, 1) 100%);
-    height: auto;
+    min-height: 100vh;
     margin: 0;
     background-repeat: no-repeat;
+    background-size: cover; /* garante que preencha a tela */
 }
+    
+
 
 
 
