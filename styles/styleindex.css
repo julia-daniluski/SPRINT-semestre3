@@ -72,6 +72,9 @@ h3{
     text-transform: uppercase;
 }
 
+h1{
+    text-align: center;
+}
 /* PADRONIZAÇÃO DAS IMAGENS DA GALERIA */
 .small-image-container {
     width: 100%;
