@@ -15,3 +15,7 @@ Durante a Sprint 1, realizamos atividades importantes para o início do projeto.
 Fizemos um protótipo do site pelo figma, como podem ver a seguir:
 
 https://www.figma.com/design/rfgTzSQ2LHXTA1QfrMOkYH/Cine-Places?node-id=0-1&t=4Ukg3ngrr4aghAku-0
+##  Sprint 2:
+Durante a Sprint 2, realizamos atividades importantes . Desenvolvemos a atualização do protótipo no Figma, organizamos a documentação, criamos o fron-end do nosso site. Essas ações foram essenciais para alinhar o time e estabelecer uma base sólida para a etapa final do desenvolvimento.  
+
+uma foto do nosso site:
