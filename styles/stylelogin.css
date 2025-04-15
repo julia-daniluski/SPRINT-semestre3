@@ -67,24 +67,27 @@ li a{
     flex-direction: row;
 }
 
-    
-    .login {
+.segcontainer{
+    height: 520px;
+}
+
+.login {
         display: flex;
         flex-direction: row;
         justify-content: center; /* Centraliza tudo horizontalmente */
         align-items: flex-start; /* Alinha ao topo */
         gap: 40px; /* Espaço entre os containers */
         padding: 50px;
-    }
+}
     
-    .login-container {
+.login-container {
         width: 400px;
         margin: 100px auto;
         /* background: #fdf3ffb1;
         text-align: center;
         padding: 20px;
         box-sizing: border-box; */
-    }
+}
     
 
 .password-toggle{
@@ -107,6 +110,19 @@ li a{
     color: #1A4C64;
     font-size: 20px;
     text-align: center;  
+}
+
+.log{
+    color: #1A4C64;
+    font-size: 25px;
+    text-align: center; 
+    font-weight: bold;
+}
+
+label{
+    color: #1A4C64;
+    font-size: 23px;
+    text-align: center; 
 }
 
 /*Esqueceu a senha?*/
