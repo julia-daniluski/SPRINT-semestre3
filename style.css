@@ -13,10 +13,10 @@ html{
 
 body {
     /* para navegadores antigos */
-    background: #22C1C3;
+    background: #FEE7C3;
 
     /* Gradiente para navegadores modernos */
-    background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(145, 190, 119, 1) 48%, rgba(253, 187, 45, 1) 100%);
+    background: linear-gradient(0deg, rgba(71, 191, 158, 1)  0%, rgba(254, 231, 195, 1) 100%);
     height: 100vh;
     margin: 0;
 }
@@ -29,13 +29,14 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
+
 
 header .logo {
     max-width: 70px;
     height: 80px;
 }
+
 
 header .empresa{
     display: flex;
