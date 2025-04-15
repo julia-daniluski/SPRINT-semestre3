@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Define o modelo de caixa para incluir padding e borda no tamanho total do elemento */
+}
+
+html{
+    font-family: 'Inter', 'sans-serif';
+    font-weight: 500;
+}
+
+body {
+    /* para navegadores antigos */
+    background: #FEE7C3;
+
+    /* Gradiente para navegadores modernos */
+    background: linear-gradient(0deg, rgba(71, 191, 158, 1)  0%, rgba(254, 231, 195, 1) 100%);
+    height: 100vh;
+    margin: 0;
+}
+
+
+header{
+    background-color: #001D47;
+    color: #fff;
+    padding: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+header .logo {
+    max-width: 80px;
+    height: 80px;
+}
+
+
+header .empresa{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.login-container{
+    max-width:400px;
+    margin: 100px auto;
+}
+.password-toggle{
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
