@@ -37,16 +37,131 @@
             </div>
             <div class="d-flex align-items-center gap-3 user-info mx-3 border usuario">
                 <span class="user-icon">
-                <i class="bi bi-person-circle" style="font-size:24px"></i>
+                    <i class="bi bi-person-circle" style="font-size:24px"></i>
                 </span>
-                <!--Bem vindo,[usuario]-->
                 <span class="welcome-text">
-                    Bem vindo, <strong>Usuário</strong>
+                    Bem-vindo, <strong>Usuário</strong>
                 </span>
-                <!--Botão de logout-->
-                <a href="login.html" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-4"><i class="bi bi-box-arrow-right"></i>Sair</a>
+                <a href="login.html" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-4">
+                    <i class="bi bi-box-arrow-right"></i>Sair
+                </a>
             </div>
         </nav>
     </header>
+
+    <main>
+        <!-- Tabela de veículos cadastrados -->
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">Aluguéis disponiveis:</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Tipo</th>
+                                            <th>Lugar</th>
+                                            <th>Valor</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><i class="bi bi-house-door"></i>Quarto</td>
+                                            <td>Castelo de Alnwick - Hogwarts (Harry Potter), Inglaterra</td>
+                                            <td>A partir de US$:17.589,75</td>
+                                            <!-- <td><span class="badge bg-warning">Alugado</span></td> -->
+                                            <td><span class="badge bg-success">Disponível</span></td>
+                                        </tr>
+                                        <tr>
+                                                <td><i class="bi bi-camera-reels"></i>Estúdio</td>
+                                                <td>Cenário Friends, Califórnia</td>
+                                                <td>A partir de US$:8.596,98</td>
+                                                <td><span class="badge bg-warning">Alugado</span></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td><i class="bi bi-house-door"></i>Casa</td>
+                                                <td>Casa da Mônica, São José dos Campos</td>
+                                                <td>A partir US$:158,305</td>
+                                                <td><span class="badge bg-success">Disponível</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="bi bi-house-door"></i>Casa</td>
+                                                <td>Cabana Tony Stark (Vingadores: Ultimato), Bouckaert Farm</td>
+                                                <td>A partir US$:351,790</td>
+                                                <td><span class="badge bg-warning">Alugado</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="bi bi-house-door"></i>Hotel</td>
+                                                <td>Hotel Shrek, Terras Altas da Escócia</td>
+                                                <td>A partir US$:228,663</td>
+                                                <td><span class="badge bg-success">Disponível</span></td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formulário de cálculo -->
+        <div class="container mt-4">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">Calcular a previsão de aluguel</h4>
+                        </div>
+                        <div class="card-body">
+                            <form action="post" class="needs-validation" novalidate>
+                                <div class="mb-3">
+                                    <label for="" class="input-label">Tipo de aluguel:</label>
+                                    <select class="form-select" required>
+                                        <option value="casa">Casa</option>
+                                        <option value="quarto">Quarto</option>
+                                        <option value="estudio">Estúdio/cenário</option>
+                                        <option value="hotel">Hotel</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="quantidade" class="form-label">Quantidade de diárias:</label>
+                                    <input type="number" name="quantidade" class="form-control" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100" name="calcular">Calcular</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contatos">
+        <p class="secondary-color">Nos encontre nas redes sociais: </p>
+        <br>
+        <div class="row justify-content-center" id="social-icons-container">
+          <div class="col-1">
+            <a href="#"><i class="bi bi-facebook secondary-color"></i></a>
+          </div>
+          <div class="col-1">
+            <a href="#"><i class="bi bi-instagram secondary-color"></i></a>
+          </div>
+          <div class="col-1">
+            <a href="#"><i class="bi bi-twitter secondary-color"></i></a>
+          </div>
+          <br><br><br>
+          <p class="secondary-color">© 2025 Cine$Places. Todos os direitos reservados.</p>
+          <br>
+        </div>
+        
+    </footer>
+
 </body>
- </html>
+</html>

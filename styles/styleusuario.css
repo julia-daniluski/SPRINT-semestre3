@@ -128,3 +128,60 @@ h1{
     background-color: #78C2E2;
     color: #001D47;
 }
+
+/* Ajuste na navbar para garantir melhor responsividade */
+.navbar-toggler {
+    border-color: #fff;
+}
+
+/* Contêiner para a tabela de veículos */
+.card-body {
+    padding: 20px;
+}
+
+/* Ajustando os badges */
+.badge {
+    font-size: 14px;
+}
+
+/* Aumentando o tamanho dos botões */
+.btn {
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 25px;
+}
+
+/* Estilos para os cards de cálculo de aluguel */
+.card {
+    border-radius: 15px;
+}
+
+.card-header {
+    background-color: #001D47;
+    color: #fff;
+}
+
+.card-body {
+    background-color: #fff;
+    padding: 20px;
+}
+
+footer {
+    background: #001D47;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .navbar-toggler {
+        margin-top: 5px;
+    }
+    .usuario {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
