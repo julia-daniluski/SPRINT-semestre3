@@ -20,5 +20,42 @@
             <img src="img/logo.png" alt="logo da página" class="logo mt-2">
         </div>
     </header>
+    <main>
+        <div class="login-container">
+            <div class="card">
+                <!-- Título do card -->
+                <div class="card-header">
+                    <h4 class="mb-1">Login</h4>
+                </div>
+    
+                <!-- Corpo do card -->
+                <div class="card-body">
+    
+                    <form action="post" class="needs-validation" novalidate>
+                        <input type="hidden">
+    
+                        <div class="mb-3">
+                            <label for="user" class="form-label">
+                                Usuário:
+                            </label>
+                            <input type="text" name="username" class="form-control" required autocomplete="off" placeholder="Digite o usuário">
+                        </div>
+    
+                        <div class="mb-3 position-relative">
+                            <label for="password" class="form-label">
+                                Senha:
+                            </label>
+                            <input type="password" name="password" class="form-control" id="password" required placeholder="Digite a senha">
+                            <span class="password-toggle mt-3" onclick="togglePassword()">
+                                <i class="bi bi-eye"></i>
+                            </span>
+                        </div>
+    
+                        <button type="submit" class="btn btn-warning w-100">Entrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
 
 </body>
