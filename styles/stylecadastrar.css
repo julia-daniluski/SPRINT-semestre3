@@ -6,23 +6,15 @@
     box-sizing: border-box; /* Define o modelo de caixa para incluir padding e borda no tamanho total do elemento */
 }
 
-html{
-    font-family: 'Inter', 'sans-serif';
-    font-weight: 500;
-}
-
-body {
-    /* para navegadores antigos */
-    background: #FEE7C3;
-
-    /* Gradiente para navegadores modernos */
-    background: linear-gradient(0deg, rgba(71, 191, 158, 1)  0%, rgba(254, 231, 195, 1) 100%);
-    height: auto;
+html, body {
+    height: 100%;
     margin: 0;
+    background: linear-gradient(180deg, rgba(71, 191, 158, 1), rgba(254, 231, 195, 1));
     background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
 }
-
-
 
 /*  Cabeçalho */
 header{
@@ -71,6 +63,11 @@ li a{
     height: 520px;
 }
 
+.card {
+    margin-bottom: 2rem; /* equivalente ao mb-4 do Bootstrap */
+  }
+  
+
 .login {
         display: flex;
         flex-direction: row;
@@ -98,20 +95,6 @@ li a{
     cursor: pointer;
 }
 
-/*tela login*/
-.info{
-    color: #1A4C64;
-    font-size: 28px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.slogan{
-    color: #1A4C64;
-    font-size: 20px;
-    text-align: center;  
-}
-
 .log{
     color: #1A4C64;
     font-size: 25px;
@@ -125,14 +108,9 @@ label{
     text-align: center; 
 }
 
-/*Esqueceu a senha?*/
-.esqueci{
-    text-decoration: none;
-    color: gray;
-}
 
 /*Cadastre-se*/
-.cadastre{
+.entrem{
     text-decoration: none;
     color: gray;
     align-items: center;
