@@ -23,7 +23,6 @@ body {
 }
 
 
-
 /*  Cabeçalho */
 header{
     background-color: #001D47;
@@ -53,6 +52,7 @@ header .empresa{
 
 li{
     list-style-type: none;
+    margin-left: 30px;
 }
 
 li a{
@@ -62,11 +62,18 @@ li a{
     font-size: 22px;
 }
 
+li a:hover{
+    color: #78C2E2;
+}
+
+
 .usuario{
     display: flex;
     flex-direction: row;
-    border-radius: 20px;
+    border-radius: 40px;
+    justify-content: left;
 }
+
 
 #sair{
     background-color:crimson;
@@ -82,7 +89,7 @@ h1{
 
 h1:hover{
     color: #1d4378;
-    font-size: 45px;
+    font-size: 43px;
 }
 
 h2{
