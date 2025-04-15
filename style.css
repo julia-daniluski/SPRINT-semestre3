@@ -43,10 +43,29 @@ header .empresa{
     flex-direction: row;
 }
 
+.introducao{
+    max-width:400px;
+    margin: 100px auto;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 40px;
+    text-align: center;
+    background: #fdf3ffb1;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 1000px; /* Limita a largura máxima das seções */
+    border: groove 2px #6D6D6D; /* Borda do aside */
+    }
+    
+.login{
+    display: flex;
+    flex-direction: row;
+}
 
 .login-container{
     max-width:400px;
     margin: 100px auto;
+    background: #fdf3ffb1;
 }
 .password-toggle{
     position: absolute;
@@ -56,3 +75,6 @@ header .empresa{
     cursor: pointer;
 }
 
+@media{
+    /*Diminuir container*/
+}
