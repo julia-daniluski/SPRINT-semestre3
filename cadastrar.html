@@ -9,7 +9,7 @@
     <!-- Link dos ícones -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Link para CSS -->
-    <link rel="stylesheet" href="styles/stylelogin.css">
+    <link rel="stylesheet" href="styles/stylecadastrar.css">
 </head>
 <body>
 
@@ -20,45 +20,39 @@
     </header>
 
     <main>
-        <div class="container mt-3">
-            <div class="row justify-content-center align-items-stretch d-flex">
-                
-                <!-- Lado esquerdo: vídeo e texto -->
-                <div class="col-md-6 mb-4 d-flex">
-                    <div class="p-4 bg-light rounded h-100 w-100">
-                        <p class="info">Quer um "rolê" diferente? Na Cine&Places você consegue!</p>
-                        <div class="ratio ratio-16x9 mb-3">
-                            <iframe src="https://www.youtube.com/embed/ZhlqoygmDLI?si=pxSgXNjmSyKq_ZAy"
-                                title="YouTube video player" allowfullscreen></iframe>
-                        </div>
-                        <p class="slogan">Aqui, você aluga seus quartos, casas e mansões saídas diretamente de seus filmes e séries favoritos!</p>
-                    </div>
-                </div>
-
-                <!-- Lado direito: login -->
-                <div class="col-md-4 d-flex segcontainer">
+        <div class="container-sm mt-3 ">
                     <div class="card w-100 h-100">
                         <div class="card-header">
-                            <h4 class="log mb-0">Efetuar login</h4>
+                            <h4 class="log mb-0">Cadastrar-se</h4>
                         </div>
                         <div class="card-body w-90 mb-4">
                             <form class="needs-validation" novalidate>
                                 <div class="mb-3">
-                                    <label for="user" class="form-label">Usuário:</label>
-                                    <input type="text" name="username" id="user" class="form-control" required placeholder="Digite o usuário">
+                                    <label for="user" class="form-label">Nome Completo</label>
+                                    <input type="text" name="username" id="user" class="form-control" required placeholder="Digite seu nome">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="user" class="form-label">Email:</label>
+                                    <input type="text" name="username" id="user" class="form-control" required placeholder="Digite seu email">
                                 </div>
                                 <div class="mb-3 position-relative">
-                                    <label for="password" class="form-label">Senha:</label>
+                                    <label for="password" class="form-label">Crie uma senha:</label>
+                                    <input type="password" name="password" id="password" class="form-control" required placeholder="Crie uma senha">
+                                    <span class="password-toggle mt-3" onclick="togglePassword()">
+                                        <i class="bi bi-eye"></i>
+                                    </span>
+                                </div>
+                                <div class="mb-3 position-relative">
+                                    <label for="password" class="form-label">Confirme sua senha:</label>
                                     <input type="password" name="password" id="password" class="form-control" required placeholder="Digite a senha">
                                     <span class="password-toggle mt-3" onclick="togglePassword()">
                                         <i class="bi bi-eye"></i>
                                     </span>
-                                    <a href="#" class="esqueci">Esqueceu a senha?</a>
                                 </div>
                                 
 <!-- Botão de login principal -->
 <a href="index.html" class="btn btn-warning w-100 mb-3">
-    Entrar
+    Cadastrar
 </a>
 
 <!-- Botões sociais -->
@@ -71,7 +65,7 @@
     </a>
 </div>
 
-                                <a href="cadastrar.html" class="cadastre">Novo por aqui? Cadastre-se.</a>
+                                <a href="login.html" class="cadastre">Já tem uma conta? Entre.</a>
                             </form>
                         </div>
                     </div>
