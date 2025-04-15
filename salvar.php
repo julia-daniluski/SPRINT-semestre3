@@ -16,6 +16,6 @@ $dados [] =$novoDado;
 file_put_contents("dados.json", json_encode($dados, JSON_PRETTY_PRINT));
 
 
-header("refresh:2;url=index.html");
+header("refresh:0.5;url=index.html");
 exit();
 ?>
