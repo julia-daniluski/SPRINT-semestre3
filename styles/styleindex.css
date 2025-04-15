@@ -79,6 +79,27 @@ h3{
 h1{
     text-align: center;
 }
+
+h1:hover{
+    color: #1d4378;
+    font-size: 45px;
+}
+
+h2{
+    align-items: center;
+
+    text-align: center;
+    background-color: #001D47;
+    color: #FEE7C3;
+    border-radius: 30px;
+    width: 200px;
+    height: 45px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 25px;
+}
+
 /* PADRONIZAÇÃO DAS IMAGENS DA GALERIA */
 .small-image-container {
     width: 100%;
@@ -127,4 +148,34 @@ h1{
 .btn:hover{
     background-color: #78C2E2;
     color: #001D47;
+}
+
+/* FOOTER */
+footer{
+    padding: 20px;
+    color: #FEE7C3;
+    background-color: #001D47;
+    width: 100%;
+}
+
+
+footer i{
+    font-size: 20px;
+}
+
+#social-icons-container{
+    padding: 25px;
+}
+
+#social-icons-container div{
+    text-align: center;
+}
+
+footer p{
+    text-align: center;
+    margin: 20px;
+}
+
+a:hover i{
+    color: var(--second-bg-color);
 }
