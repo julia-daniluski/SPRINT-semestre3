@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Define o modelo de caixa para incluir padding e borda no tamanho total do elemento */
+}
+
+html{
+    font-family: 'Inter', 'sans-serif';
+    font-weight: 500;
+}
 
 .login-container{
     max-width:400px;
@@ -9,4 +21,9 @@
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
+}
+
+header{
+    background-color: #001D47;
+    color: #fff;
 }
