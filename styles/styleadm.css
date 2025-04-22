@@ -251,30 +251,94 @@ footer {
 @media (max-width: 768px) {
     .navbar-toggler {
         margin-top: 5px;
+        background-color: #1d4378;
     }
     .usuario {
         flex-direction: column;
         gap: 10px;
     }
-        .action-wrapper{
-            flex-direction: column;
-            align-items: stretch;
-        }
-    
-        .btn-group-actions{
-            flex-direction: column;
-        }
-    
-        .rent-group{
-            order: 1;
-            width: 100%;
-        }
-        .delete-btn{
-            order: 2;
-            width: 100%;
-        }
-        .days-input{
-            width: 100% !important;
-        }
-
+    .action-wrapper{
+        flex-direction: column;
+        align-items: stretch;
     }
+
+    .btn-group-actions{
+        flex-direction: column;
+    }
+
+    .rent-group{
+        order: 1;
+        width: 100%;
+    }
+    .delete-btn{
+        order: 2;
+        width: 100%;
+    }
+    .days-input{
+        width: 100% !important;
+    }
+}
+
+/* Responsividade para o Header */
+@media (max-width: 991.98px) {
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    /* Ajusta logo e botão mobile */
+    header .empresa {
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Centraliza menu ao abrir */
+    .navbar-collapse {
+        width: 100%;
+    }
+
+    .navlist {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .navlist .nav-item {
+        width: 100%;
+    }
+
+    .navlist .nav-link {
+        padding: 0.5rem 1rem;
+        width: 100%;
+    }
+
+    /* Ajusta layout do usuário para mobile */
+    .usuario {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    .usuario .welcome-text {
+        font-size: 16px;
+    }
+
+    #sair {
+        margin-top: 0;
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+    .navbar-toggler {
+        background-color: #1d4378;
+        border: 1px solid white; /* ou outra cor */
+        padding: 6px 10px;
+        border-radius: 5px;
+    }
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%2300BFFF' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+    
+}

@@ -17,59 +17,59 @@
 
 <body>
     <!-- Navbar -->
-<header>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container d-flex align-items-center justify-content-between w-100">
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container d-flex align-items-center justify-content-between w-100">
 
-            <!-- Esquerda: Logo + Menu -->
-            <div class="d-flex align-items-center gap-4">
+                <!-- Esquerda: Logo + Menu -->
+                <div class="d-flex align-items-center gap-4">
 
-                <!-- Logo -->
-                <div class="empresa">
-                    <a href="#home">
-                        <img src="img/logo.png" alt="Logo da página" class="logo mt-2">
+                    <!-- Logo -->
+                    <div class="empresa">
+                        <a href="#home">
+                            <img src="img/logo.png" alt="Logo da página" class="logo mt-2">
+                        </a>
+                    </div>
+
+                    <!-- Botão Mobile -->
+                    <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- Menu -->
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav navlist mt-1">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#home">Início</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="login.php">Anunciar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#sobre">Sobre</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#contatos">Contato</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Direita: Usuário -->
+                <div class="d-flex align-items-center gap-3 user-info border p-2 rounded-5 usuario">
+                    <span class="user-icon">
+                        <i class="bi bi-person-circle" style="font-size: 24px;"></i>
+                    </span>
+                    <span class="welcome-text">
+                        Bem-vindo, <strong>usuário</strong>
+                    </span>
+                    <a href="login.php" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-3">
+                        <i class="bi bi-box-arrow-right"></i> Sair
                     </a>
                 </div>
-
-                <!-- Botão Mobile -->
-                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Menu -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav navlist mt-3">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Início</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.php">Anunciar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#sobre">Sobre</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contato">Contato</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
-
-            <!-- Direita: Usuário -->
-            <div class="d-flex align-items-center gap-3 user-info border p-2 rounded-5 usuario">
-                <span class="user-icon">
-                    <i class="bi bi-person-circle" style="font-size: 24px;"></i>
-                </span>
-                <span class="welcome-text">
-                    Bem-vindo, <strong>adm</strong>
-                </span>
-                <a href="login.html" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-1">
-                    <i class="bi bi-box-arrow-right"></i> Sair
-                </a>
-            </div>
-        </div>
-    </nav>
-</header>
+        </nav>
+    </header>
 
 
 
@@ -308,5 +308,6 @@
             }
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
