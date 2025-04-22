@@ -155,7 +155,7 @@ h1{
     padding: 20px; /* Espaçamento ao redor da imagem */
 }
 
-/* .btn {
+.add {
     display: flex;
     justify-content: center;
     text-decoration: none;
@@ -167,11 +167,10 @@ h1{
 
 }
 
-.btn:hover{
+.add:hover{
     background-color: #78C2E2;
     color: #001D47;
-} */
-
+} 
 /* Ajuste na navbar para garantir melhor responsividade */
 .navbar-toggler {
     border-color: #fff;
@@ -238,7 +237,7 @@ h1{
     text-align: center;
 }
 
-.btn {
+.add {
     display: flex;
     justify-content: center;
     text-decoration: none;
@@ -250,7 +249,7 @@ h1{
     transition: all 0.5s ease-in-out;
 }
 
-.btn:hover{
+.add:hover{
     background-color: #78C2E2;
     color: #001D47;
     transform: scale(1.03);
