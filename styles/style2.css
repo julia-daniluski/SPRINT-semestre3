@@ -8,7 +8,7 @@
 body, html {
     height: 100%;
     font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0; /* Fundo padrão para garantir contraste */
+    background-repeat: no-repeat;
 }
 
 /* Vídeo de fundo cobrindo tudo */
