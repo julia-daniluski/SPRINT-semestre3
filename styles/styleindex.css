@@ -107,6 +107,7 @@ h3{
 
 h1{
     text-align: center;
+    transition: all 0.8s ease;
 }
 
 a{
@@ -114,28 +115,29 @@ a{
 }
 
 h1:hover{
-    color: #1d4378;
+    color: #1d4378 !important;
     font-size: 43px;
 }
 
-h2{
-    align-items: center;
-
-    text-align: center;
+h2 {
     background-color: #001D47;
     color: #FEE7C3;
     border-radius: 30px;
     width: 200px;
     height: 45px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
     font-size: 25px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
 }
 
 h2:hover{
     background-color:#FEE7C3;
     color: #001D47;
+    transform: scale(1.03);
 }
 
 
@@ -181,12 +183,13 @@ h2:hover{
     padding: 7px 18px;
     border-radius: 40px;
     margin-bottom: 20px;
-
+    transition: all 0.5s ease-in-out;
 }
 
 .btn:hover{
     background-color: #78C2E2;
     color: #001D47;
+    transform: scale(1.03);
 }
 
 /* Fundo geral do modal */
@@ -227,13 +230,13 @@ h2:hover{
     padding: 7px 18px;
     border-radius: 40px;
     margin-bottom: 20px;
-
+    transition: all 0.5s ease-in-out;
 }
 
 .fecha:hover{
     background-color: #FEE7C3;
-    ;
     color: #001D47;
+    transform: scale(1.03);
 }
 
 /* FOOTER */

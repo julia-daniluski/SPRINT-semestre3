@@ -56,27 +56,24 @@
                                         <i class="bi bi-eye"></i>
                                     </span>
                                     <a href="redefinirsenha.html" class="esqueci">Esqueceu a senha?</a>
-
-                           
                                 </div>
                                 
-<!-- Botão de login principal -->
-<button  class="btn btn-warning w-100 mb-3">
-    Entrar
-</a>
-</button>
+                                <!-- Botão de login principal -->
+                                <button  class="btn btn-warning w-100 mb-3">
+                                    Entrar
+                                </a>
+                                </button>
 
-<!-- Botões sociais -->
-<div class="jeitosentrar">
-    <a class="btn btn-facebook me-2" href="https://pt-br.facebook.com/login/device-based/regular/login/">
-        <i class="bi bi-facebook me-2"></i> 
-    </a>
-    <a class="btn btn-google" href="https://accounts.google.com/v3/signin/identifier?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&flowName=GlifWebSignIn&flowEntry=AccountChooser&ec=asw-gmail-globalnav-signin&ddm=1">
-        <i class="bi bi-google me-2"></i>
-    </a>
-</div>
-
-                                <a href="cadastrar.html" class="cadastre">Novo por aqui? Cadastre-se.</a>
+                                <!-- Botões sociais -->
+                                <div class="jeitosentrar">
+                                    <a class="btn btn-facebook me-2" href="https://pt-br.facebook.com/login/device-based/regular/login/">
+                                        <i class="bi bi-facebook me-2"></i> 
+                                    </a>
+                                    <a class="btn btn-google" href="https://accounts.google.com/v3/signin/identifier?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&flowName=GlifWebSignIn&flowEntry=AccountChooser&ec=asw-gmail-globalnav-signin&ddm=1">
+                                        <i class="bi bi-google me-2"></i>
+                                    </a>
+                                </div>
+                                <a href="cadastrar.php" class="cadastre">Novo por aqui? Cadastre-se.</a>
                             </form>
                         </div>
                     </div>
