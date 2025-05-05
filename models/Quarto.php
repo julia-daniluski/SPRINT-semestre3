@@ -5,26 +5,26 @@ use Interfaces\Locavel;
 
 // Classe que representa um carro
 
-class Moto extends Veiculo implements Locavel {
+class Quarto extends Imoveis implements Locavel {
 
     public function calcularAluguel(int $dias): float {
-        return $dias * DIARIA_MOTO;
+        return $dias * DIARIA_QUARTO;
     }
 
     public function alugar(): string {
         if ($this->disponivel){
             $this->disponivel = false;
-            return "Moto '{$this->modelo}' alugada com sucesso!";
+            return "Quarto '{$this->nome}' alugada com sucesso!";
         }
-        return "Moto '{$this->modelo}' não está disponível.";
+        return "Quarto '{$this->nome}' não está disponível.";
     }
 
     public function devolver(): string {
         if (!$this->disponivel){
             $this->disponivel = true;
-            return "Moto '{$this->modelo}' devolvida com sucesso!";
+            return "Quarto '{$this->nome}' devolvida com sucesso!";
         }
-        return "Moto '{$this->modelo}' está disponível.";
+        return "Quarto '{$this->nome}' está disponível.";
     }
 
 }

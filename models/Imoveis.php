@@ -3,14 +3,14 @@ namespace Models;
 
 // Classe abstrata para todos os tipos de veiculos
 
-abstract class Veiculo {
-    protected string $modelo;
-    protected string $placa;
+abstract class Imoveis {
+    protected string $nome;
+    protected string $local;
     protected bool $disponivel;
 
-    public function __construct (string $modelo, string $placa){
-        $this -> modelo = $modelo;
-        $this -> placa = $placa;
+    public function __construct (string $nome, string $local){
+        $this -> nome = $nome;
+        $this -> local = $local;
         $this -> disponivel = true;
     }
 
@@ -21,10 +21,10 @@ abstract class Veiculo {
         return $this->disponivel;
     }
     public function getModelo(): string{
-        return $this->modelo;
+        return $this->nome;
     }
     public function getPlaca(): string{
-        return $this->placa;
+        return $this->local;
     }
     public function setDisponivel (bool $disponivel):void{
         // void = vazio
