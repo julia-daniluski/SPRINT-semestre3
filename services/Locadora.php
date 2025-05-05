@@ -19,6 +19,8 @@ class Locadora {
             foreach($dados as $dado){
                 if ($dado['tipo'] === 'Casa'){
                     $imovel = new Casa($dado['nome'], $dado ['local']);
+                } elseif ($dado['tipo'] === 'Estudio') {
+                    $imovel = new Estudio($dado['nome'], $dado['local']);
                 } else {
                     $imovel = new Quarto($dado['nome'], $dado ['local']);
                 }
@@ -35,7 +37,7 @@ class Locadora {
 
         foreach($this-> imoveis as $imovel) {
             $dados[] = [
-                'tipo' => ($imovel instanceof Casa) ? 'Casa' : 'Quarto', 
+                'tipo' => ($imovel instanceof Casa) ? 'Casa' : ($imovel instanceof Estudio ? 'Estudio' : 'Quarto'), 
                 'nome' => $imovel -> getNome(),
                 'placa' => $imovel -> getLocal(),
                 'disponivel' => $imovel -> isDisponivel()
@@ -77,7 +79,7 @@ class Locadora {
         return "Imóvel não encontrado!";
     }
 
-    //Alugar veículo por n dias
+    //Alugar imóvel por n dias
     public function alugarImovel(string $nome, int $dias = 1): string{
         //percorre a lista
         foreach($this->imoveis as $imovel){
@@ -119,8 +121,10 @@ class Locadora {
 
     // Calcular previsão do valor
     public function calcularPrevisaoAluguel(string $tipo, int $dias): float{
-        if($tipo === 'Carro'){
+        if($tipo === 'Casa'){
             return (new Casa('', '')) ->calcularAluguel($dias);
+        } elseif ($tipo === 'Estudio') {
+            return (new Estudio('', ''))->calcularAluguel($dias);
         }
         return (new Quarto('', '')) ->calcularAluguel($dias);
     }
