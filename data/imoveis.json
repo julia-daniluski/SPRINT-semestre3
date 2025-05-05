@@ -29,6 +29,13 @@
         "nome": "Hotel Shrek",
         "local": "Terras Altas da Escócia",
         "disponivel": true
+    },
+
+    {
+        "tipo": "Estúdio",
+        "nome": "Hollywood Arts (Escola Brilhante Victoria)",
+        "local": "Los Angeles, Califórnia",
+        "disponivel": false
     }
    
 ]
