@@ -1,38 +1,30 @@
 [
     {
         "tipo": "Casa",
-        "local": "Uno",
-        "placa": "AGF3U45",
+        "area": "Uno",
+        "local": "AGF3U45",
         "disponivel": false
     },
+
     {
-        "tipo": "Moto",
-        "local": "Honda",
-        "placa": "BBB7F56",
-        "disponivel": true
-    },
-    {
-        "tipo": "Carro",
-        "local": "Fusca",
-        "placa": "TEU3J72",
-        "disponivel": true
-    },
-    {
-        "tipo": "Moto",
-        "local": "Yamaha",
-        "placa": "OHY7O72",
+        "tipo": "Casa",
+        "area": "Uno",
+        "local": "AGF3U45",
         "disponivel": false
     },
+
     {
-        "tipo": "Carro",
-        "local": "Ferrari",
-        "placa": "UHY6F55",
-        "disponivel": true
+        "tipo": "Casa",
+        "area": "Uno",
+        "local": "AGF3U45",
+        "disponivel": false
     },
+
     {
-        "tipo": "Moto",
-        "local": "BMW",
-        "placa": "KLJ8J09",
+        "tipo": "Casa",
+        "area": "Uno",
+        "local": "AGF3U45",
         "disponivel": false
     }
+   
 ]
