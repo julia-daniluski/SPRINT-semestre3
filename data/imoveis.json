@@ -29,6 +29,21 @@
         "nome": "Hotel Shrek",
         "local": "Terras Altas da Escócia",
         "disponivel": true
+    },
+
+    {
+        "tipo": "Casa",
+        "nome": "Casa Ainda Estou Aqui",
+        "local": "Bairro da Urca (RJ)",
+        "disponivel": true
+    },
+
+
+    {
+        "tipo": "Estúdio",
+        "nome": "Hollywood Arts (Escola Brilhante Victoria)",
+        "local": "Los Angeles, Califórnia",
+        "disponivel": false
     }
    
 ]

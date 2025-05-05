@@ -20,10 +20,10 @@ abstract class Imoveis {
     public function isDisponivel(): bool {
         return $this->disponivel;
     }
-    public function getModelo(): string{
+    public function getNome(): string{
         return $this->nome;
     }
-    public function getPlaca(): string{
+    public function getLocal(): string{
         return $this->local;
     }
     public function setDisponivel (bool $disponivel):void{
