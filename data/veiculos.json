@@ -1,0 +1,38 @@
+[
+    {
+        "tipo": "Carro",
+        "modelo": "Uno",
+        "placa": "AGF3U45",
+        "disponivel": false
+    },
+    {
+        "tipo": "Moto",
+        "modelo": "Honda",
+        "placa": "BBB7F56",
+        "disponivel": true
+    },
+    {
+        "tipo": "Carro",
+        "modelo": "Fusca",
+        "placa": "TEU3J72",
+        "disponivel": true
+    },
+    {
+        "tipo": "Moto",
+        "modelo": "Yamaha",
+        "placa": "OHY7O72",
+        "disponivel": false
+    },
+    {
+        "tipo": "Carro",
+        "modelo": "Ferrari",
+        "placa": "UHY6F55",
+        "disponivel": true
+    },
+    {
+        "tipo": "Moto",
+        "modelo": "BMW",
+        "placa": "KLJ8J09",
+        "disponivel": false
+    }
+]

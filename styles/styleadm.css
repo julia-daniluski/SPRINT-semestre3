@@ -155,23 +155,6 @@ h1{
     padding: 20px; /* Espaçamento ao redor da imagem */
 }
 
-/* .btn {
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-    background-color: #001D47;
-    color: #78C2E2;
-    padding: 7px 18px;
-    border-radius: 40px;
-    margin-bottom: 20px;
-
-}
-
-.btn:hover{
-    background-color: #78C2E2;
-    color: #001D47;
-} */
-
 /* Ajuste na navbar para garantir melhor responsividade */
 .navbar-toggler {
     border-color: #fff;
@@ -236,6 +219,24 @@ h1{
     width: 60px !important;
     padding: 0.25rem 0.5rem;
     text-align: center;
+}
+
+.add {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #001D47;
+    color: #78C2E2;
+    padding: 7px 18px;
+    border-radius: 40px;
+    margin-bottom: 20px;
+    transition: all 0.5s ease-in-out;
+}
+
+.add:hover{
+    background-color: #78C2E2;
+    color: #001D47;
+    transform: scale(1.03);
 }
 
 footer {
