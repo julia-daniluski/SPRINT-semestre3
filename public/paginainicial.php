@@ -1,11 +1,10 @@
 <?php
+session_start();
+
 require_once __DIR__ . '/../services/Auth.php';
-
 use Services\Auth;
-
 $usuario = Auth::getUsuario();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">

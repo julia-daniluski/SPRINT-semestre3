@@ -1,10 +1,12 @@
 <?php
+
+session_start();
+
 require_once __DIR__ . '/../services/Auth.php';
-
 use Services\Auth;
-
 $usuario = Auth::getUsuario();
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -47,95 +49,92 @@ body {
 
 
 
-/*  Cabeçalho */
-/* header{
-    background-color: #001D47;
-    color: #fff;
-    padding: 2px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-} */
-
-
-
 /* Cabeçalho */
-header {
-    background-color: #001D47;
-    color: #fff;
-    padding: 2px;
-}
+header 
+{
+            background-color: #001D47;
+            color: #fff;
+            padding: 2px;
+        }
 
-/* Logo */
-header .logo {
-    max-width: 80px;
-    height: 80px;
-}
+        /* Logo */
+        header .logo {
+            max-width: 80px;
+            height: 80px;
+        }
 
-/* Logo container */
-header .empresa {
-    display: flex;
-    flex-direction: row;
-}
+        /* Logo container */
+        header .empresa {
+            display: flex;
+            flex-direction: row;
+        }
 
-/* Menu horizontal */
-.navlist {
-    display: flex;
-    flex-direction: row;
-}
+        /* Menu horizontal */
+        .navlist {
+            display: flex;
+            flex-direction: row;
+        }
 
-/* Todos os links dentro do header */
-header a {
-    color: #fff !important;
-    text-decoration: none;
-    font-size: 20px; /* tamanho base para todos os links */
-    font-weight: 500;
-}
+        /* Todos os links dentro do header */
+        header a {
+            color: #fff !important;
+            text-decoration: none;
+            font-size: 20px; /* tamanho base para todos os links */
+            font-weight: 500;
+        }
 
-/* Cor ao passar o mouse */
-header a:hover {
-    color: #78C2E2 !important;
-    text-decoration: none;
-}
+        /* Cor ao passar o mouse */
+        header a:hover {
+            color: #ddd !important;
+            text-decoration: none;
+        }
 
-/* Itens de lista do menu */
-li {
-    list-style-type: none;
-}
+        /* Itens de lista do menu */
+        li {
+            list-style-type: none;
+        }
 
-/* Estilo dos links de navegação */
-li a {
-    text-decoration: none;
-    margin: 10px;
-    font-size: 22px; /* sobrescreve o 20px acima para os itens do menu */
-    font-weight: 500;
-    color: #fff !important;
-}
+        /* Estilo dos links de navegação */
+        li a {
+            text-decoration: none;
+            margin: 10px;
+            font-size: 22px; /* sobrescreve o 20px acima para os itens do menu */
+            font-weight: 500;
+            color: #fff !important;
+        }
 
 
-/* Div do usuário (lado direito) */
-.usuario {
-    display: flex;
-    flex-direction: row;
-    border-radius: 20px;
-    align-items: center;
-    padding: 10px;
-}
+        /* Div do usuário (lado direito) */
+        .usuario {
+            display: flex;
+            flex-direction: row;
+            border-radius: 20px;
+            align-items: center;
+            padding: 10px;
+        }
 
-/* Botão sair */
-#sair {
-    background-color: crimson;
-    color: white;
-    border: none;
-    padding: 6px 10px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-}
 
-#sair:hover {
-    background-color: darkred;
-}
+        .quadrado {
+            margin: 4rem 4rem 4rem 5rem; /* topo, direita, baixo, esquerda */
+            padding: 1rem;
+            border: 2px solid #ffffff;
+            border-radius: 8px;
+        }
 
+
+        /* Botão sair */
+        #sair {
+            background-color: crimson;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        #sair:hover {
+            background-color: darkred;
+        }
 
 
 h3{
