@@ -11,7 +11,7 @@ use Services\Auth;
 $mensagem = '';
 $auth = new Auth();
 
-// Se já estiver logado, redireciona para index
+// Se já estiver logado, redireciona para a página inicial
 if (Auth::verificarLogin()) {
     header('Location: index.php');
     exit;
@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
     
     if ($auth->login($username, $password)) {
+        // Redireciona para a página inicial após login bem-sucedido
         header('Location: index.php');
         exit;
     } else {
