@@ -662,6 +662,8 @@ $usuario = Auth::getUsuario();
         </div>
     </main>
 
+    
+
     <footer id="contatos">
         <p class="secondary-color">Nos encontre nas redes sociais: </p>
         <br>
