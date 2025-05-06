@@ -11,9 +11,9 @@ use Services\Auth;
 $mensagem = '';
 $auth = new Auth();
 
-// Se já estiver logado, redireciona para index
+// Se já estiver logado, redireciona para a página inicial
 if (Auth::verificarLogin()) {
-    header('Location: index.php');
+    header('Location: paginainicial.php');
     exit;
 }
 
@@ -22,7 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
     
     if ($auth->login($username, $password)) {
-        header('Location: index.php');
+        // Redireciona para a página inicial após login bem-sucedido
+        header('Location: paginainicial.php');
         exit;
     } else {
         $mensagem = 'Usuário ou senha inválidos';
@@ -286,7 +287,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <header> 
         <div class="empresa">
-            <img src="img/logo.png" alt="logo da página" class="logo mt-2">
+            <img src="../img/logo.png" alt="logo da página" class="logo mt-2">
         </div>
     </header>
 
