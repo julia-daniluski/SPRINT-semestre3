@@ -88,7 +88,7 @@ li a {
 
 
 .quadrado {
-    margin: 2rem 1.5rem 1.5rem 5rem; /* topo, direita, baixo, esquerda */
+    margin: 4rem 4rem 4rem 5rem; /* topo, direita, baixo, esquerda */
     padding: 1rem;
     border: 2px solid #ffffff;
     border-radius: 8px;
