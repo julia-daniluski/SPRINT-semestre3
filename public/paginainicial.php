@@ -1,3 +1,11 @@
+<?php
+require_once __DIR__ . '/../services/Auth.php';
+
+use Services\Auth;
+
+$usuario = Auth::getUsuario();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,7 +20,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
     <!-- Link ao CSS Externo -->
-    <link rel="stylesheet" href="styles/styleindex.css">
+    <style>
+        
+    </style>
 </head>
 <body>
 

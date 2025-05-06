@@ -13,7 +13,7 @@ $auth = new Auth();
 
 // Se já estiver logado, redireciona para a página inicial
 if (Auth::verificarLogin()) {
-    header('Location: index.php');
+    header('Location: paginainicial.php');
     exit;
 }
 
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     if ($auth->login($username, $password)) {
         // Redireciona para a página inicial após login bem-sucedido
-        header('Location: index.php');
+        header('Location: paginainicial.php');
         exit;
     } else {
         $mensagem = 'Usuário ou senha inválidos';
