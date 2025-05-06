@@ -21,7 +21,331 @@ $usuario = Auth::getUsuario();
 
     <!-- Link ao CSS Externo -->
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Define o modelo de caixa para incluir padding e borda no tamanho total do elemento */
+        }
+
+        html{
+            font-family: 'Inter', 'sans-serif';
+            font-weight: 500;
+        }
+
+        body {
+            /* para navegadores antigos */
+            background: #FEE7C3;
+
+            /* Gradiente para navegadores modernos */
+            background: linear-gradient(0deg, rgba(71, 191, 158, 1)  0%, rgba(254, 231, 195, 1) 100%);
+            height: auto;
+            margin: 0;
+            background-repeat: no-repeat;
+        }
+
+
+        /* Cabeçalho */
+        header {
+            background-color: #001D47;
+            color: #fff;
+            padding: 2px;
+        }
+
+        /* Logo */
+        header .logo {
+            max-width: 80px;
+            height: 80px;
+        }
+
+        /* Logo container */
+        header .empresa {
+            display: flex;
+            flex-direction: row;
+        }
+
+        /* Menu horizontal */
+        .navlist {
+            display: flex;
+            flex-direction: row;
+        }
+
+        /* Todos os links dentro do header */
+        header a {
+            color: #fff !important;
+            text-decoration: none;
+            font-size: 20px; /* tamanho base para todos os links */
+            font-weight: 500;
+        }
+
+        /* Cor ao passar o mouse */
+        header a:hover {
+            color: #ddd !important;
+            text-decoration: none;
+        }
+
+        /* Itens de lista do menu */
+        li {
+            list-style-type: none;
+        }
+
+        /* Estilo dos links de navegação */
+        li a {
+            text-decoration: none;
+            margin: 10px;
+            font-size: 22px; /* sobrescreve o 20px acima para os itens do menu */
+            font-weight: 500;
+            color: #fff !important;
+        }
+
+
+        /* Div do usuário (lado direito) */
+        .usuario {
+            display: flex;
+            flex-direction: row;
+            border-radius: 20px;
+            align-items: center;
+            padding: 10px;
+        }
+
+
+        .quadrado {
+            margin: 4rem 4rem 4rem 5rem; /* topo, direita, baixo, esquerda */
+            padding: 1rem;
+            border: 2px solid #ffffff;
+            border-radius: 8px;
+        }
+
+
+        /* Botão sair */
+        #sair {
+            background-color: crimson;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        #sair:hover {
+            background-color: darkred;
+        }
+
+
+        h3{
+            text-transform: uppercase;
+        }
+
+        h1{
+            text-align: center;
+            transition: all 0.8s ease;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        h1:hover{
+            color: #1d4378 !important;
+            font-size: 43px;
+        }
+
+        h2 {
+            background-color: #001D47;
+            color: #FEE7C3;
+            border-radius: 30px;
+            width: 200px;
+            height: 45px;
+            font-size: 25px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.5s ease-in-out;
+            cursor: pointer;
+        }
+
+        h2:hover{
+            background-color:#FEE7C3;
+            color: #001D47;
+            transform: scale(1.03);
+        }
+
+
+        /* PADRONIZAÇÃO DAS IMAGENS DA GALERIA */
+        .small-image-container {
+            width: 100%;
+            height: 220px; /* Altura padrão da imagem */
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
         
+        .small-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Mantém proporção, cobre totalmente o container */
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .small-image-container:hover img {
+            transform: scale(1.03); /* Zoom leve ao passar o mouse */
+        }
+
+        .mansao {
+            border-radius: 10px; /* Arredondamento dos cantos */
+            object-fit: cover;   /* Preenche sem distorcer */
+            width: 100%;         /* Ocupa toda a largura */
+            height: auto;        /* Altura automática */
+            display: block;
+        }
+
+        .imagem-container {
+            padding: 20px; /* Espaçamento ao redor da imagem */
+        }
+
+        .btn {
+            display: flex;
+            justify-content: center;
+            text-decoration: none;
+            background-color: #001D47;
+            color: #78C2E2;
+            padding: 7px 18px;
+            border-radius: 40px;
+            margin-bottom: 20px;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .btn:hover{
+            background-color: #78C2E2;
+            color: #001D47;
+            transform: scale(1.03);
+        }
+
+        /* Fundo geral do modal */
+        .modal-content {
+            background: linear-gradient(0deg, rgba(71, 191, 158, 1)  0%, rgba(254, 231, 195, 1) 100%);
+            color: #001D47; /* cor do texto clara */
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Cabeçalho */
+        .modal-header {
+            background: linear-gradient(0deg, rgba(71, 191, 158, 1)  0%, rgba(254, 231, 195, 1) 100%);
+            border-bottom: 1px solid #444;
+            color: #1d4378;
+        }
+
+        /* Corpo do modal */
+        .modal-body {
+            background: linear-gradient(0deg, rgba(71, 191, 158, 1)  0%, rgba(254, 231, 195, 1) 100%);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        /* Rodapé do modal */
+        .modal-footer {
+            background: linear-gradient(0deg, rgba(71, 191, 158, 1)  0%, rgba(254, 231, 195, 1) 100%);
+            border-top: 1px solid #444;
+        }
+
+        .fecha{
+            display: flex;
+            justify-content: center;
+            text-decoration: none;
+            background-color: #78C2E2;
+            color: #001D47;
+            padding: 7px 18px;
+            border-radius: 40px;
+            margin-bottom: 20px;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .fecha:hover{
+            background-color: #FEE7C3;
+            color: #001D47;
+            transform: scale(1.03);
+        }
+
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #f0f8ff; /* Cor de fundo para as linhas ímpares */
+        }
+
+        .table-striped tbody tr:nth-of-type(even) {
+            background-color: #e6f7ff; /* Cor de fundo para as linhas pares */
+        }
+
+        .table th, .table td {
+            color: #001D47; /* Cor do texto das células da tabela */
+        }
+
+
+        /* FOOTER */
+        footer {
+            background: #001D47;
+            color: #FEE7C3;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+
+        /* Garante que o layout se adapte em telas pequenas */
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 20px;
+                width: 160px;
+                height: 40px;
+            }
+            .quadrado {
+                padding: 0.6rem; /* ajuste de padding */
+                width: 100%; /* ocupa toda a largura */
+                margin: 0.1rem; 
+            }
+
+            .small-image-container {
+                height: 160px;
+            }
+
+            .btn, .fecha {
+                padding: 6px 14px;
+                font-size: 14px;
+            }
+
+            .mansao {
+                height: auto;
+            }
+        }
+
+        /* Ajusta layout geral para telas médias */
+        @media (max-width: 768px) {
+            .empresa, .navlist, .usuario {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            header .logo {
+                height: 60px;
+                max-width: 60px;
+            }
+
+            .imagem-container {
+                padding: 10px;
+            }
+
+            .modal-body {
+                font-size: 14px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -36,7 +360,7 @@ $usuario = Auth::getUsuario();
                     <!-- Logo -->
                     <div class="empresa">
                         <a href="#home">
-                            <img src="img/logo.png" alt="Logo da página" class="logo mt-2">
+                            <img src="../img/logo.png" alt="Logo da página" class="logo mt-2">
                         </a>
                     </div>
 
@@ -86,9 +410,9 @@ $usuario = Auth::getUsuario();
     <main>
         <div class="container imagem-container" id="main-image-container">
             <div class="main-image center-image">
-                <img src="img/mansao.png" alt="Casa da Família Adams" class="mansao shadow-lg mt-2">
+                <img src="../img/mansao.png" alt="Casa da Família Adams" class="mansao shadow-lg mt-2">
                 <div class="main-image-info">
-                    <a href="telausuario.html"><h2 class="mt-4">Aluguel</h2></a>
+                    <a href="../views/template.php"><h2 class="mt-4">Aluguel</h2></a>
                 </div>
             </div>
         </div>
@@ -100,7 +424,7 @@ $usuario = Auth::getUsuario();
         <div class="row gx-md-5 mt-4">
             <!-- IMG 1 -->
             <div class="col-xs-12 col-md-4 quadrado">
-                <div class="small-image-container center-image" id="img-2"><img src="img/Casas De Contos De Fadas Na Vida Real - Mundo Gump.jpg" alt="Casa do Harry Potter"></div>
+                <div class="small-image-container center-image" id="img-2"><img src="../img/Casas De Contos De Fadas Na Vida Real - Mundo Gump.jpg" alt="Casa do Harry Potter"></div>
                 <h3>Aluga-se castelo harry potter</h3>
                 <p class="secondary-color"> US$:17.589,75 - 1 Dia e 1 Noite</p>
                 <!-- Botão para Modal -->
@@ -201,7 +525,7 @@ $usuario = Auth::getUsuario();
                                 </div>
                                 <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary fecha" data-bs-dismiss="modal">Fechar</button>
-                                <a href="telausuario.html"><button type="button" class="btn btn-primary">Alugar</button></a>
+                                <a href="../views/template.php"><button type="button" class="btn btn-primary">Alugar</button></a>
                                 </div>
                         </div>
                     </div>
@@ -210,7 +534,7 @@ $usuario = Auth::getUsuario();
 
             <!-- IMG 2 -->
             <div class="col-xs-12 col-md-4 quadrado">
-                <div class="small-image-container center-image" id="img-3"><img src="img/victoria.jpg" alt="Escola Brilhante Victoria"></div>
+                <div class="small-image-container center-image" id="img-3"><img src="../img/victoria.jpg" alt="Escola Brilhante Victoria"></div>
                 <h3>ALUGA-SE ESCOLA  DE BRILHANTE VICTORIA</h3>
                 <p class="secondary-color">US$:3.517,90 - 1 Dia e 1 Noite</p>
                 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
@@ -300,7 +624,7 @@ $usuario = Auth::getUsuario();
                                 </div>
                                 <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary fecha" data-bs-dismiss="modal">Fechar</button>
-                                <a href="telausuario.html"><button type="button" class="btn btn-primary">Alugar</button></a>
+                                <a href="../views/template.php"><button type="button" class="btn btn-primary">Alugar</button></a>
                                 </div>
                         </div>
                     </div>
@@ -309,7 +633,7 @@ $usuario = Auth::getUsuario();
 
             <!-- IMG 3 -->
             <div class="col-xs-12 col-md-4 quadrado">
-                <div class="small-image-container center-image" id="img-4"><img src="img/ainda estou aqui.webp" alt="Casa do Ainda estou aqui"></div>
+                <div class="small-image-container center-image" id="img-4"><img src="../img/ainda estou aqui.webp" alt="Casa do Ainda estou aqui"></div>
                 <h3>ALUGA-SE CASA DE AINDA ESTOU AQUI</h3>
                 <p class="secondary-color">US$:879,476 - 1 Dia e 1 Noite</p>
                 <!-- Botão para Modal -->
@@ -387,7 +711,7 @@ $usuario = Auth::getUsuario();
                                 </div>
                                 <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary fecha" data-bs-dismiss="modal">Fechar</button>
-                                <a href="telausuario.html"><button type="button" class="btn btn-primary">Alugar</button></a>
+                                <a href="../views/template.php"><button type="button" class="btn btn-primary">Alugar</button></a>
                                 </div>
                         </div>
                     </div>
@@ -396,7 +720,7 @@ $usuario = Auth::getUsuario();
 
             <!-- IMG 4 -->
             <div class="col-xs-12 col-md-4 quadrado">
-                <div class="small-image-container center-image" id="img-5"><img src="img/Casa-da-Monica.jpg" alt="Casa da turma da Mônica"></div>
+                <div class="small-image-container center-image" id="img-5"><img src="../img/Casa-da-Monica.jpg" alt="Casa da turma da Mônica"></div>
                 <h3>ALUGA-SE CASA DA MÔNICA</h3>
                 <p class="secondary-color">US$:158,305 - 1 Dia e 1 Noite</p>
                 <!-- Botão para Modal -->
@@ -470,7 +794,7 @@ $usuario = Auth::getUsuario();
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary fecha" data-bs-dismiss="modal">Fechar</button>
-                                    <a href="telausuario.html"><button type="button" class="btn btn-primary">Alugar</button></a>
+                                    <a href="../views/template.php"><button type="button" class="btn btn-primary">Alugar</button></a>
                                 </div>
                             </div>
                         
@@ -480,7 +804,7 @@ $usuario = Auth::getUsuario();
 
             <!-- IMG 5 -->
             <div class="col-xs-12 col-md-4 quadrado">
-                <div class="small-image-container center-image" id="img-6"><img src="img/Shrek-1.jpg" alt="Casa do Shrek"></div>
+                <div class="small-image-container center-image" id="img-6"><img src="../img/Shrek-1.jpg" alt="Casa do Shrek"></div>
                 <h3>ALUGA-SE HOTEL DO BURRO FILME SHREK</h3>
                 <p class="secondary-color"> US$:228,663 - 1 Dia e 1 Noite</p>
                 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop5">
@@ -546,7 +870,7 @@ $usuario = Auth::getUsuario();
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary fecha" data-bs-dismiss="modal">Fechar</button>
-                                    <a href="telausuario.html"><button type="button" class="btn btn-primary">Alugar</button></a>
+                                    <a href="../views/template.php"><button type="button" class="btn btn-primary">Alugar</button></a>
                                 </div>
                         </div>
                     </div>
@@ -555,7 +879,7 @@ $usuario = Auth::getUsuario();
 
             <!-- IMG 6 -->
             <div class="col-xs-12 col-md-4 quadrado">
-                <div class="small-image-container center-image" id="img-6"><img src="img/cabana_tonystark2.webp" alt="Cabana do Tony Stark"></div>
+                <div class="small-image-container center-image" id="img-6"><img src="../img/cabana_tonystark2.webp" alt="Cabana do Tony Stark"></div>
                 <h3>ALUGA-SE CABANA TONY STARK VINGADORES</h3>
                 <p class="secondary-color">US$:351,790 - 1 Dia e 1 Noite</p>
                 <!-- Botão para Modal -->
@@ -653,7 +977,7 @@ $usuario = Auth::getUsuario();
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn fecha btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                    <a href="telausuario.html"><button type="button" class="btn btn-primary">Alugar</button></a>
+                                    <a href="../views/template.php"><button type="button" class="btn btn-primary">Alugar</button></a>
                                 </div>
                         </div>
                     </div>
