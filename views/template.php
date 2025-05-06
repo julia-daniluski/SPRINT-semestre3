@@ -433,6 +433,8 @@ footer {
             <?php endif; ?>
 
             <main>
+                
+
         <!-- Tabela de locais cadastrados -->
         <div class="container mt-4">
             <div class="row">
