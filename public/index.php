@@ -11,7 +11,7 @@ session_start();
 // Importar as classes Locadora e Auth
 use Services\{Locadora, Auth};
 
-// Importar as classes Carro e moto
+// Importar as classes Quarto, Casa e Estúdio
 use Models\{Casa, Quarto, Estudio};
 
 // Verificar se o usuário está logado

@@ -380,7 +380,7 @@ footer {
                     <!-- Logo -->
                     <div class="empresa">
                         <a href="#home">
-                            <img src="img/logo.png" alt="Logo da página" class="logo mt-2">
+                            <img src="../img/logo.png" alt="Logo da página" class="logo mt-2">
                         </a>
                     </div>
 
@@ -432,7 +432,7 @@ footer {
             </div>
             <?php endif; ?>
 
-            <main>
+    <main>
                 
 
         <!-- Tabela de locais cadastrados -->

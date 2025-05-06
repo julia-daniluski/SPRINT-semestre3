@@ -6,6 +6,7 @@ use Services\Auth;
 $usuario = Auth::getUsuario();
 ?>
 
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -376,7 +377,7 @@ $usuario = Auth::getUsuario();
                                 <a class="nav-link" href="#home">Início</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="login.php">Anunciar</a>
+                                <a class="nav-link" href="../views/template.php">Anunciar</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#sobre">Sobre</a>
@@ -394,7 +395,7 @@ $usuario = Auth::getUsuario();
                         <i class="bi bi-person-circle" style="font-size: 24px;"></i>
                     </span>
                     <span class="welcome-text">
-                        Bem-vindo, <strong>usuário</strong>
+                        Bem-vindo, <strong><?= htmlspecialchars($usuario['username']) ?></strong>
                     </span>
                     <a href="login.php" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-3">
                         <i class="bi bi-box-arrow-right"></i> Sair
@@ -404,7 +405,12 @@ $usuario = Auth::getUsuario();
         </nav>
     </header>
 
-
+    <?php if ($mensagem):?>
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+        <?= htmlspecialchars($mensagem) ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <?php endif; ?>
     <h1 class="mt-4">Cine&Places</h1>
     <!-- Conteúdo Principal -->
     <main>
