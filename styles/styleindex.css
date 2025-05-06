@@ -248,6 +248,19 @@ h2:hover{
     transform: scale(1.03);
 }
 
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f0f8ff; /* Cor de fundo para as linhas ímpares */
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #e6f7ff; /* Cor de fundo para as linhas pares */
+}
+
+.table th, .table td {
+    color: #001D47; /* Cor do texto das células da tabela */
+}
+
+
 /* FOOTER */
 footer {
     background: #001D47;
@@ -272,7 +285,7 @@ footer {
     .quadrado {
         padding: 0.6rem; /* ajuste de padding */
         width: 100%; /* ocupa toda a largura */
-        margin: 0.5rem; /* espaço reduzido nas laterais */
+        margin: 0.1rem; 
     }
 
     .small-image-container {
