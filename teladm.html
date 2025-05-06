@@ -96,7 +96,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><i class="bi bi-house-door"></i> Quarto</td>
+                                            <td>Quarto</td>
                                             <td>Castelo de Alnwick - Hogwarts (Harry Potter), Inglaterra</td>
                                             <td>A partir de US$ 17,589.75</td>
                                             <td><span class="badge bg-success">Disponível</span></td>
@@ -118,7 +118,7 @@
                                             </div></td>
                                         </tr>
                                         <tr>
-                                            <td><i class="bi bi-camera-reels"></i> Estúdio</td>
+                                            <td>Estúdio</td>
                                             <td>Cenário Friends, Califórnia</td>
                                             <td>A partir de US$ 8,596.98</td>
                                             <td><span class="badge bg-warning">Alugado</span></td>
@@ -138,7 +138,7 @@
                                                     </div>
                                         </tr>
                                         <tr>
-                                            <td><i class="bi bi-house-door"></i> Casa</td>
+                                            <td>Casa</td>
                                             <td>Casa da Mônica, São José dos Campos</td>
                                             <td>A partir de US$ 158,305.00</td>
                                             <td><span class="badge bg-success">Disponível</span></td>
@@ -158,7 +158,7 @@
                                                     </div>
                                         </tr>
                                         <tr>
-                                            <td><i class="bi bi-house-door"></i> Casa</td>
+                                            <td>Casa</td>
                                             <td>Cabana Tony Stark (Vingadores: Ultimato), Bouckaert Farm</td>
                                             <td>A partir de US$ 351,790.00</td>
                                             <td><span class="badge bg-warning">Alugado</span></td>
@@ -178,7 +178,7 @@
                                                     </div>
                                         </tr>
                                         <tr>
-                                            <td><i class="bi bi-house-door"></i> Hotel</td>
+                                            <td>Quarto</td>
                                             <td>Hotel Shrek, Terras Altas da Escócia</td>
                                             <td>A partir de US$ 228,663.00</td>
                                             <td><span class="badge bg-success">Disponível</span></td>
@@ -199,7 +199,6 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <button class="btn btn-primary w-100 add" type="submit" name="opcoes">Mais opções</button>
                             </div>
                         </div>
                     </div>
@@ -223,8 +222,7 @@
                             <select class="form-select" id="tipo-aluguel" required>
                                 <option value="casa">Casa</option>
                                 <option value="quarto">Quarto</option>
-                                <option value="estudio">Cenário</option>
-                                <option value="hotel">Hotel</option>
+                                <option value="estudio">Estúdio</option>
                             </select>
                         </div>
                         <div class="mb-3">
@@ -257,16 +255,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="tipo" class="form-label">Tipo:</label>
-                            <select name="tipo" class="form-select" id="tipo" required onchange="mostrarCampoOutro(this)">
+                            <select name="tipo" class="form-select" id="tipo">
                                 <option value="casa">Casa</option>
                                 <option value="quarto">Quarto</option>
-                                <option value="hotel">Hotel</option>
-                                <option value="estudio">Estúdio/cenário</option>
-                                <option value="outro">Outro, qual?</option>
+                                <option value="estudio">Estúdio</option>
                             </select>
-                            <div id="outro-container" style="display: none; margin-top: 10px;">
-                                <input type="text" name="tipo_outro" id="tipo_outro" class="form-control" placeholder="Especifique o tipo" />
-                            </div>
                         </div>
                         <button class="btn btn-primary w-100 add" type="submit" name="adicionar">Adicionar hospedagem</button>
                     </form>
