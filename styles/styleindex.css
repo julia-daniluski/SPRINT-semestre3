@@ -258,79 +258,55 @@ footer {
 }
 
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .navbar-toggler {
-        margin-top: 5px;
-        background-color: #1d4378;
+/* Garante que o layout se adapte em telas pequenas */
+@media (max-width: 576px) {
+    h1 {
+        font-size: 28px;
     }
-    .usuario {
-        flex-direction: column;
-        gap: 10px;
+
+    h2 {
+        font-size: 20px;
+        width: 160px;
+        height: 40px;
+    }
+    .quadrado {
+        padding: 0.6rem; /* ajuste de padding */
+        width: 100%; /* ocupa toda a largura */
+        margin: 0.5rem; /* espaço reduzido nas laterais */
+    }
+
+    .small-image-container {
+        height: 160px;
+    }
+
+    .btn, .fecha {
+        padding: 6px 14px;
+        font-size: 14px;
+    }
+
+    .mansao {
+        height: auto;
     }
 }
 
-
-/* Responsividade para o Header */
-@media (max-width: 991.98px) {
-    header .container {
-        flex-direction: column;
-        align-items: flex-start;
+/* Ajusta layout geral para telas médias */
+@media (max-width: 768px) {
+    .empresa, .navlist, .usuario {
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 1rem;
     }
 
-    /* Ajusta logo e botão mobile */
-    header .empresa {
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
+    header .logo {
+        height: 60px;
+        max-width: 60px;
     }
 
-    /* Centraliza menu ao abrir */
-    .navbar-collapse {
-        width: 100%;
+    .imagem-container {
+        padding: 10px;
     }
 
-    .navlist {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-    }
-
-    .navlist .nav-item {
-        width: 100%;
-    }
-
-    .navlist .nav-link {
-        padding: 0.5rem 1rem;
-        width: 100%;
-    }
-
-    /* Ajusta layout do usuário para mobile */
-    .usuario {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        gap: 0.5rem;
-    }
-
-    .usuario .welcome-text {
-        font-size: 16px;
-    }
-
-    #sair {
-        margin-top: 0;
-        padding: 5px 10px;
+    .modal-body {
         font-size: 14px;
     }
-    .navbar-toggler {
-        background-color: #1d4378;
-        border: 1px solid white; /* ou outra cor */
-        padding: 6px 10px;
-        border-radius: 5px;
-    }
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%2300BFFF' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-    }
-    
 }
