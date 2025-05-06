@@ -89,6 +89,19 @@ li a {
     color: #fff !important;
 }
 
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f0f8ff; /* Cor de fundo para as linhas ímpares */
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #e6f7ff; /* Cor de fundo para as linhas pares */
+}
+
+.table th, .table td {
+    color: #001D47; /* Cor do texto das células da tabela */
+}
+
+
 
 /* Div do usuário (lado direito) */
 .usuario {
@@ -142,6 +155,10 @@ h1{
 .small-image-container:hover img {
     transform: scale(1.03); /* Zoom leve ao passar o mouse */
 }
+
+    #tipo
+
+
 
 .mansao {
     border-radius: 10px; /* Arredondamento dos cantos */
@@ -238,6 +255,66 @@ h1{
     color: #001D47;
     transform: scale(1.03);
 }
+
+/* Estilos para o seletor select */
+#tipo {
+    background-color: #e6f7ff; /* Cor de fundo */
+    color: #001D47; /* Cor do texto */
+    border: 1px solid #001D47; /* Cor da borda */
+}
+
+/* Estilos para as opções dentro do select */
+#tipo option {
+    background-color: #78C2E2; /* Cor de fundo das opções */
+    color: #001D47; /* Cor do texto das opções */
+}
+
+#tipo:focus {
+    background-color: #001D47; /* Cor de fundo quando o campo está em foco */
+    color: #78C2E2; /* Cor do texto quando o campo está em foco */
+    border: 1px solid #001D47; /* Cor da borda quando o campo está em foco */
+}
+
+/* Alterando a cor de fundo e borda do campo select */
+#tipo-aluguel {
+    background-color: #e6f7ff; /* Cor de fundo */
+    color: #001D47; /* Cor do texto */
+    border: 1px solid #001D47; /* Cor da borda */
+}
+
+/* Estilos para as opções dentro do select */
+#tipo-aluguel option {
+    background-color: #78C2E2; /* Cor de fundo das opções */
+    color: #001D47; /* Cor do texto das opções */
+}
+
+#tipo-aluguel:focus {
+    background-color: #001D47; /* Cor de fundo quando o campo está em foco */
+    color: #78C2E2; /* Cor do texto quando o campo está em foco */
+    border: 1px solid #001D47; /* Cor da borda quando o campo está em foco */
+}
+
+/* Alterando a cor de fundo e borda do input de número */
+#quantidade {
+    background-color: #e6f7ff; /* Cor de fundo */
+    color: #001D47; /* Cor do texto */
+    border: 1px solid #001D47; /* Cor da borda */
+}
+
+/* Cor do campo de texto e borda */
+#modelo, #placa {
+    background-color: #e6f7ff; /* Cor de fundo */
+    color: #001D47; /* Cor do texto */
+    border: 1px solid #001D47; /* Cor da borda */
+}
+
+
+
+/* Estilos para o rótulo */
+.form-label {
+    color: #001D47; /* Cor do texto do rótulo */
+}
+
 
 footer {
     background: #001D47;
