@@ -875,7 +875,7 @@ $usuario = Auth::getUsuario();
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary fecha" data-bs-dismiss="modal">Fechar</button>
-                                    <a href="../views/template.php"><button type="button" class="btn btn-primary">Alugar</button></a>
+                                    <a href="../views//template.php"><button type="button" class="btn btn-primary">Alugar</button></a>
                                 </div>
                         </div>
                     </div>

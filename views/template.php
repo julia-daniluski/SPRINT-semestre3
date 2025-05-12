@@ -475,10 +475,10 @@ footer {
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav navlist mt-1">
                             <li class="nav-item active">
-                                <a class="nav-link" href="index.html">Início</a>
+                                <a class="nav-link" href="../public/paginainicial.php">Início</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="login.php">Anunciar</a>
+                                <a class="nav-link" href="/views/template.php">Anunciar</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#sobre">Sobre</a>
