@@ -223,11 +223,6 @@
             align-items: center;
             justify-content: center;
         }
-
-
-        @media{
-            /*Diminuir container*/
-        }
     </style>
 </head>
 <body>
