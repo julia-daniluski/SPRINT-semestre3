@@ -4,9 +4,9 @@ session_start();
 
 require_once __DIR__ . '/../services/Auth.php';
 use Services\Auth;
+
 $usuario = Auth::getUsuario();
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -22,8 +22,9 @@ $usuario = Auth::getUsuario();
 
     <!-- Link ao CSS Externo -->
     <link rel="stylesheet" href="styles/styleadm.css">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 *{
     margin: 0;
@@ -46,6 +47,18 @@ body {
     margin: 0;
     background-repeat: no-repeat;
 }
+
+
+
+/*  Cabeçalho */
+/* header{
+    background-color: #001D47;
+    color: #fff;
+    padding: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} */
 
 
 
@@ -94,14 +107,14 @@ header
             list-style-type: none;
         }
 
-        /* Estilo dos links de navegação */
-        li a {
-            text-decoration: none;
-            margin: 10px;
-            font-size: 22px; /* sobrescreve o 20px acima para os itens do menu */
-            font-weight: 500;
-            color: #fff !important;
-        }
+/* Estilo dos links de navegação */
+li a {
+    text-decoration: none;
+    margin: 10px;
+    font-size: 22px; /* sobrescreve o 20px acima para os itens do menu */
+    font-weight: 500;
+    color: #fff !important;
+}
 
 
         /* Div do usuário (lado direito) */
@@ -164,6 +177,10 @@ h1{
 .small-image-container:hover img {
     transform: scale(1.03); /* Zoom leve ao passar o mouse */
 }
+
+    #tipo
+
+
 
 .mansao {
     border-radius: 10px; /* Arredondamento dos cantos */
@@ -260,6 +277,66 @@ h1{
     color: #001D47;
     transform: scale(1.03);
 }
+
+/* Estilos para o seletor select */
+#tipo {
+    background-color: #e6f7ff; /* Cor de fundo */
+    color: #001D47; /* Cor do texto */
+    border: 1px solid #001D47; /* Cor da borda */
+}
+
+/* Estilos para as opções dentro do select */
+#tipo option {
+    background-color: #78C2E2; /* Cor de fundo das opções */
+    color: #001D47; /* Cor do texto das opções */
+}
+
+#tipo:focus {
+    background-color: #001D47; /* Cor de fundo quando o campo está em foco */
+    color: #78C2E2; /* Cor do texto quando o campo está em foco */
+    border: 1px solid #001D47; /* Cor da borda quando o campo está em foco */
+}
+
+/* Alterando a cor de fundo e borda do campo select */
+#tipo-aluguel {
+    background-color: #e6f7ff; /* Cor de fundo */
+    color: #001D47; /* Cor do texto */
+    border: 1px solid #001D47; /* Cor da borda */
+}
+
+/* Estilos para as opções dentro do select */
+#tipo-aluguel option {
+    background-color: #78C2E2; /* Cor de fundo das opções */
+    color: #001D47; /* Cor do texto das opções */
+}
+
+#tipo-aluguel:focus {
+    background-color: #001D47; /* Cor de fundo quando o campo está em foco */
+    color: #78C2E2; /* Cor do texto quando o campo está em foco */
+    border: 1px solid #001D47; /* Cor da borda quando o campo está em foco */
+}
+
+/* Alterando a cor de fundo e borda do input de número */
+#quantidade {
+    background-color: #e6f7ff; /* Cor de fundo */
+    color: #001D47; /* Cor do texto */
+    border: 1px solid #001D47; /* Cor da borda */
+}
+
+/* Cor do campo de texto e borda */
+#modelo, #placa {
+    background-color: #e6f7ff; /* Cor de fundo */
+    color: #001D47; /* Cor do texto */
+    border: 1px solid #001D47; /* Cor da borda */
+}
+
+
+
+/* Estilos para o rótulo */
+.form-label {
+    color: #001D47; /* Cor do texto do rótulo */
+}
+
 
 footer {
     background: #001D47;
@@ -367,6 +444,12 @@ footer {
 }
     </style>
 </head>
+
+
+
+
+
+
 <body>
     <!-- Navbar -->
     <header>
@@ -412,29 +495,25 @@ footer {
                     <span class="user-icon">
                         <i class="bi bi-person-circle" style="font-size: 24px;"></i>
                     </span>
-                    <span class="welcome-text">
-                        Bem-vindo, <strong><?= htmlspecialchars($usuario['username']) ?></strong>
-                    </span>
-                    <!-- botao de logout -->
+                    <span class="welcome-text">Bem-vindo, <strong><?= htmlspecialchars($usuario['username']) ?></strong></span>
                     <a href="login.php" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-3">
                         <i class="bi bi-box-arrow-right"></i> Sair
                     </a>
                 </div>
             </div>
         </nav>
+        <?php if ($mensagem): ?>
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <?= htmlspecialchars($mensagem) ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <?php endif; ?>
     </header>
 
-        <?php if ($mensagem):?>
-            <div class="alert alert-info alert-dismissible fade show" role="alert">
-                <?= htmlspecialchars($mensagem) ?>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-            <?php endif; ?>
+
 
     <main>
-                
-
-        <!-- Tabela de locais cadastrados -->
+        <!-- Tabela de veículos cadastrados -->
         <div class="container mt-4">
             <div class="row">
                 <div class="col-12">
@@ -451,64 +530,219 @@ footer {
                                             <th>Lugar</th>
                                             <th>Valor</th>
                                             <th>Status</th>
-                                            <?php if (Auth::isAdmin()): ?>
                                             <th>Ações</th>
-                                            <?php endif; ?>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($locadora->listarImoveis() as $Imovel): ?>
                                         <tr>
-                                            <!-- fudeu aqui pra baixo -->
-                                             <!-- essa linha pode estar dando errado por contra que tem 3 itens / favor avaliar oque esta errado e concertar  -->
-                                              <!-- AQUI FALTA O ESTUDIO ⬇️ -->
-                                        <td>
-                                            <?= $imovel instanceof \Models\Casa ? 'Casa' : 'Quarto' ?>
-                                        </td>
-                                        <td><?= htmlspecialchars($imovel->getNome()) ?></td>
-                                        <td><?= htmlspecialchars($imovel->getLocal()) ?></td>
-                                        <td>
-                                            <span class="badge bg-<?= $imovel->isDisponivel() ? 'sucess' : 'warning' ?>">
-                                                <?= $imovel->isDisponivel() ? 'Disponível' : ' Alugado' ?>
-                                            </span>
-                                        </td>
-                                        <?php if (Auth::isAdmin()): ?>
-                                        <td>
-                                            <div class="action-wrapper">
+                                            <td>Quarto</td>
+                                            <td>Castelo de Alnwick - Hogwarts (Harry Potter), Inglaterra</td>
+                                            <td>A partir de US$ 17,589.75</td>
+                                            <td><span class="badge bg-success">Disponível</span></td>
+                                            <td><div class="action-wrapper">
                                                 <form method="post" class="btn-group-actions">
-                                                    <input type="hidden" name="nome" value="<?=htmlspecialchars($imovel->getNome()) ?>">
-                                                    <input type="hidden" name="local" value="<?=htmlspecialchars($imovel->getLocal()) ?>">
                                                     <!-- Botão deletar (sempre disponivel pro adm)-->
                                                     <button class="btn btn-danger btn-sm delete-btn" type="submit" name="deletar">Deletar</button>
 
                                                     <!--Botões condicionais-->
                                                     <div class="rent-group ">
-                                                        <?php if (!$imovel->isDisponivel()): ?>
 
-                                                    <!--Veiculo alugado-->
-                                                    <button class="btn btn-warning btn-sm " type="submit" name="devolver">Devolver</button>
-                                                    <?php else: ?>
-                                                    <!--Veiculo disponivel-->
-                                                    <input type="number" name="dias" class="form-control form-control-sm days-input" value="1" min="1" required>
-                                                    <button class="btn btn-success" type="submit" name="alugar">Alugar</button>  
-                                                    <?php endif; ?>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </td>
-                                    <?php endif; ?>
-                                </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
+                                                        <!--Veiculo alugado-->
+                                                        <button class="btn btn-warning btn-sm " type="submit" name="devolver">Devolver</button>
+                                                        <!--Veiculo disponivel-->
+                                                        <input type="number" name="dias" class="form-control form-control-sm days-input" value="1" min="1" required>
+                                                        <button class="btn btn-success" type="submit" name="alugar">Alugar</button>                                            
+                                                    </div>
+                                                </form>
+                                            </div></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Estúdio</td>
+                                            <td>Cenário Friends, Califórnia</td>
+                                            <td>A partir de US$ 8,596.98</td>
+                                            <td><span class="badge bg-warning">Alugado</span></td>
+                                            <td><div class="action-wrapper">
+                                                <form method="post" class="btn-group-actions">
+                                                    <!-- Botão deletar (sempre disponivel pro adm)-->
+                                                    <button class="btn btn-danger btn-sm delete-btn" type="submit" name="deletar">Deletar</button>
+
+                                                    <!--Botões condicionais-->
+                                                    <div class="rent-group ">
+
+                                                        <!--Veiculo alugado-->
+                                                        <button class="btn btn-warning btn-sm " type="submit" name="devolver">Devolver</button>
+                                                        <!--Veiculo disponivel-->
+                                                        <input type="number" name="dias" class="form-control form-control-sm days-input" value="1" min="1" required>
+                                                        <button class="btn btn-success" type="submit" name="alugar">Alugar</button>                                            
+                                                    </div>
+                                        </tr>
+                                        <tr>
+                                            <td>Casa</td>
+                                            <td>Casa da Mônica, São José dos Campos</td>
+                                            <td>A partir de US$ 158,305.00</td>
+                                            <td><span class="badge bg-success">Disponível</span></td>
+                                            <td><div class="action-wrapper">
+                                                <form method="post" class="btn-group-actions">
+                                                    <!-- Botão deletar (sempre disponivel pro adm)-->
+                                                    <button class="btn btn-danger btn-sm delete-btn" type="submit" name="deletar">Deletar</button>
+
+                                                    <!--Botões condicionais-->
+                                                    <div class="rent-group ">
+
+                                                        <!--Veiculo alugado-->
+                                                        <button class="btn btn-warning btn-sm " type="submit" name="devolver">Devolver</button>
+                                                        <!--Veiculo disponivel-->
+                                                        <input type="number" name="dias" class="form-control form-control-sm days-input" value="1" min="1" required>
+                                                        <button class="btn btn-success" type="submit" name="alugar">Alugar</button>                                            
+                                                    </div>
+                                        </tr>
+                                        <tr>
+                                            <td>Casa</td>
+                                            <td>Cabana Tony Stark (Vingadores: Ultimato), Bouckaert Farm</td>
+                                            <td>A partir de US$ 351,790.00</td>
+                                            <td><span class="badge bg-warning">Alugado</span></td>
+                                            <td><div class="action-wrapper">
+                                                <form method="post" class="btn-group-actions">
+                                                    <!-- Botão deletar (sempre disponivel pro adm)-->
+                                                    <button class="btn btn-danger btn-sm delete-btn" type="submit" name="deletar">Deletar</button>
+
+                                                    <!--Botões condicionais-->
+                                                    <div class="rent-group ">
+
+                                                        <!--Veiculo alugado-->
+                                                        <button class="btn btn-warning btn-sm " type="submit" name="devolver">Devolver</button>
+                                                        <!--Veiculo disponivel-->
+                                                        <input type="number" name="dias" class="form-control form-control-sm days-input" value="1" min="1" required>
+                                                        <button class="btn btn-success" type="submit" name="alugar">Alugar</button>                                            
+                                                    </div>
+                                        </tr>
+                                        <tr>
+                                            <td>Quarto</td>
+                                            <td>Hotel Shrek, Terras Altas da Escócia</td>
+                                            <td>A partir de US$ 228,663.00</td>
+                                            <td><span class="badge bg-success">Disponível</span></td>
+                                            <td><div class="action-wrapper">
+                                                <form method="post" class="btn-group-actions">
+                                                    <!-- Botão deletar (sempre disponivel pro adm)-->
+                                                    <button class="btn btn-danger btn-sm delete-btn" type="submit" name="deletar">Deletar</button>
+
+                                                    <!--Botões condicionais-->
+                                                    <div class="rent-group ">
+
+                                                        <!--Veiculo alugado-->
+                                                        <button class="btn btn-warning btn-sm " type="submit" name="devolver">Devolver</button>
+                                                        <!--Veiculo disponivel-->
+                                                        <input type="number" name="dias" class="form-control form-control-sm days-input" value="1" min="1" required>
+                                                        <button class="btn btn-success" type="submit" name="alugar">Alugar</button>                                            
+                                                    </div>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+<!-- Formulário de cálculo -->
+<div class="container mt-4">
+    <div class="row justify-content-center align-items-stretch d-flex">
+        <!-- Formulário 1 -->
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h4 class="mb-0">Calcular a previsão de aluguel</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="#" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="tipo-aluguel" class="form-label">Tipo de aluguel:</label>
+                            <select class="form-select" id="tipo-aluguel" required>
+                                <option value="casa">Casa</option>
+                                <option value="quarto">Quarto</option>
+                                <option value="estudio">Estúdio</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quantidade" class="form-label">Quantidade de diárias:</label>
+                            <input type="number" id="quantidade" name="quantidade" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 add" name="calcular">Calcular</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--adm-->
+        <div class="col-md-6">
+        <?php if (Auth::isAdmin()): ?>
+            <div class="card h-100">
+                <div class="card-header">
+                    <h4>Adicionar novo local de hospedagem</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="#" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="modelo" class="form-label">Local:</label>
+                            <input type="text" class="form-control" name="modelo" id="modelo" required>
+                            <div class="invalid-feedback">Informe um local válido</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="placa" class="form-label">Valor:</label>
+                            <input type="text" class="form-control" name="placa" id="placa" required>
+                            <div class="invalid-feedback">Informe um valor válido</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="tipo" class="form-label">Tipo:</label>
+                            <select name="tipo" class="form-select" id="tipo">
+                                <option value="casa">Casa</option>
+                                <option value="quarto">Quarto</option>
+                                <option value="estudio">Estúdio</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary w-100 add" type="submit" name="adicionar">Adicionar hospedagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>            
     </div>
 </div>
+<?php endif; ?>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </main>
+
+    <footer id="contatos" class="mt-5">
+        <p class="secondary-color text-center">Nos encontre nas redes sociais:</p>
+        <div class="row justify-content-center" id="social-icons-container">
+            <div class="col-1 text-center">
+                <a href="#"><i class="bi bi-facebook secondary-color"></i></a>
+            </div>
+            <div class="col-1 text-center">
+                <a href="#"><i class="bi bi-instagram secondary-color"></i></a>
+            </div>
+            <div class="col-1 text-center">
+                <a href="#"><i class="bi bi-twitter secondary-color"></i></a>
+            </div>
+        </div>
+        <p class="secondary-color text-center mt-4">© 2025 Cine&Places. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Script para mostrar o campo 'Outro' -->
+    <script>
+        function mostrarCampoOutro(select) {
+            const outroContainer = document.getElementById('outro-container');
+            const outroInput = document.getElementById('tipo_outro');
+
+            if (select.value === 'outro') {
+                outroContainer.style.display = 'block';
+                outroInput.required = true;
+            } else {
+                outroContainer.style.display = 'none';
+                outroInput.required = false;
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
