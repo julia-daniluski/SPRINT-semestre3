@@ -226,7 +226,6 @@
     </style>
 </head>
 <body>
-
     <header> 
         <div class="empresa">
             <img src="../img/logo.png" alt="logo da página" class="logo mt-2">

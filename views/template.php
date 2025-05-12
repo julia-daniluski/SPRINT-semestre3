@@ -507,6 +507,7 @@ footer {
 
 
     <main>
+<<<<<<< Updated upstream
         <!-- Tabela de imoveis cadastrados -->
 <div class="container mt-4">
     <div class="row">
@@ -540,6 +541,40 @@ footer {
                                     </td>
                                     <?php if (Auth::isAdmin()): ?>
                                         <td>
+=======
+        <!-- Tabela de veículos cadastrados -->
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">Aluguéis disponíveis:</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Tipo</th>
+                                            <th>Lugar</th>
+                                            <th>Valor</th>
+                                            <th>Status</th>
+                                            <?php if (Auth::isAdmin()): ?>
+                                            <th>Ações</th><?php endif; ?>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php foreach ($locadora->listarImoveis() as $imovel): ?>
+                                        <tr>
+                                            <td><?= $imovel instanceof \Models\Casa ? 'Casa' : 'Quarto' ?></td>
+                                            <td><?= htmlspecialchars($imovel->getNome()) ?></td>
+                                            <td><?= htmlspecialchars($imovel->getLocal()) ?></td>
+                                            <td>                                            <span class="badge bg-<?= $veiculo->isDisponivel() ? 'success' : 'warning' ?>">
+                                                <?= $veiculo->isDisponivel() ? 'Disponível' : 'Alugado' ?>
+                                            </span></td>
+                                            <?php if (Auth::isAdmin()): ?>
+                                                <td>
+>>>>>>> Stashed changes
                                             <div class="action-wrapper">
                                                 <form method="post" class="btn-group-actions">
                                                     <input type="hidden" name="modelo" value="<?= htmlspecialchars($imovel->getModelo()) ?>">
