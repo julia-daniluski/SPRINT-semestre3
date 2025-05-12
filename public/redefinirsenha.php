@@ -19,6 +19,10 @@
     box-sizing: border-box; /* Define o modelo de caixa para incluir padding e borda no tamanho total do elemento */
 }
 
+:root {
+  --primary-color: #001D47; /* azul */
+}
+
 html{
     font-family: 'Inter', 'sans-serif';
     height: 100%;
@@ -132,7 +136,7 @@ label{
     /*Diminuir container*/
 }
         </style>
-</head>
+
 <body>
     <!-- deixar header -->
     <header> 
@@ -143,47 +147,120 @@ label{
 
     <!-- Conteúdo principal -->
     <main>
-        <div class="container-sm mt-3 ">
-                    <div class="card w-100 h-100">
-                        <div class="card-header">
-                            <h4 class="log mb-0">Cadastrar-se</h4>
-                        </div>
-                        <div class="card-body w-90 mb-4">
-                            <form class="needs-validation" novalidate>
-                                <div class="mb-3">
-                                    <label for="user" class="form-label">Email:</label>
-                                    <input type="text" name="username" id="user" class="form-control" required placeholder="Digite seu email">
-                                </div>
-                                <div class="mb-3 position-relative">
-                                    <label for="password" class="form-label">Crie uma nova senha:</label>
-                                    <input type="password" name="password" id="password" class="form-control" required placeholder="Crie uma senha">
-                                    <span class="password-toggle mt-3" onclick="togglePassword()">
-                                        <i class="bi bi-eye"></i>
-                                    </span>
-                                </div>
-                                <div class="mb-3 position-relative">
-                                    <label for="password" class="form-label">Confirme sua nova senha:</label>
-                                    <input type="password" name="password" id="password" class="form-control" required placeholder="Digite a senha">
-                                    <span class="password-toggle mt-3" onclick="togglePassword()">
-                                        <i class="bi bi-eye"></i>
-                                    </span>
-                                </div>
-                                
-                                <!-- Botão redefinir senha -->
-                                    <a href="login.php" class="btn btn-warning w-100 mb-3">Redefinir</a>
-                                <!-- Botão voltar ao login -->
-                                <div class="d-flex justify-content-center">
-                                    <a href="login.php" class="btn btn-outline-danger w-30 mb-3">Voltar</a>
-                                </div>
-
-                            </form>
-                        </div>
-                    </div>
+        <div class="container-sm mt-3">
+            <div class="card w-100 h-100">
+                <div class="card-header">
+                    <h4 class="text-center">Redefinir Senha</h4>
                 </div>
-
+                <div class="card-body">
+                    <form onsubmit="event.preventDefault(); redefinirSenha();">
+                        <div class="mb-3">
+                            <label for="user" class="form-label">Email:</label>
+                            <input type="email" id="user" class="form-control" required>
+                        </div>
+                        <div class="mb-3 position-relative">
+                            <label for="novaSenha" class="form-label">Nova Senha:</label>
+                            <input type="password" id="novaSenha" class="form-control" required>
+                        </div>
+                        <div class="mb-3 position-relative">
+                            <label for="confirmaSenha" class="form-label">Confirmar Senha:</label>
+                            <input type="password" id="confirmaSenha" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Redefinir</button>
+                        <a href="login.php" class="btn btn-outline-danger w-100 mt-2">Voltar</a>
+                    </form>
+                </div>
             </div>
         </div>
+        <?php
+header("Content-Type: application/json");
+
+// Verifica método POST
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    echo json_encode(["sucesso" => false, "mensagem" => "Método não permitido"]);
+    exit;
+}
+
+// Lê o corpo JSON da requisição
+$input = json_decode(file_get_contents('php://input'), true);
+
+if (!isset($input['email']) || !isset($input['senha'])) {
+    echo json_encode(["sucesso" => false, "mensagem" => "Dados incompletos"]);
+    exit;
+}
+
+$email = strtolower(trim($input['email']));
+$novaSenha = $input['senha'];
+
+// Caminho do JSON
+$arquivo = 'usuarios.json';
+
+// Verifica se o arquivo existe
+if (!file_exists($arquivo)) {
+    echo json_encode(["sucesso" => false, "mensagem" => "Arquivo de usuários não encontrado"]);
+    exit;
+}
+
+// Lê o JSON
+$usuariosJson = file_get_contents($arquivo);
+$usuarios = json_decode($usuariosJson, true);
+
+if (!is_array($usuarios)) {
+    echo json_encode(["sucesso" => false, "mensagem" => "Erro ao ler os dados"]);
+    exit;
+}
+
+// Atualiza senha se encontrar o usuário
+$usuarioEncontrado = false;
+
+foreach ($usuarios as &$usuario) {
+    if (strtolower($usuario['email']) === $email) {
+        $usuario['senha'] = password_hash($novaSenha, PASSWORD_DEFAULT);
+        $usuarioEncontrado = true;
+        break;
+    }
+}
+
+if (!$usuarioEncontrado) {
+    echo json_encode(["sucesso" => false, "mensagem" => "Usuário não encontrado"]);
+    exit;
+}
+
+// Salva JSON atualizado
+if (file_put_contents($arquivo, json_encode($usuarios, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE))) {
+    echo json_encode(["sucesso" => true, "mensagem" => "Senha atualizada com sucesso"]);
+} else {
+    echo json_encode(["sucesso" => false, "mensagem" => "Erro ao salvar os dados"]);
+}
+?>
+
     </main>
 
+    <script>
+        function redefinirSenha() {
+            const email = document.getElementById("user").value;
+            const novaSenha = document.getElementById("novaSenha").value;
+            const confirmaSenha = document.getElementById("confirmaSenha").value;
+
+            if (novaSenha !== confirmaSenha) {
+                alert("As senhas não coincidem.");
+                return;
+            }
+
+            fetch("redefinir-senha.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email: email, senha: novaSenha })
+            })
+            .then(res => res.json())
+            .then(data => {
+                alert(data.mensagem);
+                if (data.sucesso) {
+                    window.location.href = "login.php";
+                }
+            })
+            .catch(() => alert("Erro ao processar solicitação."));
+        }
+    </script>
 </body>
 </html>
