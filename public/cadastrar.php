@@ -10,12 +10,231 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Link para CSS -->
     <link rel="stylesheet" href="styles/stylecadastrar.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Define o modelo de caixa para incluir padding e borda no tamanho total do elemento */
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            background: linear-gradient(180deg, rgba(71, 191, 158, 1), rgba(254, 231, 195, 1));
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+
+        }
+
+        /*  Cabeçalho */
+        header{
+            background-color: #001D47;
+            color: #fff;
+            padding: 2px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        header .logo {
+            max-width: 80px;
+            height: 80px;
+        }
+
+
+        header .empresa{
+            display: flex;
+            flex-direction: row;
+        }
+
+        .navlist{
+            display: flex;
+            flex-direction: row;
+        }
+
+        li{
+            list-style-type: none;
+        }
+
+        li a{
+            text-decoration: none;
+            margin: 10px;
+            color: #fff;
+            font-size: 22px;
+        }
+
+        .usuario{
+            display: flex;
+            flex-direction: row;
+        }
+
+        .segcontainer{
+            height: 520px;
+        }
+
+        .card {
+            margin-bottom: 2rem; /* equivalente ao mb-4 do Bootstrap */
+        }
+        
+
+        .login {
+                display: flex;
+                flex-direction: row;
+                justify-content: center; /* Centraliza tudo horizontalmente */
+                align-items: flex-start; /* Alinha ao topo */
+                gap: 40px; /* Espaço entre os containers */
+                padding: 50px;
+        }
+            
+        .login-container {
+                width: 400px;
+                margin: 100px auto;
+                /* background: #fdf3ffb1;
+                text-align: center;
+                padding: 20px;
+                box-sizing: border-box; */
+        }
+            
+
+        .password-toggle{
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .log{
+            color: #1A4C64;
+            font-size: 25px;
+            text-align: center; 
+            font-weight: bold;
+        }
+
+        label{
+            color: #1A4C64;
+            font-size: 23px;
+            text-align: center; 
+        }
+
+
+        /*Cadastre-se*/
+        .entrem{
+            text-decoration: none;
+            color: gray;
+            align-items: center;
+            text-align: center;
+        }
+
+        /*botões login*/
+        .btn-google{
+            color:#fff;
+            background-color:#dd4b39;
+            border-color:rgba(0,0,0,0.2)
+        }
+        .btn-google:focus,
+        .btn-google.focus{
+            color:#fff;
+            background-color:#c23321;
+            border-color:rgba(0,0,0,0.2)
+        }
+        .btn-google:hover{
+            color:#fff;
+            background-color:#c23321;
+            border-color:rgba(0,0,0,0.2)
+        }
+
+        .btn-facebook{
+            color:#fff;
+            background-color:#3b5998;
+            border-color:rgba(0,0,0,0.2)
+        }
+        .btn-facebook:focus,
+        .btn-facebook.focus{
+            color:#fff;
+            background-color:#2d4373;
+            border-color:rgba(0,0,0,0.2)
+        }
+        .btn-facebook:hover{
+            color:#fff;
+            background-color:#2d4373;
+            border-color:rgba(0,0,0,0.2)
+        }
+        .btn-facebook:active,
+        .btn-facebook.active,
+        .open>.dropdown-toggle.btn-facebook{
+            color:#fff;
+            background-color:#2d4373;
+            border-color:rgba(0,0,0,0.2)
+        }
+        .btn-facebook:active:hover,
+        .btn-facebook.active:hover,
+        .open>.dropdown-toggle.btn-facebook:hover,
+        .btn-facebook:active:focus,
+        .btn-facebook.active:focus,
+        .open>.dropdown-toggle.btn-facebook:focus,
+        .btn-facebook:active.focus,
+        .btn-facebook.active.focus,
+        .open>.dropdown-toggle.btn-facebook.focus{
+            color:#fff;
+            background-color:#23345a;
+            border-color:rgba(0,0,0,0.2)
+        }
+        .btn-facebook:active,.btn-facebook.active,
+        .open>.dropdown-toggle.btn-facebook{
+            background-image:none
+        }
+        .btn-facebook.disabled:hover,
+        .btn-facebook[disabled]:hover,
+        fieldset[disabled] .btn-facebook:hover,
+        .btn-facebook.disabled:focus,
+        .btn-facebook[disabled]:focus,
+        fieldset[disabled] .btn-facebook:focus,
+        .btn-facebook.disabled.focus,
+        .btn-facebook[disabled].focus,
+        fieldset[disabled] .btn-facebook.focus{
+            background-color:#3b5998;
+            border-color:rgba(0,0,0,0.2)
+        }
+        .btn-facebook .badge{
+            color:#3b5998;
+            background-color:#fff
+        }
+
+        .jeitosentrar {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap; /* para responsividade */
+        }
+
+        .jeitosentrar .btn {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        @media{
+            /*Diminuir container*/
+        }
+    </style>
 </head>
 <body>
 
     <header> 
         <div class="empresa">
-            <img src="img/logo.png" alt="logo da página" class="logo mt-2">
+            <img src="../img/logo.png" alt="logo da página" class="logo mt-2">
         </div>
     </header>
 
