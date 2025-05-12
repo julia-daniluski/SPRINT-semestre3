@@ -648,6 +648,7 @@ footer {
 <!-- Formulário de cálculo -->
 <div class="container mt-4">
     <div class="row justify-content-center align-items-stretch d-flex">
+        
         <!-- Formulário 1 -->
         <div class="col-md-6">
             <div class="card h-100">
