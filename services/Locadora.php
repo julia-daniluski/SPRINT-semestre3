@@ -39,7 +39,7 @@ class Locadora {
             $dados[] = [
                 'tipo' => ($imovel instanceof Casa) ? 'Casa' : ($imovel instanceof Estudio ? 'Estudio' : 'Quarto'), 
                 'nome' => $imovel -> getNome(),
-                'placa' => $imovel -> getLocal(),
+                'local' => $imovel -> getLocal(),
                 'disponivel' => $imovel -> isDisponivel()
             ];
         }
@@ -61,7 +61,7 @@ class Locadora {
 
 
     //Remover veículo
-    public function deletarImoveis (string $nome, string $local): string{
+    public function deletarImovel (string $nome, string $local): string{
         foreach ($this->imoveis as $key => $imovel){
             // verifica se o modelo e placa correspondem
             if($imovel->getNome() === $nome && $imovel->getLocal() === $local){
