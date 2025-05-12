@@ -1,3 +1,94 @@
+<?php
+// $arquivo = $_SERVER['DOCUMENT_ROOT'] . '/data/usuarios.json';
+$arquivo = __DIR__ . '/../data/usuarios.json';
+
+// Verificar se o arquivo realmente existe e é acessível
+if (!file_exists($arquivo)) {
+    echo "O arquivo não existe!";
+    exit;
+}
+
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Recebe os dados do formulário
+    $username = strtolower(trim($_POST['username']));
+    $password = $_POST['password'];
+    $confirmPassword = $_POST['confirmPassword'];
+
+    // Verifica se as senhas coincidem
+    if ($password !== $confirmPassword) {
+        $mensagem = "As senhas não coincidem.";
+    } else {
+        // Verifica se o arquivo JSON existe e é válido
+        if (file_exists($arquivo)) {
+            $usuariosJson = file_get_contents($arquivo);
+            $usuarios = json_decode($usuariosJson, true);
+
+            if (!is_array($usuarios)) {
+                $usuarios = [];
+            }
+
+            // Verifica se o nome de usuário já existe
+            foreach ($usuarios as $usuario) {
+                if ($usuario['username'] === $username) {
+                    $mensagem = "Nome de usuário já cadastrado.";
+                    break;
+                }
+            }
+
+            // Se o usuário não foi encontrado
+            if (!isset($mensagem)) {
+                // Criptografa a senha
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+                // Adiciona o novo usuário no array
+                $usuarios[] = [
+                    "username" => $username,
+                    "password" => $hashedPassword,
+                    "perfil" => "usuario"  // Perfil padrão de usuário
+                ];
+
+                // Verifica se o arquivo é gravável
+                if (is_writable($arquivo)) {
+                    // Tenta salvar os dados no arquivo JSON
+                    if (file_put_contents($arquivo, json_encode($usuarios, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE))) {
+                        $mensagem = "Cadastro realizado com sucesso!";
+                        $sucesso = true;
+                    } else {
+                        $mensagem = "Erro ao salvar os dados.";
+                    }
+                } else {
+                    $mensagem = "Arquivo não é gravável.";
+                }
+            }
+        } else {
+            // Se o arquivo não existe, cria e salva os dados
+            $usuarios = [
+                [
+                    "username" => $username,
+                    "password" => password_hash($password, PASSWORD_DEFAULT),
+                    "perfil" => "usuario"
+                ]
+            ];
+
+            // Verifica se o arquivo é gravável
+            if (is_writable($arquivo)) {
+                // Tenta salvar os dados no arquivo JSON
+                if (file_put_contents($arquivo, json_encode($usuarios, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE))) {
+                    $mensagem = "Cadastro realizado com sucesso!";
+                    $sucesso = true;
+                } else {
+                    $mensagem = "Erro ao salvar os dados.";
+                }
+            } else {
+                $mensagem = "Arquivo não é gravável.";
+            }
+        }
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -225,81 +316,64 @@
         }
     </style>
 </head>
-<body>
-    <header> 
-        <div class="empresa">
+<body>    
+    <header>        
+        <div class="empresa">            
             <img src="../img/logo.png" alt="logo da página" class="logo mt-2">
-        </div>
+        </div>    
     </header>
-
-    <main>
-        <div class="container mt-3 mb-5 segcontainer">
-            <div class="card mx-auto" style="max-width: 420px;">
-                <div class="card-header">
-                    <h4 class="log mb-0">Cadastrar-se</h4>
-                </div>
-                <div class="card-body mb-4">
-                    <form action="salvar.php" class="needs-validation" novalidate>
-    
-                        <!-- Nome -->
-                        <div class="mb-3">
-                            <label for="nomeCompleto" class="form-label">Nome Completo</label>
-                            <input type="text" name="username" id="nomeCompleto" class="form-control" required placeholder="Digite seu nome">
-                        </div>
-    
-                        <!-- Email -->
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email:</label>
-                            <input type="email" name="email" id="email" class="form-control" required placeholder="Digite seu email">
-                        </div>
-    
-                        <!-- Senha -->
-                        <div class="mb-3 position-relative">
-                            <label for="senha" class="form-label">Crie uma senha:</label>
-                            <input type="password" name="password" id="senha" class="form-control" required placeholder="Crie uma senha">
-                            <span class="password-toggle mt-3" onclick="togglePassword('senha')">
-                                <i class="bi bi-eye"></i>
-                            </span>
-                        </div>
-    
-                        <!-- Confirmar Senha -->
-                        <div class="mb-3 position-relative">
-                            <label for="confirmarSenha" class="form-label">Confirme sua senha:</label>
-                            <input type="password" name="confirmPassword" id="confirmarSenha" class="form-control" required placeholder="Digite a senha novamente">
-                            <span class="password-toggle mt-3" onclick="togglePassword('confirmarSenha')">
-                                <i class="bi bi-eye"></i>
-                            </span>
-                        </div>
-    
-                        <!-- Botão principal -->
-                        <a href="index.html" class="btn btn-warning w-100 mb-3">Cadastrar</a>
-    
-                        <!-- Botões sociais -->
-                        <div class="jeitosentrar d-flex justify-content-center mb-3">
-                            <a class="btn btn-facebook me-2" href="https://pt-br.facebook.com/login/device-based/regular/login/">
-                                <i class="bi bi-facebook me-2"></i> Facebook
-                            </a>
-                            <a class="btn btn-google" href="https://accounts.google.com/v3/signin/identifier">
-                                <i class="bi bi-google me-2"></i> Google
-                            </a>
-                        </div>
-    
-                        <!-- Link para login -->
-                        <div class="text-center">
-                            <a href="login.php" class="entrem">Já tem uma conta? Entre.</a>
-                        </div>
-                        <!-- Botão voltar ao login -->
-                        <div class="d-flex justify-content-center">
-                            <a href="login.php" class="btn btn-outline-danger w-30 mb-3">Voltar</a>
-                        </div>
-                        
-    
-                    </form>
-                </div>
-            </div>
-        </div>
-    </main>
-    
-
-</body>
-</html>
+    <main>        
+        <div class="container mt-3 mb-5 segcontainer">            
+            <div class="card mx-auto" style="max-width: 420px;">                
+                <div class="card-header">                    
+                    <h4 class="log mb-0">Cadastrar-se</h4>                
+                </div>                
+                <div class="card-body mb-4">                    
+                    <form method="POST" class="needs-validation" novalidate>                        
+                        <?php if (isset($mensagem)): ?>                            
+                            <div class="alert <?= isset($sucesso) && $sucesso ? 'alert-success' : 'alert-danger' ?>" role="alert">                                
+                                <?= $mensagem ?>                            
+                            </div>                        
+                            <?php endif; ?>                            
+                            <!-- Nome Completo -->                        
+                             <div class="mb-3">                            
+                                <label for="nomeCompleto" class="form-label">Nome Completo</label>                            
+                                <input type="text" name="username" id="nomeCompleto" class="form-control" required placeholder="Digite seu nome">                        
+                            </div>                                                  
+                            <!-- Senha -->                        
+                             <div class="mb-3 position-relative">                            
+                                <label for="senha" class="form-label">Crie uma senha:</label>                            
+                                <input type="password" name="password" id="senha" class="form-control" required placeholder="Crie uma senha">                            
+                                <span class="password-toggle mt-3" onclick="togglePassword('senha')">                                
+                                    <i class="bi bi-eye"></i>                            
+                                </span>                        
+                            </div>                            
+                            <!-- Confirmar Senha -->                        
+                             <div class="mb-3 position-relative">                            
+                                <label for="confirmarSenha" class="form-label">Confirme sua senha:</label>                            
+                                <input type="password" name="confirmPassword" id="confirmarSenha" class="form-control" required placeholder="Digite a senha novamente">                            
+                                <span class="password-toggle mt-3" onclick="togglePassword('confirmarSenha')">                                
+                                    <i class="bi bi-eye"></i>                            
+                                </span>                        
+                            </div>                            
+                            <!-- Botão de cadastro -->                        
+                             <button type="submit" class="btn btn-warning w-100 mb-3">Cadastrar</button>                            
+                             <!-- Link para login -->                        
+                              <div class="text-center">                            
+                                <a href="login.php" class="entrem">Já tem uma conta? Entre.</a>                        
+                            </div>                    
+                        </form>                
+                    
+                    </div>            
+                </div>        
+            </div>    
+        </main>
+    </body>
+    </html>
+<script>    
+function togglePassword(id) {        
+    const passwordField = document.getElementById(id);        
+    const type = passwordField.type === "password" ? "text" : "password";        
+    passwordField.type = type;    
+}
+    </script>

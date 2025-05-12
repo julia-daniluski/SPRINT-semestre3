@@ -102,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <header>
-        <img src="img/logo.png" alt="logo da página" class="logo">
+        <img src="../img/logo.png" alt="logo da página" class="logo">
     </header>
 
     <main>
