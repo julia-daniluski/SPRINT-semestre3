@@ -403,10 +403,36 @@ Além de ser uma excelente opção para profissionais da área de produção aud
         </div>
     </div>
 </div>
-        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="#contatos">Contato</a>
+<!-- Item de navegação - CONTATO -->
+<li class="nav-item">
+    <a class="nav-link" href="#" data-toggle="modal" data-target="#contatoModal">Contato</a>
+</li>
+
+<!-- Modal CONTATO -->
+<div class="modal fade" id="contatoModal" tabindex="-1" role="dialog" aria-labelledby="contatoModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="contatoModalLabel">Contato</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Telefone: (11) 4002-8922<br>
+                    E-mail: contato@cineandplaces.com.br<br>
+                    Redes Sociais: @cineandplaces (Instagram, Facebook, Twitter)
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
                             </li>
                         </ul>
                     </div>
