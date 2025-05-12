@@ -524,115 +524,46 @@ footer {
                                             <th>Lugar</th>
                                             <th>Valor</th>
                                             <th>Status</th>
-                                            <?php if (Auth::isAdmin()): ?>
-                                            <th>Ações</th>
-                                        <?php endif; ?>
+                                            <?php if (Auth::isAdmin()): ?><th>Ações</th><?php endif; ?>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <?php foreach ($locadora->listarImoveis () as $imovel): ?>
                                         <tr>
-                                            <td>Quarto</td>
-                                            <td>Castelo de Alnwick - Hogwarts (Harry Potter), Inglaterra</td>
-                                            <td>A partir de US$ 17,589.75</td>
-                                            <td><span class="badge bg-success">Disponível</span></td>
-                                            <td><div class="action-wrapper">
+                                            <td><?= $veiculo instanceof \Models\Casa ? 'Casa' : 'Quarto' ?></td>
+                                            <td><?= htmlspecialchars($imovel->getNome()) ?></td>
+                                            <td><?= htmlspecialchars($imovel->getLocal()) ?></td>
+                                            <td>                                            <span class="badge bg-<?= $veiculo->isDisponivel() ? 'success' : 'warning' ?>">
+                                                <?= $veiculo->isDisponivel() ? 'Disponível' : 'Alugado' ?>
+                                            </span></td>
+                                            <?php if (Auth::isAdmin()): ?>
+                                                <td>
+                                            <div class="action-wrapper">
                                                 <form method="post" class="btn-group-actions">
-                                                    <!-- Botão deletar (sempre disponivel pro adm)-->
-                                                    <button class="btn btn-danger btn-sm delete-btn" type="submit" name="deletar">Deletar</button>
-
-                                                    <!--Botões condicionais-->
-                                                    <div class="rent-group ">
-
-                                                        <!--Veiculo alugado-->
-                                                        <button class="btn btn-warning btn-sm " type="submit" name="devolver">Devolver</button>
-                                                        <!--Veiculo disponivel-->
-                                                        <input type="number" name="dias" class="form-control form-control-sm days-input" value="1" min="1" required>
-                                                        <button class="btn btn-success" type="submit" name="alugar">Alugar</button>                                            
+                                                    <input type="hidden" name="modelo" value="<?= htmlspecialchars($veiculo->getModelo()) ?>">
+                                                    <input type="hidden" name="placa" value="<?= htmlspecialchars($veiculo->getPlaca()) ?>">
+                                                    
+                                                    <!-- Botão Deletar (sempre disponível para admin) -->
+                                                    <button type="submit" name="deletar" class="btn btn-danger btn-sm delete-btn">Deletar</button>
+                                                    
+                                                    <!-- Botões condicionais baseados no status do veículo -->
+                                                    <div class="rent-group">
+                                                        <?php if (!$veiculo->isDisponivel()): ?>
+                                                            <!-- Veículo alugado: Botão Devolver -->
+                                                            <button type="submit" name="devolver" class="btn btn-warning btn-sm">Devolver</button>
+                                                        <?php else: ?>
+                                                            <!-- Veículo disponível: Campo de dias e Botão Alugar -->
+                                                            <input type="number" name="dias" class="form-control days-input" value="1" min="1" required>
+                                                            <button type="submit" name="alugar" class="btn btn-primary btn-sm">Alugar</button>
+                                                        <?php endif; ?>
                                                     </div>
                                                 </form>
-                                            </div></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Estúdio</td>
-                                            <td>Cenário Friends, Califórnia</td>
-                                            <td>A partir de US$ 8,596.98</td>
-                                            <td><span class="badge bg-warning">Alugado</span></td>
-                                            <td><div class="action-wrapper">
-                                                <form method="post" class="btn-group-actions">
-                                                    <!-- Botão deletar (sempre disponivel pro adm)-->
-                                                    <button class="btn btn-danger btn-sm delete-btn" type="submit" name="deletar">Deletar</button>
-
-                                                    <!--Botões condicionais-->
-                                                    <div class="rent-group ">
-
-                                                        <!--Veiculo alugado-->
-                                                        <button class="btn btn-warning btn-sm " type="submit" name="devolver">Devolver</button>
-                                                        <!--Veiculo disponivel-->
-                                                        <input type="number" name="dias" class="form-control form-control-sm days-input" value="1" min="1" required>
-                                                        <button class="btn btn-success" type="submit" name="alugar">Alugar</button>                                            
-                                                    </div>
-                                        </tr>
-                                        <tr>
-                                            <td>Casa</td>
-                                            <td>Casa da Mônica, São José dos Campos</td>
-                                            <td>A partir de US$ 158,305.00</td>
-                                            <td><span class="badge bg-success">Disponível</span></td>
-                                            <td><div class="action-wrapper">
-                                                <form method="post" class="btn-group-actions">
-                                                    <!-- Botão deletar (sempre disponivel pro adm)-->
-                                                    <button class="btn btn-danger btn-sm delete-btn" type="submit" name="deletar">Deletar</button>
-
-                                                    <!--Botões condicionais-->
-                                                    <div class="rent-group ">
-
-                                                        <!--Veiculo alugado-->
-                                                        <button class="btn btn-warning btn-sm " type="submit" name="devolver">Devolver</button>
-                                                        <!--Veiculo disponivel-->
-                                                        <input type="number" name="dias" class="form-control form-control-sm days-input" value="1" min="1" required>
-                                                        <button class="btn btn-success" type="submit" name="alugar">Alugar</button>                                            
-                                                    </div>
-                                        </tr>
-                                        <tr>
-                                            <td>Casa</td>
-                                            <td>Cabana Tony Stark (Vingadores: Ultimato), Bouckaert Farm</td>
-                                            <td>A partir de US$ 351,790.00</td>
-                                            <td><span class="badge bg-warning">Alugado</span></td>
-                                            <td><div class="action-wrapper">
-                                                <form method="post" class="btn-group-actions">
-                                                    <!-- Botão deletar (sempre disponivel pro adm)-->
-                                                    <button class="btn btn-danger btn-sm delete-btn" type="submit" name="deletar">Deletar</button>
-
-                                                    <!--Botões condicionais-->
-                                                    <div class="rent-group ">
-
-                                                        <!--Veiculo alugado-->
-                                                        <button class="btn btn-warning btn-sm " type="submit" name="devolver">Devolver</button>
-                                                        <!--Veiculo disponivel-->
-                                                        <input type="number" name="dias" class="form-control form-control-sm days-input" value="1" min="1" required>
-                                                        <button class="btn btn-success" type="submit" name="alugar">Alugar</button>                                            
-                                                    </div>
-                                        </tr>
-                                        <tr>
-                                            <td>Quarto</td>
-                                            <td>Hotel Shrek, Terras Altas da Escócia</td>
-                                            <td>A partir de US$ 228,663.00</td>
-                                            <td><span class="badge bg-success">Disponível</span></td>
-                                            <td><div class="action-wrapper">
-                                                <form method="post" class="btn-group-actions">
-                                                    <!-- Botão deletar (sempre disponivel pro adm)-->
-                                                    <button class="btn btn-danger btn-sm delete-btn" type="submit" name="deletar">Deletar</button>
-
-                                                    <!--Botões condicionais-->
-                                                    <div class="rent-group ">
-
-                                                        <!--Veiculo alugado-->
-                                                        <button class="btn btn-warning btn-sm " type="submit" name="devolver">Devolver</button>
-                                                        <!--Veiculo disponivel-->
-                                                        <input type="number" name="dias" class="form-control form-control-sm days-input" value="1" min="1" required>
-                                                        <button class="btn btn-success" type="submit" name="alugar">Alugar</button>                                            
-                                                    </div>
-                                        </tr>
-                                    </tbody>
+                                            </div>
+                                        </td>
+                                        <?php endif; ?>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
                                 </table>
                             </div>
                         </div>
