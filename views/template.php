@@ -1,19 +1,12 @@
 <?php
-require_once __DIR__ . '/../services/Auth.php';
 
+session_start();
+
+require_once __DIR__ . '/../services/Auth.php';
 use Services\Auth;
 
-// session_start(); // Certifique-se de iniciar a sessão
-
-$usuario = Auth::getUsuario(); // Obtém os dados do usuário logado
-
-/**
- * Template principal do sistema de locadora de veículos
- * Recebe as variáveis $locadora, $mensagem e $usuario do controller (index.php)
- */
+$usuario = Auth::getUsuario();
 ?>
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -57,51 +50,62 @@ body {
 
 
 
-
-
-/* Cabeçalho */
-header {
+/*  Cabeçalho */
+/* header{
     background-color: #001D47;
     color: #fff;
     padding: 2px;
-}
-
-/* Logo */
-header .logo {
-    max-width: 80px;
-    height: 80px;
-}
-
-/* Logo container */
-header .empresa {
     display: flex;
-    flex-direction: row;
-}
+    justify-content: space-between;
+    align-items: center;
+} */
 
-/* Menu horizontal */
-.navlist {
-    display: flex;
-    flex-direction: row;
-}
 
-/* Todos os links dentro do header */
-header a {
-    color: #fff !important;
-    text-decoration: none;
-    font-size: 20px; /* tamanho base para todos os links */
-    font-weight: 500;
-}
 
-/* Cor ao passar o mouse */
-header a:hover {
-    color: #78C2E2 !important;
-    text-decoration: none;
-}
+/* Cabeçalho */
+header 
+{
+            background-color: #001D47;
+            color: #fff;
+            padding: 2px;
+        }
 
-/* Itens de lista do menu */
-li {
-    list-style-type: none;
-}
+        /* Logo */
+        header .logo {
+            max-width: 80px;
+            height: 80px;
+        }
+
+        /* Logo container */
+        header .empresa {
+            display: flex;
+            flex-direction: row;
+        }
+
+        /* Menu horizontal */
+        .navlist {
+            display: flex;
+            flex-direction: row;
+        }
+
+        /* Todos os links dentro do header */
+        header a {
+            color: #fff !important;
+            text-decoration: none;
+            font-size: 20px; /* tamanho base para todos os links */
+            font-weight: 500;
+        }
+
+        /* Cor ao passar o mouse */
+        header a:hover {
+            color: #ddd !important;
+            text-decoration: none;
+        }
+
+        /* Itens de lista do menu */
+        li {
+            list-style-type: none;
+        }
 
 /* Estilo dos links de navegação */
 li a {
@@ -112,43 +116,38 @@ li a {
     color: #fff !important;
 }
 
-.table-striped tbody tr:nth-of-type(odd) {
-    background-color: #f0f8ff; /* Cor de fundo para as linhas ímpares */
-}
 
-.table-striped tbody tr:nth-of-type(even) {
-    background-color: #e6f7ff; /* Cor de fundo para as linhas pares */
-}
-
-.table th, .table td {
-    color: #001D47; /* Cor do texto das células da tabela */
-}
+        /* Div do usuário (lado direito) */
+        .usuario {
+            display: flex;
+            flex-direction: row;
+            border-radius: 20px;
+            align-items: center;
+            padding: 10px;
+        }
 
 
+        .quadrado {
+            margin: 4rem 4rem 4rem 5rem; /* topo, direita, baixo, esquerda */
+            padding: 1rem;
+            border: 2px solid #ffffff;
+            border-radius: 8px;
+        }
 
-/* Div do usuário (lado direito) */
-.usuario {
-    display: flex;
-    flex-direction: row;
-    border-radius: 20px;
-    align-items: center;
-    padding: 10px;
-}
 
-/* Botão sair */
-#sair {
-    background-color: crimson;
-    color: white;
-    border: none;
-    padding: 6px 10px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-}
+        /* Botão sair */
+        #sair {
+            background-color: crimson;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
 
-#sair:hover {
-    background-color: darkred;
-}
-
+        #sair:hover {
+            background-color: darkred;
+        }
 
 
 h3{
