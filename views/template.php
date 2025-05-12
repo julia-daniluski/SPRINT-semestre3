@@ -496,7 +496,7 @@ footer {
                         <i class="bi bi-person-circle" style="font-size: 24px;"></i>
                     </span>
                     <span class="welcome-text">Bem-vindo, <strong><?= htmlspecialchars($usuario['username']) ?></strong></span>
-                    <a href="login.php" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-3">
+                    <a href="../public/login.php" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-3">
                         <i class="bi bi-box-arrow-right"></i> Sair
                     </a>
                 </div>
