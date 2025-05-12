@@ -497,7 +497,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                 </div>
                 <?php if ($usuario): ?>  
-                <!-- Direita: Usuário -->
+
+                                    <!-- Direita: Usuário -->
                 <div class="d-flex align-items-center gap-3 user-info border p-2 rounded-5 usuario">
                     <span class="user-icon">
                         <i class="bi bi-person-circle" style="font-size: 24px;"></i>
@@ -505,10 +506,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <span class="welcome-text">
                         Bem-vindo, <strong><?= htmlspecialchars($usuario['username']) ?></strong>
                     </span>
-                    <a href="../public/login.php" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-3">
+                    <a href="login.php" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-3">
                         <i class="bi bi-box-arrow-right"></i> Sair
                     </a>
                 </div>
+            </div>
                 <?php endif; ?>
 
             </div>
@@ -520,7 +522,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         <?php endif; ?>
-    </header>
+        </header>
 
     <main class="container mt-4">
         <!-- Lista de imóveis -->
@@ -542,31 +544,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if ($locadora): ?>
-    </header>
-
-
-
-    <main>
+                        <?php if ($locadora): ?>                         
+                    </tbody>
+            </main>
 
         <!-- Tabela de imoveis cadastrados -->
 <div class="container mt-4">
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-                    <h4 class="mb-0">Aluguéis disponíveis:</h4>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Tipo</th>
-                                    <th>Lugar</th>
-                                    <th>Valor</th>
-                                    <th>Status</th>
-                                    <?php if (Auth::isAdmin()): ?><th>Ações</th><?php endif; ?>
+                    <div class="card-header">
+                        <h4 class="mb-0">Aluguéis disponíveis:</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Tipo</th>
+                                        <th>Lugar</th>
+                                        <th>Valor</th>
+                                        <th>Status</th>
+                                        <?php if (Auth::isAdmin()): ?>
+                                        <th>Ações</th>
+                                        <?php endif; ?>
                                 </tr>
                             </thead>
                             <tbody>
