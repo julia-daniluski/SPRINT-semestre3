@@ -379,8 +379,32 @@ $usuario = Auth::getUsuario();
                                 <a class="nav-link" href="../views/template.php">Anunciar</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#sobre">Sobre</a>
-                            </li>
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#sobreModal">Sobre</a>
+            <!-- Modal -->
+<div class="modal fade" id="sobreModal" tabindex="-1" role="dialog" aria-labelledby="sobreModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="sobreModalLabel">Sobre</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>A Cine\&Places é uma empresa brasileira que oferece uma experiência única para apaixonados por cinema e séries. Ela se especializa em alugar imóveis inspirados ou que foram realmente usados em produções cinematográficas e televisivas. Seja para gravar cenas de filmes independentes, séries, ou até mesmo para quem deseja passar dias imersos no ambiente de um set de filmagem, a Cine\&Places proporciona um cenário autêntico e memorável.
+
+A empresa possui uma vasta gama de imóveis, desde casas e apartamentos que serviram como cenário de filmes famosos até espaços que foram inspirados por cenas icônicas. Isso permite que cineastas, produtores e fãs do universo cinematográfico experimentem, de maneira única, a possibilidade de viver ou criar dentro desses ambientes fantásticos.
+
+Além de ser uma excelente opção para profissionais da área de produção audiovisual, a Cine\&Places também atrai turistas e entusiastas que desejam reviver suas cenas favoritas, seja para férias temáticas ou para momentos especiais, como sessões de fotos ou filmagens caseiras. A empresa une a magia do cinema com a possibilidade de vivenciar a realidade dos sets, criando memórias inesquecíveis e experiências imersivas para todos os tipos de públicos.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+        </li>
+
                             <li class="nav-item">
                                 <a class="nav-link" href="#contatos">Contato</a>
                             </li>
@@ -1014,6 +1038,6 @@ $usuario = Auth::getUsuario();
     </footer>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Incluindo as dependências do Bootstrap no final do body --><script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
