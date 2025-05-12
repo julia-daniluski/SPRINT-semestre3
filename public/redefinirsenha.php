@@ -10,6 +10,128 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Link para CSS -->
     <link rel="stylesheet" href="styles/styleredefinir.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Define o modelo de caixa para incluir padding e borda no tamanho total do elemento */
+}
+
+html{
+    font-family: 'Inter', 'sans-serif';
+    height: 100%;
+    }
+    
+body {
+    /* para navegadores antigos */
+    background: #FEE7C3;
+
+    /* Gradiente para navegadores modernos */
+    background: linear-gradient(0deg, rgba(71, 191, 158, 1)  0%, rgba(254, 231, 195, 1) 100%);
+    min-height: 100vh;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: cover; /* garante que preencha a tela */
+}
+    
+
+
+
+/*  Cabeçalho */
+header{
+    background-color: #001D47;
+    color: #fff;
+    padding: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+header .logo {
+    max-width: 80px;
+    height: 80px;
+}
+
+
+header .empresa{
+    display: flex;
+    flex-direction: row;
+}
+
+.navlist{
+    display: flex;
+    flex-direction: row;
+}
+
+li{
+    list-style-type: none;
+}
+
+li a{
+    text-decoration: none;
+    margin: 10px;
+    color: #fff;
+    font-size: 22px;
+}
+
+.usuario{
+    display: flex;
+    flex-direction: row;
+}
+
+.segcontainer{
+    height: 520px;
+}
+
+.login {
+        display: flex;
+        flex-direction: row;
+        justify-content: center; /* Centraliza tudo horizontalmente */
+        align-items: flex-start; /* Alinha ao topo */
+        gap: 40px; /* Espaço entre os containers */
+        padding: 50px;
+}
+    
+.login-container {
+        width: 400px;
+        margin: 100px auto;
+        /* background: #fdf3ffb1;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box; */
+}
+    
+
+.password-toggle{
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/*tela redefinir*/
+.log{
+    color: #1A4C64;
+    font-size: 25px;
+    text-align: center; 
+    font-weight: bold;
+}
+
+label{
+    color: #1A4C64;
+    font-size: 23px;
+    text-align: center; 
+}
+
+
+@media{
+    /*Diminuir container*/
+}
+        </style>
 </head>
 <body>
     <!-- deixar header -->

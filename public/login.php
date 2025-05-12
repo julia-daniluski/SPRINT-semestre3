@@ -373,7 +373,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <span class="password-toggle mt-3" onclick="togglePassword()">
                                         <i class="bi bi-eye"></i>
                                     </span>
-                                    <a href="redefinirsenha.html" class="esqueci">Esqueceu a senha?</a>
+                                    <a href="redefinirsenha.php" class="esqueci">Esqueceu a senha?</a>
                                 </div>
                                 
                                 <!-- Botão de login principal -->
