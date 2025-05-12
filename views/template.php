@@ -444,12 +444,6 @@ footer {
 }
     </style>
 </head>
-
-
-
-
-
-
 <body>
     <!-- Navbar -->
     <header>
