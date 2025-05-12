@@ -543,6 +543,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </thead>
                     <tbody>
                         <?php if ($locadora): ?>
+    </header>
+
+
+
+    <main>
+
+        <!-- Tabela de imoveis cadastrados -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0">Aluguéis disponíveis:</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Tipo</th>
+                                    <th>Lugar</th>
+                                    <th>Valor</th>
+                                    <th>Status</th>
+                                    <?php if (Auth::isAdmin()): ?><th>Ações</th><?php endif; ?>
+                                </tr>
+                            </thead>
+                            <tbody>
                             <?php foreach ($locadora->listarImoveis() as $imovel): ?>
                                 <tr>
                                     <td>
