@@ -475,10 +475,10 @@ footer {
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav navlist mt-1">
                             <li class="nav-item active">
-                                <a class="nav-link" href="../public/paginainicial.php">Início</a>
+                                <a class="nav-link" href="index.html">Início</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/views/template.php">Anunciar</a>
+                                <a class="nav-link" href="login.php">Anunciar</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#sobre">Sobre</a>
@@ -648,68 +648,162 @@ footer {
 <!-- Formulário de cálculo -->
 <div class="container mt-4">
     <div class="row justify-content-center align-items-stretch d-flex">
-        
-        <!-- Formulário 1 -->
+
+    <?php
+// Inicializa a variável para armazenar a previsão
+$previsao = null;
+
+// Verifica se o formulário foi enviado
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['calcular'])) {
+    // Recebe os dados do formulário
+    $tipoAluguel = $_POST['tipo_aluguel'];
+    $diasAluguel = $_POST['quantidade']; // Altere para 'quantidade' já que esse é o nome do campo
+
+    // Definir o preço por diária para cada tipo de aluguel
+    $precoDiaria = 0;
+
+    switch ($tipoAluguel) {
+        case 'casa': // Corrigir para minúsculo
+            $precoDiaria = 100; // Preço por diária da casa
+            break;
+        case 'quarto': // Corrigir para minúsculo
+            $precoDiaria = 50; // Preço por diária do quarto
+            break;
+        case 'estudio': // Corrigir para minúsculo
+            $precoDiaria = 75; // Preço por diária do estúdio
+            break;
+        default:
+            $precoDiaria = 0; // Valor padrão (não deve chegar a esse ponto)
+    }
+
+    // Cálculo da previsão total
+    $previsao = $precoDiaria * $diasAluguel;
+}
+?>
+
+<?php
+// Inicializa as variáveis
+$previsao = null;
+$tipoAluguel = '';
+$diasAluguel = 0;
+$valorHospedagem = '';
+$localHospedagem = '';
+$tipoHospedagem = '';
+
+// Verifica se o formulário de cálculo foi enviado
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['calcular'])) {
+    // Recebe os dados do formulário de cálculo
+    $tipoAluguel = $_POST['tipo_aluguel'];
+    $diasAluguel = $_POST['quantidade'];
+
+    // Definir o preço por diária para cada tipo de aluguel
+    $precoDiaria = 0;
+
+    switch ($tipoAluguel) {
+        case 'casa':
+            $precoDiaria = 100; // Preço por diária da casa
+            break;
+        case 'quarto':
+            $precoDiaria = 50; // Preço por diária do quarto
+            break;
+        case 'estudio':
+            $precoDiaria = 75; // Preço por diária do estúdio
+            break;
+        default:
+            $precoDiaria = 0;
+    }
+
+    // Cálculo da previsão total
+    $previsao = $precoDiaria * $diasAluguel;
+}
+
+// Verifica se o formulário de adicionar local foi enviado
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar']) && Auth::isAdmin()) {
+    // Recebe os dados do formulário de adicionar local
+    $localHospedagem = $_POST['modelo'];
+    $valorHospedagem = $_POST['placa'];
+    $tipoHospedagem = $_POST['tipo'];
+
+    // Aqui você pode adicionar a lógica para salvar os dados no banco de dados ou outra ação necessária
+    // Exemplo de como você poderia salvar no banco (dependendo do seu banco de dados):
+    // $query = "INSERT INTO locais_hospedagem (local, valor, tipo) VALUES ('$localHospedagem', '$valorHospedagem', '$tipoHospedagem')";
+}
+
+?>
+
+<!-- Formulário de cálculo -->
+<div class="container mt-4">
+    <div class="row justify-content-center align-items-stretch d-flex">
+        <!-- Formulário de previsão de aluguel -->
         <div class="col-md-6">
             <div class="card h-100">
                 <div class="card-header">
                     <h4 class="mb-0">Calcular a previsão de aluguel</h4>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="#" class="needs-validation" novalidate>
+                    <form method="post" class="needs-validation" novalidate>
                         <div class="mb-3">
                             <label for="tipo-aluguel" class="form-label">Tipo de aluguel:</label>
-                            <select class="form-select" id="tipo-aluguel" required>
-                                <option value="casa">Casa</option>
-                                <option value="quarto">Quarto</option>
-                                <option value="estudio">Estúdio</option>
+                            <select class="form-select" id="tipo-aluguel" name="tipo_aluguel" required>
+                                <option value="casa" <?= $tipoAluguel == 'casa' ? 'selected' : '' ?>>Casa</option>
+                                <option value="quarto" <?= $tipoAluguel == 'quarto' ? 'selected' : '' ?>>Quarto</option>
+                                <option value="estudio" <?= $tipoAluguel == 'estudio' ? 'selected' : '' ?>>Estúdio</option>
                             </select>
                         </div>
                         <div class="mb-3">
                             <label for="quantidade" class="form-label">Quantidade de diárias:</label>
-                            <input type="number" id="quantidade" name="quantidade" class="form-control" required>
+                            <input type="number" id="quantidade" name="quantidade" class="form-control" value="<?= $diasAluguel ?>" required>
                         </div>
                         <button type="submit" class="btn btn-primary w-100 add" name="calcular">Calcular</button>
                     </form>
+
+                    <!-- Exibe a previsão do cálculo -->
+                    <?php if ($previsao !== null): ?>
+                        <div class="mt-4">
+                            <h5>Previsão de Aluguel:</h5>
+                            <p>Total a pagar: R$ <?= number_format($previsao, 2, ',', '.') ?></p>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
-
-        <!--adm-->
-        <div class="col-md-6">
-        <?php if (Auth::isAdmin()): ?>
-            <div class="card h-100">
-                <div class="card-header">
-                    <h4>Adicionar novo local de hospedagem</h4>
-                </div>
-                <div class="card-body">
-                    <form method="post" action="#" class="needs-validation" novalidate>
-                        <div class="mb-3">
-                            <label for="modelo" class="form-label">Local:</label>
-                            <input type="text" class="form-control" name="modelo" id="modelo" required>
-                            <div class="invalid-feedback">Informe um local válido</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="placa" class="form-label">Valor:</label>
-                            <input type="text" class="form-control" name="placa" id="placa" required>
-                            <div class="invalid-feedback">Informe um valor válido</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="tipo" class="form-label">Tipo:</label>
-                            <select name="tipo" class="form-select" id="tipo">
-                                <option value="casa">Casa</option>
-                                <option value="quarto">Quarto</option>
-                                <option value="estudio">Estúdio</option>
-                            </select>
-                        </div>
-                        <button class="btn btn-primary w-100 add" type="submit" name="adicionar">Adicionar hospedagem</button>
-                    </form>
-                </div>
-            </div>
-        </div>            
     </div>
 </div>
+
+<!-- Formulário de administrador para adicionar novo local de hospedagem -->
+<?php if (Auth::isAdmin()): ?>
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-header">
+                <h4>Adicionar novo local de hospedagem</h4>
+            </div>
+            <div class="card-body">
+                <form method="post" action="#" class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label for="modelo" class="form-label">Local:</label>
+                        <input type="text" class="form-control" name="modelo" id="modelo" required>
+                        <div class="invalid-feedback">Informe um local válido</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="placa" class="form-label">Valor:</label>
+                        <input type="text" class="form-control" name="placa" id="placa" required>
+                        <div class="invalid-feedback">Informe um valor válido</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tipo" class="form-label">Tipo:</label>
+                        <select name="tipo" class="form-select" id="tipo">
+                            <option value="casa">Casa</option>
+                            <option value="quarto">Quarto</option>
+                            <option value="estudio">Estúdio</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary w-100 add" type="submit" name="adicionar">Adicionar hospedagem</button>
+                </form>
+            </div>
+        </div>
+    </div>
 <?php endif; ?>
+
 
     </main>
 
