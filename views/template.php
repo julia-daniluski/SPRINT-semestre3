@@ -469,10 +469,10 @@ footer {
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav navlist mt-1">
                             <li class="nav-item active">
-                                <a class="nav-link" href="index.html">Início</a>
+                                <a class="nav-link" href="#home">Início</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="login.php">Anunciar</a>
+                                <a class="nav-link" href="../views/template.php">Anunciar</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#sobre">Sobre</a>
@@ -489,8 +489,10 @@ footer {
                     <span class="user-icon">
                         <i class="bi bi-person-circle" style="font-size: 24px;"></i>
                     </span>
-                    <span class="welcome-text">Bem-vindo, <strong><?= htmlspecialchars($usuario['username']) ?></strong></span>
-                    <a href="../public/login.php" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-3">
+                    <span class="welcome-text">
+                        Bem-vindo, <strong><?= htmlspecialchars($usuario['username']) ?></strong>
+                    </span>
+                    <a href="login.php" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-3">
                         <i class="bi bi-box-arrow-right"></i> Sair
                     </a>
                 </div>
@@ -502,6 +504,8 @@ footer {
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         <?php endif; ?>
+    </header>
+
     </header>
 
 
