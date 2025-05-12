@@ -524,7 +524,9 @@ footer {
                                             <th>Lugar</th>
                                             <th>Valor</th>
                                             <th>Status</th>
+                                            <?php if (Auth::isAdmin()): ?>
                                             <th>Ações</th>
+                                        <?php endif; ?>
                                         </tr>
                                     </thead>
                                     <tbody>
