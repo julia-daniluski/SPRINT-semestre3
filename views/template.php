@@ -507,52 +507,54 @@ footer {
 
 
     <main>
-        <!-- Tabela de veículos cadastrados -->
-        <div class="container mt-4">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="mb-0">Aluguéis disponíveis:</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Tipo</th>
-                                            <th>Lugar</th>
-                                            <th>Valor</th>
-                                            <th>Status</th>
-                                            <?php if (Auth::isAdmin()): ?><th>Ações</th><?php endif; ?>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php foreach ($locadora->listarImoveis () as $imovel): ?>
-                                        <tr>
-                                            <td><?= $veiculo instanceof \Models\Casa ? 'Casa' : 'Quarto' ?></td>
-                                            <td><?= htmlspecialchars($imovel->getNome()) ?></td>
-                                            <td><?= htmlspecialchars($imovel->getLocal()) ?></td>
-                                            <td>                                            <span class="badge bg-<?= $veiculo->isDisponivel() ? 'success' : 'warning' ?>">
-                                                <?= $veiculo->isDisponivel() ? 'Disponível' : 'Alugado' ?>
-                                            </span></td>
-                                            <?php if (Auth::isAdmin()): ?>
-                                                <td>
+        <!-- Tabela de imoveis cadastrados -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0">Aluguéis disponíveis:</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Tipo</th>
+                                    <th>Lugar</th>
+                                    <th>Valor</th>
+                                    <th>Status</th>
+                                    <?php if (Auth::isAdmin()): ?><th>Ações</th><?php endif; ?>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach ($locadora->listarImoveis() as $imovel): ?>
+                                <tr>
+                                    <td><?= $imovel instanceof \Models\Casa ? 'Casa' : 'Quarto' ?></td>
+                                    <td><?= htmlspecialchars($imovel->getNome()) ?></td>
+                                    <td><?= htmlspecialchars($imovel->getLocal()) ?></td>
+                                    <td>
+                                        <span class="badge bg-<?= $imovel->isDisponivel() ? 'success' : 'warning' ?>">
+                                            <?= $imovel->isDisponivel() ? 'Disponível' : 'Alugado' ?>
+                                        </span>
+                                    </td>
+                                    <?php if (Auth::isAdmin()): ?>
+                                        <td>
                                             <div class="action-wrapper">
                                                 <form method="post" class="btn-group-actions">
-                                                    <input type="hidden" name="modelo" value="<?= htmlspecialchars($veiculo->getModelo()) ?>">
-                                                    <input type="hidden" name="placa" value="<?= htmlspecialchars($veiculo->getPlaca()) ?>">
-                                                    
+                                                    <input type="hidden" name="modelo" value="<?= htmlspecialchars($imovel->getModelo()) ?>">
+                                                    <input type="hidden" name="placa" value="<?= htmlspecialchars($imovel->getPlaca()) ?>">
+
                                                     <!-- Botão Deletar (sempre disponível para admin) -->
                                                     <button type="submit" name="deletar" class="btn btn-danger btn-sm delete-btn">Deletar</button>
-                                                    
-                                                    <!-- Botões condicionais baseados no status do veículo -->
+
+                                                    <!-- Botões condicionais baseados no status do imóvel -->
                                                     <div class="rent-group">
-                                                        <?php if (!$veiculo->isDisponivel()): ?>
-                                                            <!-- Veículo alugado: Botão Devolver -->
+                                                        <?php if (!$imovel->isDisponivel()): ?>
+                                                            <!-- Imóvel alugado: Botão Devolver -->
                                                             <button type="submit" name="devolver" class="btn btn-warning btn-sm">Devolver</button>
                                                         <?php else: ?>
-                                                            <!-- Veículo disponível: Campo de dias e Botão Alugar -->
+                                                            <!-- Imóvel disponível: Campo de dias e Botão Alugar -->
                                                             <input type="number" name="dias" class="form-control days-input" value="1" min="1" required>
                                                             <button type="submit" name="alugar" class="btn btn-primary btn-sm">Alugar</button>
                                                         <?php endif; ?>
@@ -560,17 +562,18 @@ footer {
                                                 </form>
                                             </div>
                                         </td>
-                                        <?php endif; ?>
-                                    </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                                </table>
-                            </div>
-                        </div>
+                                    <?php endif; ?>
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
 
 <!-- Formulário de cálculo -->
 <div class="container mt-4">
