@@ -5,7 +5,7 @@ use Interfaces\Locavel;
 
 // Classe que representa um carro
 
-class Casa extends Imoveis implements Locavel {
+class Casa extends Imovel implements Locavel {
 
     public function calcularAluguel(int $dias): float {
         return $dias * DIARIA_CASA;
@@ -26,5 +26,6 @@ class Casa extends Imoveis implements Locavel {
         }
         return "Casa '{$this->nome}' está disponível.";
     }
-
 }
+
+// Visto

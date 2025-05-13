@@ -1,7 +1,7 @@
 <?php
 namespace Services;
 
-use Models\{Imoveis, Casa, Quarto, Estudio};
+use Models\{Imovel, Casa, Quarto, Estudio};
 
 // classe para gerenciar a locação
 class Locadora {
@@ -54,10 +54,10 @@ class Locadora {
     }
 
         // Adicionar novo imóvel
-        public function adicionarImovel(Imoveis $imovel): void {
+        public function adicionarImovel(Imovel $imovel): void {
             $this->imoveis[] = $imovel;
             $this->salvarImoveis();
-        }
+        }   
 
 
     //Remover veículo
@@ -129,3 +129,5 @@ class Locadora {
         return (new Quarto('', '')) ->calcularAluguel($dias);
     }
 }
+
+// Visto

@@ -50,21 +50,25 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $nome = $_POST['nome'];
         $local = $_POST['local'];
         $tipo = $_POST['tipo'];
-        switch ($tipo) {
-            case 'Casa':
-                $imovel = new Casa($nome, $local);
-                break;
-            case 'Quarto':
-                $imovel = new Quarto($nome, $local);
-                break;
-            case 'Estudio':
-                $imovel = new Estudio($nome, $local);
-                break;
-            default:
-                $mensagem = "Tipo de imóvel inválido.";
-                goto renderizar;
-        }
-        $locadora->adicionarImovel($imoveis);
+
+        $imovel = ($tipo == 'Casa') ? new Casa($nome, $local) : new Estudio($nome, $local);
+
+        // switch ($tipo) {
+        //     case 'Casa':
+        //         $imovel = new Casa($nome, $local);
+        //         break;
+        //     case 'Quarto':
+        //         $imovel = new Quarto($nome, $local);
+        //         break;
+        //     case 'Estudio':
+        //         $imovel = new Estudio($nome, $local);
+        //         break;
+        //     default:
+        //         $mensagem = "Tipo de imóvel inválido.";
+        //         goto renderizar;
+        // }
+
+        $locadora->adicionarImovel($imovel);
 
         $mensagem = "Imóvel adicionado com sucesso!";
     }
@@ -77,7 +81,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $mensagem = $locadora->devolverImovel($_POST['nome']);
     }
     elseif(isset($_POST['deletar'])){
-        $mensagem = $locadora->deletarImoveis($_POST['nome'], $_POST['local']);
+        $mensagem = $locadora->deletarImovel($_POST['nome'], $_POST['local']);
     }
     elseif(isset($_POST['calcular'])){
         $dias = (int)$_POST['dias_calculo'];
@@ -92,3 +96,5 @@ renderizar:
 require_once __DIR__ . '/../views/template.php';
 
 ?>
+
+<!-- Visto -->
