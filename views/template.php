@@ -19,13 +19,25 @@ $usuario = Auth::getUsuario();
 //$mensagem = null; // inicializa para evitar erro
 //$locadora = $locadora ?? null; // previne erro se $locadora não estiver definida
 
-// Inicializa variáveis de formulário
-//$previsao = null;
-//$tipoAluguel = '';
-//$diasAluguel = 0;
-//$valorHospedagem = '';
-//$localHospedagem = '';
-//$tipoHospedagem = '';
+$previsao = null;
+$tipoAluguel = '';
+$diasAluguel = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['calcular'])) {
+        $tipoAluguel = $_POST['tipo_aluguel'];
+        $diasAluguel = (int) $_POST['quantidade'];
+
+        $precos = [
+            'casa' => 190, // valor por dia
+            'quarto' => 80,
+            'estudio' => 150
+        ];
+
+        $previsao = ($precos[$tipoAluguel] ?? 0) * $diasAluguel;
+    }
+}
+
 
 // Processamento dos formulários
 //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -626,6 +638,14 @@ $usuario = Auth::getUsuario();
                     </div>
                 </div>
             </div>
+
+  <?php if (!is_null($previsao)): ?>
+    <div class="alert alert-success mt-3">
+        Valor total do aluguel: <strong>R$ <?= number_format($previsao, 2, ',', '.') ?></strong>
+    </div>
+<?php endif; ?>
+
+
 
             <!-- Formulário de administrador para adicionar novo local de hospedagem -->
             <div class="row same-height-row">
