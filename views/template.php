@@ -15,13 +15,13 @@ use Services\Locadora;
 
 
 $usuario = Auth::getUsuario();
-
-//$mensagem = null; // inicializa para evitar erro
-//$locadora = $locadora ?? null; // previne erro se $locadora não estiver definida
+$locadora = new Locadora(); // ✅ Corrigido: instanciando a classe Locadora
 
 $previsao = null;
 $tipoAluguel = '';
 $diasAluguel = '';
+$mensagem = null; // Inicializado para evitar erro
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['calcular'])) {
@@ -634,6 +634,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <input type="number" id="quantidade" name="quantidade" value="<?= $diasAluguel ?>" class="form-control" min="1" required>
                             </div>
                             <button type="submit" name="calcular" class="btn btn-primary w-100 botaoadd">Calcular</button>
+                            <?php if (!is_null($previsao)): ?>
+    <div class="alert alert-success mt-3">
+        Valor total do aluguel: <strong>R$ <?= number_format($previsao, 2, ',', '.') ?></strong>
+    </div>
+<?php endif; ?>
+
+
                         </form>
                     </div>
                 </div>
