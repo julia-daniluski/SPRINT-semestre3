@@ -382,7 +382,7 @@ $usuario = Auth::getUsuario();
                                 <a class="nav-link" href="#home">Início</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../views/template.php">Alugar</a>
+                                <a class="nav-link" href="index.php">Alugar</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="modal" data-target="#sobreModal">Sobre</a>
