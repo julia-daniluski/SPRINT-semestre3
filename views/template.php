@@ -612,9 +612,9 @@ $usuario = Auth::getUsuario();
                             <div class="mb-3">
                                 <label for="tipo_aluguel" class="form-label">Tipo de local:</label>
                                 <select name="tipo_aluguel" id="tipo_aluguel" class="form-select" required>
-                                    <option value="casa" <?= $tipoAluguel === 'casa' ? 'selected' : '' ?>>Casa</option>
-                                    <option value="quarto" <?= $tipoAluguel === 'quarto' ? 'selected' : '' ?>>Quarto</option>
-                                    <option value="estudio" <?= $tipoAluguel === 'estudio' ? 'selected' : '' ?>>Estúdio</option>
+                                    <option value="casa" <?= (isset($tipoAluguel) && $tipoAluguel === 'casa') ? 'selected' : '' ?>>Casa</option>
+                                    <option value="quarto" <?= (isset($tipoAluguel) && $tipoAluguel === 'quarto') ? 'selected' : '' ?>>Quarto</option>
+                                    <option value="estudio" <?= (isset($tipoAluguel) && $tipoAluguel === 'estudio') ? 'selected' : '' ?>>Estúdio</option>
                                 </select>
                             </div>
                             <div class="mb-3">
