@@ -473,7 +473,7 @@ $usuario = Auth::getUsuario();
             <div class="main-image center-image">
                 <img src="../img/mansao.png" alt="Casa da Família Adams" class="mansao shadow-lg mt-2">
                 <div class="main-image-info">
-                    <a href="../views/template.php"><h2 class="mt-4">Aluguel</h2></a>
+                    <a href="index.php"><h2 class="mt-4">Aluguel</h2></a>
                 </div>
             </div>
         </div>
@@ -586,7 +586,7 @@ $usuario = Auth::getUsuario();
                                 </div>
                                 <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary fecha" data-bs-dismiss="modal">Fechar</button>
-                                <a href="../views/template.php"><button type="button" class="btn btn-primary">Alugar</button></a>
+                                <a href="index.php"><button type="button" class="btn btn-primary">Alugar</button></a>
                                 </div>
                         </div>
                     </div>
@@ -685,7 +685,7 @@ $usuario = Auth::getUsuario();
                                 </div>
                                 <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary fecha" data-bs-dismiss="modal">Fechar</button>
-                                <a href="../views/template.php"><button type="button" class="btn btn-primary">Alugar</button></a>
+                                <a href="index.php"><button type="button" class="btn btn-primary">Alugar</button></a>
                                 </div>
                         </div>
                     </div>
@@ -772,7 +772,7 @@ $usuario = Auth::getUsuario();
                                 </div>
                                 <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary fecha" data-bs-dismiss="modal">Fechar</button>
-                                <a href="../views/template.php"><button type="button" class="btn btn-primary">Alugar</button></a>
+                                <a href="index.php"><button type="button" class="btn btn-primary">Alugar</button></a>
                                 </div>
                         </div>
                     </div>
@@ -855,7 +855,7 @@ $usuario = Auth::getUsuario();
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary fecha" data-bs-dismiss="modal">Fechar</button>
-                                    <a href="../views/template.php"><button type="button" class="btn btn-primary">Alugar</button></a>
+                                    <a href="index.php"><button type="button" class="btn btn-primary">Alugar</button></a>
                                 </div>
                             </div>
                         
@@ -931,7 +931,7 @@ $usuario = Auth::getUsuario();
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary fecha" data-bs-dismiss="modal">Fechar</button>
-                                    <a href="../views//template.php"><button type="button" class="btn btn-primary">Alugar</button></a>
+                                    <a href=".index.php"><button type="button" class="btn btn-primary">Alugar</button></a>
                                 </div>
                         </div>
                     </div>
@@ -1038,7 +1038,7 @@ $usuario = Auth::getUsuario();
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn fecha btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                    <a href="../views/template.php"><button type="button" class="btn btn-primary">Alugar</button></a>
+                                    <a href="index.php"><button type="button" class="btn btn-primary">Alugar</button></a>
                                 </div>
                         </div>
                     </div>

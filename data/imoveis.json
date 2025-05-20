@@ -5,13 +5,6 @@
         "local": "Inglaterra",
         "disponivel": true
     },
-
-    {
-        "tipo": "Casa",
-        "nome": "Casa da Mônica",
-        "local": "São José dos Campos (SP)",
-        "disponivel": false
-    },
     {
         "tipo": "Casa",
         "nome": "Cabana Tony Stark (Vingadores: Ultimato)",
@@ -19,31 +12,27 @@
         "disponivel": true
     },
     {
-        "tipo": "Estúdio",
-        "nome": "Cenário série Friends",
-        "local": "Califórnia",
+        "tipo": "Quarto",
+        "nome": "Cen\u00e1rio s\u00e9rie Friends",
+        "local": "Calif\u00f3rnia",
         "disponivel": false
     },
     {
         "tipo": "Quarto",
         "nome": "Hotel Shrek",
-        "local": "Terras Altas da Escócia",
+        "local": "Terras Altas da Esc\u00f3cia",
         "disponivel": true
     },
-
     {
         "tipo": "Casa",
         "nome": "Casa Ainda Estou Aqui",
         "local": "Bairro da Urca (RJ)",
         "disponivel": true
     },
-
-
     {
-        "tipo": "Estúdio",
+        "tipo": "Quarto",
         "nome": "Hollywood Arts (Escola Brilhante Victoria)",
-        "local": "Los Angeles, Califórnia",
+        "local": "Los Angeles, Calif\u00f3rnia",
         "disponivel": false
     }
-   
 ]

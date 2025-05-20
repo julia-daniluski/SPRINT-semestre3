@@ -6,6 +6,7 @@ use Models\{Imovel, Casa, Quarto, Estudio};
 // classe para gerenciar a locação
 class Locadora {
     private array $imoveis = [];
+    private string $arquivoJson = ARQUIVO_JSON;
 
     public function __construct() {
         $this->carregarImoveis();
