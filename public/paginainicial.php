@@ -199,6 +199,12 @@ $usuario = Auth::getUsuario();
             width: 100%;         /* Ocupa toda a largura */
             height: auto;        /* Altura automática */
             display: block;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .mansao:hover{
+            transform: scale(1.03);
         }
 
         .imagem-container {
@@ -376,7 +382,7 @@ $usuario = Auth::getUsuario();
                                 <a class="nav-link" href="#home">Início</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../views/template.php">Anunciar</a>
+                                <a class="nav-link" href="../views/template.php">Alugar</a>
                             </li>
                             <li class="nav-item">
             <a class="nav-link" href="#" data-toggle="modal" data-target="#sobreModal">Sobre</a>
@@ -391,7 +397,7 @@ $usuario = Auth::getUsuario();
                 </button>
             </div>
             <div class="modal-body">
-                <p>A Cine\&Places é uma empresa brasileira que oferece uma experiência única para apaixonados por cinema e séries. Ela se especializa em alugar imóveis inspirados ou que foram realmente usados em produções cinematográficas e televisivas. Seja para gravar cenas de filmes independentes, séries, ou até mesmo para quem deseja passar dias imersos no ambiente de um set de filmagem, a Cine\&Places proporciona um cenário autêntico e memorável.
+                <p>A Cine&Places é uma empresa brasileira que oferece uma experiência única para apaixonados por cinema e séries. Ela se especializa em alugar imóveis inspirados ou que foram realmente usados em produções cinematográficas e televisivas. Seja para gravar cenas de filmes independentes, séries, ou até mesmo para quem deseja passar dias imersos no ambiente de um set de filmagem, a Cine\&Places proporciona um cenário autêntico e memorável.
 
 A empresa possui uma vasta gama de imóveis, desde casas e apartamentos que serviram como cenário de filmes famosos até espaços que foram inspirados por cenas icônicas. Isso permite que cineastas, produtores e fãs do universo cinematográfico experimentem, de maneira única, a possibilidade de viver ou criar dentro desses ambientes fantásticos.
 
@@ -446,7 +452,7 @@ Além de ser uma excelente opção para profissionais da área de produção aud
                     <span class="welcome-text">
                         Bem-vindo, <strong><?= htmlspecialchars($usuario['username']) ?></strong>
                     </span>
-                    <a href="login.php" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-3">
+                    <a href="?logout=1" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-3">
                         <i class="bi bi-box-arrow-right"></i> Sair
                     </a>
                 </div>

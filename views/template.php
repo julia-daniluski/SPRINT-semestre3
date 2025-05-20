@@ -490,7 +490,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav mt-1">
                             <li class="nav-item"><a class="nav-link" href="../public/paginainicial.php">Início</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../public/login.php">Anunciar</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Alugar</a></li>
                             <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
                             <li class="nav-item"><a class="nav-link" href="#contatos">Contato</a></li>
                         </ul>
@@ -506,7 +506,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <span class="welcome-text">
                         Bem-vindo, <strong><?= htmlspecialchars($usuario['username']) ?></strong>
                     </span>
-                    <a href="login.php" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-3">
+                    <a href="?logout=1" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-3">
                         <i class="bi bi-box-arrow-right"></i> Sair
                     </a>
                 </div>

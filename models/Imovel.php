@@ -3,7 +3,7 @@ namespace Models;
 
 // Classe abstrata para todos os tipos de veiculos
 
-abstract class Imoveis {
+abstract class Imovel {
     protected string $nome;
     protected string $local;
     protected bool $disponivel;
@@ -31,6 +31,6 @@ abstract class Imoveis {
         $this->disponivel = $disponivel;
 
     }
-
 }
 
+// Visto

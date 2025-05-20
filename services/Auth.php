@@ -26,13 +26,14 @@ class Auth{
                     'perfil' => 'admin'
                 ],
                 [   'username' => 'usuario',
-                    'password' => password_hash('usuario123', PASSWORD_DEFAULT),
+                    'password' => password_hash('user123', PASSWORD_DEFAULT),
                     'perfil' => 'usuario'
                 ]
             ];
             $this ->salvarUsuarios();
         }
     }
+
     // Função para salvar usuários no arquivo JSON
     private function salvarUsuarios(): void{
         $dir = dirname(ARQUIVO_USUARIOS);
@@ -41,7 +42,7 @@ class Auth{
             mkdir($dir, 0777, true);
         }
 
-        file_put_contents(ARQUIVO_USUARIOS,json_encode($this->usuarios, JSON_PRETTY_PRINT));
+        file_put_contents(ARQUIVO_USUARIOS, json_encode($this->usuarios, JSON_PRETTY_PRINT));
     }
 
     //Método para realizar login 
@@ -63,7 +64,7 @@ class Auth{
     }
     //verificar se o usuário está logado
     public static function verificarLogin():bool{
-        return isset($_SESSION['auth'] ) && $_SESSION['auth']['perfil'] === true;
+        return isset($_SESSION['auth'] ) && $_SESSION['auth']['logado'] === true;
     }
 
     public static function isPerfil(string $perfil): bool{
@@ -79,3 +80,5 @@ class Auth{
     }
 
 }
+
+// Visto
