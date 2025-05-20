@@ -10,7 +10,7 @@ use Services\Locadora;
 
 
 $usuario = Auth::getUsuario();
-$locadora = new Locadora();
+
 //$mensagem = null; // inicializa para evitar erro
 //$locadora = $locadora ?? null; // previne erro se $locadora não estiver definida
 
