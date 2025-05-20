@@ -363,17 +363,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <a href="login.php" class="entrem">Já tem uma conta? Entre.</a>                        
                             </div>                    
                         </form>                
-                    
                     </div>            
                 </div>        
             </div>    
         </main>
-    </body>
-    </html>
+</body>
+</html>
 <script>    
 function togglePassword(id) {        
     const passwordField = document.getElementById(id);        
     const type = passwordField.type === "password" ? "text" : "password";        
     passwordField.type = type;    
-}
-    </script>
+    }
+    // visto
+</script>

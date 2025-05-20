@@ -1,41 +1,49 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 session_start();
 require_once __DIR__ . '/../services/Auth.php';
+require_once __DIR__ . '/../services/Locadora.php'; // Adicione este require se necessário
+
 
 use Services\Auth;
+use Services\Locadora;
 
 
 $usuario = Auth::getUsuario();
-$mensagem = null; // inicializa para evitar erro
-$locadora = $locadora ?? null; // previne erro se $locadora não estiver definida
+$locadora = new Locadora();
+//$mensagem = null; // inicializa para evitar erro
+//$locadora = $locadora ?? null; // previne erro se $locadora não estiver definida
 
 // Inicializa variáveis de formulário
-$previsao = null;
-$tipoAluguel = '';
-$diasAluguel = 0;
-$valorHospedagem = '';
-$localHospedagem = '';
-$tipoHospedagem = '';
+//$previsao = null;
+//$tipoAluguel = '';
+//$diasAluguel = 0;
+//$valorHospedagem = '';
+//$localHospedagem = '';
+//$tipoHospedagem = '';
 
 // Processamento dos formulários
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['calcular'])) {
-        $tipoAluguel = $_POST['tipo_aluguel'];
-        $diasAluguel = (int) $_POST['quantidade'];
+//if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//    if (isset($_POST['calcular'])) {
+//        $tipoAluguel = $_POST['tipo_aluguel'];
+//        $diasAluguel = (int) $_POST['quantidade'];
+//
+//        $precos = ['casa' => 1900, 'quarto' => 800, 'estudio' => 5000];
+//        $previsao = ($precos[$tipoAluguel] ?? 0) * $diasAluguel;
+//    }
 
-        $precos = ['casa' => 1900, 'quarto' => 800, 'estudio' => 5000];
-        $previsao = ($precos[$tipoAluguel] ?? 0) * $diasAluguel;
-    }
-
-    if (isset($_POST['adicionar']) && Auth::isAdmin()) {
-        $localHospedagem = $_POST['Nome'];
-        $valorHospedagem = $_POST['Local'];
-        $tipoHospedagem = $_POST['tipo'];
-        $mensagem = "Hospedagem adicionada com sucesso!";
-    }
-}
+//    if (isset($_POST['adicionar']) && Auth::isAdmin()) {
+//        $localHospedagem = $_POST['Nome'];
+//        $valorHospedagem = $_POST['Local'];
+//        $tipoHospedagem = $_POST['tipo'];
+//        $mensagem = "Hospedagem adicionada com sucesso!";
+//    }
+//}
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -496,7 +504,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </ul>
                     </div>
                 </div>
-                <?php if ($usuario): ?>  
+
 
                                     <!-- Direita: Usuário -->
                 <div class="d-flex align-items-center gap-3 user-info border p-2 rounded-5 usuario">
@@ -511,126 +519,96 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </a>
                 </div>
             </div>
-                <?php endif; ?>
-
             </div>
         </nav>
+    </header>
 
+    <main class="container mt-4">
         <?php if ($mensagem): ?>
             <div class="alert alert-info alert-dismissible fade show" role="alert">
                 <?= htmlspecialchars($mensagem) ?>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         <?php endif; ?>
-        </header>
 
-    <main class="container mt-4">
         <!-- Lista de imóveis -->
-        <div class="card mb-4">
-            <div class="card-header">
-                <h4>Aluguéis disponíveis:</h4>
-            </div>
-            <div class="card-body table-responsive">
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th>Tipo</th>
-                            <th>Local</th>
-                            <th>Valor</th>
-                            <th>Status</th>
-                            <?php if (Auth::isAdmin()): ?>
-                            <th>Ações</th>
-                            <?php endif; ?>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php if ($locadora): ?>                         
-                    </tbody>
-            </main>
-
-        <!-- Tabela de imoveis cadastrados -->
-<div class="container mt-4">
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                    <div class="card-header">
-                        <h4 class="mb-0">Aluguéis disponíveis:</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Tipo</th>
-                                        <th>Lugar</th>
-                                        <th>Valor</th>
-                                        <th>Status</th>
-                                        <?php if (Auth::isAdmin()): ?>
-                                        <th>Ações</th>
-                                        <?php endif; ?>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <?php foreach ($locadora->listarImoveis() as $imovel): ?>
-                                <tr>
-                                    <td>
-                                    <?php 
-                                        if ($imovel instanceof \Models\Casa) {
-                                            echo 'Casa';
-                                        } elseif ($imovel instanceof \Models\Estudio) {
-                                            echo 'Estúdio';
-                                        } else {
-                                            echo 'Quarto';
-                                        }
-                                    ?>
-                                    </td>
-                                    <td><?= htmlspecialchars($imovel->getNome()) ?></td>
-                                    <td><?= htmlspecialchars($imovel->getLocal()) ?></td>
-                                    <td>
-                                        <span class="badge bg-<?= $imovel->isDisponivel() ? 'success' : 'warning' ?>">
-                                            <?= $imovel->isDisponivel() ? 'Disponível' : 'Alugado' ?>
-                                        </span>
-                                    </td>
-                                    <?php if (Auth::isAdmin()): ?>
-                                        <td>
-                                            <form method="post" class="d-flex gap-2 btn-group-actions">
-                                                <input type="hidden" name="nome" value="<?= htmlspecialchars($imovel->getNome()) ?>">
-                                                <input type="hidden" name="local" value="<?= htmlspecialchars($imovel->getLocal()) ?>">
-
-                                                <button type="submit" name="deletar" class="btn btn-danger btn-sm delete-btn">Deletar</button>
-
-                                                <div class="rent-group">
-                                                    <?php if (!$imovel->isDisponivel()): ?>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4>Aluguéis disponíveis:</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Tipo</th>
+                                            <th>Local</th>
+                                            <th>Valor</th>
+                                            <th>Status</th>
+                                            <?php if (Auth::isAdmin()): ?>
+                                            <th>Ações</th>
+                                            <?php endif; ?>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php foreach ($locadora->listarImoveis() as $imovel): ?>
+                                        <tr>
+                                            <td>                                  
+                                                <?= $imovel instanceof \Models\Casa ? 'Casa' : 'Estudio' ?>                                    
+                                            </td>
+                                            <td><?= htmlspecialchars($imovel->getNome()) ?></td>
+                                            <td><?= htmlspecialchars($imovel->getLocal()) ?></td>
+                                            <td>
+                                                <span class="badge bg-<?= $imovel->isDisponivel() ? 'success' : 'warning' ?>">
+                                                    <?= $imovel->isDisponivel() ? 'Disponível' : 'Alugado' ?>
+                                                </span>
+                                            </td>
+                                            <?php if (Auth::isAdmin()): ?>
+                                                <td>
+                                                    <div class="action-wrapper">
+                                                        <form method="post" class="btn-group-actions">
+                                                            <input type="hidden" name="nome" value="<?= htmlspecialchars($imovel->getNome()) ?>">
+                                                            <input type="hidden" name="local" value="<?= htmlspecialchars($imovel->getLocal()) ?>">
+                                                            
+                                                            <button type="submit" name="deletar" class="btn btn-danger btn-sm delete-btn">Deletar</button>
+                                                            
+                                                            <div class="rent-group">
+                                                                <?php if (!$imovel->isDisponivel()): ?>
                                                         
-                                                        <button type="submit" name="devolver" class="btn btn-warning btn-sm">Devolver</button>
-                                                    <?php else: ?>
-
-                                                        <input type="number" name="dias" value="1" class="form-control days-input" min="1" required>
-                                                        <button type="submit" name="alugar" class="btn btn-primary btn-sm">Alugar</button>
-                                                    <?php endif; ?>
-                                                </div>
-                                            </form>
-                                        </td>
-                                    <?php endif; ?>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php else: ?>
-                            <tr><td colspan="5" class="text-center">Nenhum imóvel disponível</td></tr>
-                        <?php endif; ?>
-                    </tbody>
-                </table>
+                                                                <button type="submit" name="devolver" class="btn btn-warning btn-sm">Devolver</button>
+                                                                <?php else: ?>
+                                                                <input type="number" name="dias" value="1" class="form-control days-input" min="1" required>
+                                                                <button type="submit" name="alugar" class="btn btn-primary btn-sm">Alugar</button>
+                                                                <?php endif; ?>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                            <?php endif; ?>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Formulário de cálculo -->
         <div class="row g-4">
-            <div class="col-md-6">
+            <div class="col-<?=Auth::isAdmin() ? 'md-6':'12'?>">
                 <div class="card h-100">
-                    <div class="card-header"><h4>Calcular previsão de aluguel</h4></div>
+                    <div class="card-header">
+                        <h4>Calcular previsão de aluguel</h4>
+                    </div>
                     <div class="card-body">
-                        <form method="post">
+                        <form method="post" class="needs-validation" novalidate>
                             <div class="mb-3">
-                                <label for="tipo_aluguel" class="form-label">Tipo:</label>
+                                <label for="tipo_aluguel" class="form-label">Tipo de local:</label>
                                 <select name="tipo_aluguel" id="tipo_aluguel" class="form-select" required>
                                     <option value="casa" <?= $tipoAluguel === 'casa' ? 'selected' : '' ?>>Casa</option>
                                     <option value="quarto" <?= $tipoAluguel === 'quarto' ? 'selected' : '' ?>>Quarto</option>
@@ -643,54 +621,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </div>
                             <button type="submit" name="calcular" class="btn btn-primary w-100 botaoadd">Calcular</button>
                         </form>
-
-                        <?php if ($previsao !== null): ?>
-                            <div class="mt-4 alert alert-success">
-                                <strong>Total estimado:</strong> R$ <?= number_format($previsao, 2, ',', '.') ?>
-                            </div>
-                        <?php endif; ?>
                     </div>
                 </div>
             </div>
 
             <!-- Formulário de administrador para adicionar novo local de hospedagem -->
-           <?php if (Auth::isAdmin()): ?>
-            <div class="col-md-6">
-                <div class="card h-100">
-                    <div class="card-header">
-                        <h4>Adicionar nova hospedagem</h4>
-                    </div>
-                    <div class="card-body">
-                        <form method="POST">
-                            <div class="mb-3">
-                                <label for="Nome" class="form-label">Local da hospedagem</label>
-                                <input type="text" name="Nome" id="Nome" class="form-control" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="Local" class="form-label">Valor da hospedagem</label>
-                                <input type="text" name="Local" id="Local" class="form-control" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="tipo" class="form-label">Tipo da hospedagem</label>
-                                <select name="tipo" id="tipo" class="form-select" required>
-                                    <option value="" selected disabled>Selecione...</option>
-                                    <option value="casa">Casa</option>
-                                    <option value="quarto">Quarto</option>
-                                    <option value="estudio">Estúdio</option>
-                                </select>
-                            </div>
-
-                            <button type="submit" name="adicionar" class="btn btn-success w-100 botaoadd">Adicionar</button>
-                        </form>
+            <div class="row same-height-row">
+                <?php if (Auth::isAdmin()): ?>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h4>Adicionar nova hospedagem</h4>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" class="needs-validation" novalidate>
+                                <div class="mb-3">
+                                    <label for="Nome" class="form-label">Local da hospedagem</label>
+                                    <input type="text" name="nome" id="Nome" class="form-control" required>
+                                    <div class="invalid-feedback">Informe um lugar válido</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="Local" class="form-label">Valor da hospedagem</label>
+                                    <input type="text" name="Local" id="Local" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tipo" class="form-label">Tipo da hospedagem</label>
+                                    <select name="tipo" id="tipo" class="form-select" required>
+                                        <option value="" selected disabled>Selecione...</option>
+                                        <option value="casa">Casa</option>
+                                        <option value="quarto">Quarto</option>
+                                        <option value="estudio">Estúdio</option>
+                                    </select>
+                                </div>
+                                <button type="submit" name="adicionar" class="btn btn-success w-100 botaoadd">Adicionar</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
             <?php endif; ?>
+            </div>
         </div>
     </main>
 
+    <!-- Rodapé -->
     <footer id="contatos" class="text-center mt-5">
         <p class="text-muted">Nos encontre nas redes sociais:</p>
         <div class="d-flex justify-content-center gap-3 mb-2">

@@ -113,10 +113,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 <div class="card-body">
                     <form onsubmit="event.preventDefault(); redefinirSenha();">
-                    <div class="mb-3">
-    <label for="user" class="form-label">Usuário:</label>
-    <input type="text" name="username" id="user" class="form-control" required placeholder="Digite o usuário">
-</div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">Usuário:</label>
+                            <input type="text" name="username" id="user" class="form-control" required placeholder="Digite o usuário">
+                        </div>
 
                         <div class="mb-3">
                             <label for="novaSenha" class="form-label">Nova Senha:</label>
@@ -162,3 +162,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </script>
 </body>
 </html>
+
+<!-- Visto -->

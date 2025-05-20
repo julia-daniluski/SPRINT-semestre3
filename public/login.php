@@ -13,7 +13,7 @@ $auth = new Auth();
 
 // Se já estiver logado, redireciona para a página inicial
 if (Auth::verificarLogin()) {
-    header('Location: paginainicial.php');
+    header('Location: paginainicial.php'); //index.php
     exit;
 }
 
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     if ($auth->login($username, $password)) {
         // Redireciona para a página inicial após login bem-sucedido
-        header('Location: paginainicial.php');
+        header('Location: paginainicial.php'); //index.php
         exit;
     } else {
         $mensagem = 'Usuário ou senha inválidos';
@@ -355,14 +355,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="col-md-4 d-flex segcontainer">
                     <div class="card w-100 h-100">
                         <div class="card-header">
-                            <?php if ($mensagem): ?>
-                            <div class="alert alert-danger"><?= htmlspecialchars($mensagem) ?></div>
-                            <?php endif; ?>
-                            <form method="post" class="needs-validation" novalidate> 
                             <h4 class="log mb-0">Efetuar login</h4>
                         </div>
                         <div class="card-body w-90 mb-4">
-                            <form class="needs-validation" novalidate>
+                            <?php if ($mensagem): ?>
+                            <div class="alert alert-danger"><?= htmlspecialchars($mensagem) ?></div>
+                            <?php endif; ?>
+                            <form method="post" class="needs-validation" novalidate>
                                 <div class="mb-3">
                                     <label for="user" class="form-label">Usuário:</label>
                                     <input type="text" name="username" id="user" class="form-control" required placeholder="Digite o usuário">
@@ -377,10 +376,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </div>
                                 
                                 <!-- Botão de login principal -->
-                                <button  class="btn btn-warning w-100 mb-3">
-                                    Entrar
-                                </a>
-                                </button>
+                                <button type="submit" class="btn btn-warning w-100 mb-3">Entrar</button>
 
                                 <!-- Botões sociais -->
                                 <div class="jeitosentrar">
@@ -402,3 +398,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+<!-- Visto -->
