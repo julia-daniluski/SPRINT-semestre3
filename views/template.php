@@ -528,7 +528,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <span class="welcome-text">
                         Bem-vindo, <strong><?= htmlspecialchars($usuario['username']) ?></strong>
                     </span>
-                    <a href="?logout=1" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-3">
+                    <a href="?logout=1" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-1">
                         <i class="bi bi-box-arrow-right"></i> Sair
                     </a>
                 </div>
