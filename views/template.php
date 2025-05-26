@@ -485,8 +485,43 @@ $usuario = Auth::getUsuario();
             }
             
         }
+
     </style>
 </head>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.querySelector('form button[name="calcular"]').closest('form');
+        const tipoAluguel = document.getElementById('tipo_aluguel');
+        const quantidade = document.getElementById('quantidade');
+        const resultadoDiv = document.getElementById('previsaoResultado');
+
+        const precos = {
+            casa: 1900,
+            quarto: 800,
+            estudio: 5000
+        };
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault(); // Impede o envio do formulário
+
+            const tipo = tipoAluguel.value;
+            const dias = parseInt(quantidade.value, 10);
+
+            if (!tipo || isNaN(dias) || dias <= 0) {
+                resultadoDiv.innerText = 'Por favor, preencha corretamente os campos.';
+                resultadoDiv.classList.remove('text-primary');
+                resultadoDiv.classList.add('text-danger');
+                return;
+            }
+
+            const valor = precos[tipo] * dias;
+            resultadoDiv.innerText = `Valor estimado: R$ ${valor.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+            resultadoDiv.classList.remove('text-danger');
+            resultadoDiv.classList.add('text-primary');
+        });
+    });
+</script>
+
 <body>
     <!-- Navbar -->
     <header>
@@ -600,68 +635,69 @@ $usuario = Auth::getUsuario();
             </div>
         </div>
 
-        <!-- Formulário de cálculo -->
-        <div class="row g-4">
-            <div class="col-<?=Auth::isAdmin() ? 'md-6':'12'?>">
-                <div class="card h-100">
-                    <div class="card-header">
-                        <h4>Calcular previsão de aluguel</h4>
-                    </div>
-                    <div class="card-body">
-                        <form method="post" class="needs-validation" novalidate>
-                            <div class="mb-3">
-                                <label for="tipo_aluguel" class="form-label">Tipo de local:</label>
-                                <select name="tipo_aluguel" id="tipo_aluguel" class="form-select" required>
-                                    <option value="casa" <?= (isset($tipoAluguel) && $tipoAluguel === 'casa') ? 'selected' : '' ?>>Casa</option>
-                                    <option value="quarto" <?= (isset($tipoAluguel) && $tipoAluguel === 'quarto') ? 'selected' : '' ?>>Quarto</option>
-                                    <option value="estudio" <?= (isset($tipoAluguel) && $tipoAluguel === 'estudio') ? 'selected' : '' ?>>Estúdio</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="quantidade" class="form-label">Diárias:</label>
-                                <input type="number" id="quantidade" name="quantidade" value="<?= $diasAluguel ?>" class="form-control" min="1" required>
-                            </div>
-                            <button type="submit" name="calcular" class="btn btn-primary w-100 botaoadd">Calcular</button>
-                        </form>
-                    </div>
-                </div>
+<!-- Formulários lado a lado -->
+<div class="row g-4">
+    <!-- Previsão de aluguel -->
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-header">
+                <h4>Calcular previsão de aluguel</h4>
             </div>
+            <div class="card-body">
+                <form method="post" class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label for="tipo_aluguel" class="form-label">Tipo de local:</label>
+                        <select name="tipo_aluguel" id="tipo_aluguel" class="form-select" required>
+                            <option value="casa" <?= (isset($tipoAluguel) && $tipoAluguel === 'casa') ? 'selected' : '' ?>>Casa</option>
+                            <option value="quarto" <?= (isset($tipoAluguel) && $tipoAluguel === 'quarto') ? 'selected' : '' ?>>Quarto</option>
+                            <option value="estudio" <?= (isset($tipoAluguel) && $tipoAluguel === 'estudio') ? 'selected' : '' ?>>Estúdio</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="quantidade" class="form-label">Diárias:</label>
+                        <input type="number" id="quantidade" name="quantidade" value="<?= $diasAluguel ?>" class="form-control" min="1" required>
+                    </div>
+                    <button type="submit" name="calcular" class="btn btn-primary w-100 botaoadd">Calcular</button>
+                    <div id="previsaoResultado" class="mt-3 fw-bold text-primary"></div>
+                    </form>
+            </div>
+        </div>
+    </div>
 
-            <!-- Formulário de administrador para adicionar novo local de hospedagem -->
-            <div class="row same-height-row">
-                <?php if (Auth::isAdmin()): ?>
-                <div class="col-md-6">
-                    <div class="card h-100">
-                        <div class="card-header">
-                            <h4>Adicionar nova hospedagem</h4>
-                        </div>
-                        <div class="card-body">
-                            <form method="post" class="needs-validation" novalidate>
-                                <div class="mb-3">
-                                    <label for="Nome" class="form-label">Local da hospedagem</label>
-                                    <input type="text" name="nome" id="Nome" class="form-control" required>
-                                    <div class="invalid-feedback">Informe um lugar válido</div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="Local" class="form-label">Valor da hospedagem</label>
-                                    <input type="text" name="Local" id="Local" class="form-control" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="tipo" class="form-label">Tipo da hospedagem</label>
-                                    <select name="tipo" id="tipo" class="form-select" required>
-                                        <option value="" selected disabled>Selecione...</option>
-                                        <option value="casa">Casa</option>
-                                        <option value="quarto">Quarto</option>
-                                        <option value="estudio">Estúdio</option>
-                                    </select>
-                                </div>
-                                <button type="submit" name="adicionar" class="btn btn-success w-100 botaoadd">Adicionar</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            <?php endif; ?>
+    <!-- Adicionar imóvel -->
+    <?php if (Auth::isAdmin()): ?>
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-header">
+                <h4>Adicionar nova hospedagem</h4>
             </div>
+            <div class="card-body">
+                <form method="post" class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label for="Nome" class="form-label">Local da hospedagem</label>
+                        <input type="text" name="nome" id="Nome" class="form-control" required>
+                        <div class="invalid-feedback">Informe um lugar válido</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Local" class="form-label">Valor da hospedagem</label>
+                        <input type="text" name="Local" id="Local" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tipo" class="form-label">Tipo da hospedagem</label>
+                        <select name="tipo" id="tipo" class="form-select" required>
+                            <option value="" selected disabled>Selecione...</option>
+                            <option value="casa">Casa</option>
+                            <option value="quarto">Quarto</option>
+                            <option value="estudio">Estúdio</option>
+                        </select>
+                    </div>
+                    <button type="submit" name="adicionar" class="btn btn-success w-100 botaoadd">Adicionar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
+</div>
         </div>
     </main>
 

@@ -1,10 +1,28 @@
+
 <?php
 session_start();
 
-require_once __DIR__ . '/../services/Auth.php';
+require_once __DIR__ . '/../vendor/autoload.php'; // ou o caminho correto para seu autoload
+require_once __DIR__ . '/../config/config.php'; // seu arquivo de configurações
+
 use Services\Auth;
+
+// Verifica logout
+if (isset($_GET['logout'])) {
+    (new Auth())->logout();
+    header('Location: login.php');
+    exit;
+}
+
+// Verifica login
+if (!Auth::verificarLogin()) {
+    header('Location: login.php');
+    exit;
+}
+
 $usuario = Auth::getUsuario();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -452,9 +470,10 @@ $usuario = Auth::getUsuario();
                     <span class="welcome-text">
                         Bem-vindo, <strong><?= htmlspecialchars($usuario['username']) ?></strong>
                     </span>
-                    <a href="?logout=1" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-3">
-                        <i class="bi bi-box-arrow-right"></i> Sair
-                    </a>
+                    <a href="?logout=1" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-1">
+    <i class="bi bi-box-arrow-right"></i> Sair
+</a>
+
                 </div>
             </div>
         </nav>
