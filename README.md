@@ -4,7 +4,7 @@ Esse trabalho pretende por meio de HTML, CSS, PHP e JSON, desenvolver um website
 
 Observação: o projeto ainda não foi finalizado.
 
-## Empresa
+## empresa
 
 Criamos o site "Cine&Place", que consiste em alugueis de locações e imóveis conhecidos por terem sido usados em filmes e séries, ou inspirada neles.
 
