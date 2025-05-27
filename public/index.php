@@ -14,18 +14,19 @@ use Services\{Locadora, Auth};
 // Importar as classes Quarto, Casa e Estúdio
 use Models\{Casa, Quarto, Estudio};
 
-// Verificar se o usuário está logado
-if(!Auth::verificarLogin()){
-    header('Location: login.php');
-    exit;
-}
-
 // Condição para logout
 if (isset($_GET['logout'])){
     (new Auth())->logout();
     header('Location: login.php');
     exit;
 }
+
+// Verificar se o usuário está logado
+if(!Auth::verificarLogin()){
+    header('Location: login.php');
+    exit;
+}
+
 
 // Criar uma instância da classe locadora
 $locadora = new Locadora();
