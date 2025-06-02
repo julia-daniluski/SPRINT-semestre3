@@ -708,11 +708,13 @@ $usuario = Auth::getUsuario();
         </div>
     </div>
 
+   <!-- adicionar imovel -->
 <?php
 if (isset($_POST['adicionar'])) {
-    $tipo = htmlspecialchars(trim($_POST['tipo']));
-    $nome = htmlspecialchars(trim($_POST['nome']));
-    $local = htmlspecialchars(trim($_POST['local']));
+    // Correção aplicada com ?? ''
+    $tipo = htmlspecialchars(trim($_POST['tipo'] ?? ''));
+    $nome = htmlspecialchars(trim($_POST['nome'] ?? ''));
+    $local = htmlspecialchars(trim($_POST['local'] ?? ''));
     $disponivel = isset($_POST['disponivel']) ? true : false;
 
     if ($tipo && $nome && $local) {
@@ -771,13 +773,13 @@ if (isset($_POST['adicionar'])) {
                     <input type="text" name="local" id="local" class="form-control" required>
                 </div>
 
-
                 <button type="submit" name="adicionar" class="btn btn-primary w-100 botaoadd">Adicionar</button>
             </form>
         </div>
     </div>
 </div>
 <?php endif; ?>
+
 
     </main>
 

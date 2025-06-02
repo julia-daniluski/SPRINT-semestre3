@@ -3,7 +3,6 @@
         "tipo": "Quarto",
         "nome": "Castelo de Alnwick - Hogwarts (Harry Potter)",
         "local": "Inglaterra",
-        
         "disponivel": true
     },
     {
@@ -70,6 +69,12 @@
         "tipo": "Quarto",
         "nome": "sonequinha gostosa 2.0",
         "local": "Los angeles",
+        "disponivel": false
+    },
+    {
+        "tipo": "Quarto",
+        "nome": "jj",
+        "local": "kk",
         "disponivel": false
     }
 ]
