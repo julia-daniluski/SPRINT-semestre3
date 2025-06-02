@@ -112,5 +112,11 @@
         "nome": "jj",
         "local": "kk",
         "disponivel": false
+    },
+    {
+        "tipo": "Estúdio",
+        "nome": "Lumina Studios",
+        "local": "Valparaíso, Chile",
+        "disponivel": false
     }
 ]

@@ -34,5 +34,11 @@
         "nome": "Hollywood Arts (Escola Brilhante Victoria)",
         "local": "Los Angeles, Calif\u00f3rnia",
         "disponivel": false
+    },
+    {
+        "tipo": "Estudio",
+        "nome": "Lumina Studios",
+        "local": "Valpara\u00edso, Chile",
+        "disponivel": false
     }
 ]
