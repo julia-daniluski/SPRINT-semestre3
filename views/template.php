@@ -644,7 +644,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             </div>
 
-<<<<<<< Updated upstream
   <?php if (!is_null($previsao)): ?>
     <div class="alert alert-success mt-3">
         Valor total do aluguel: <strong>R$ <?= number_format($previsao, 2, ',', '.') ?></strong>
@@ -653,15 +652,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-=======
-
-            <?php if (!is_null($previsao)): ?>
-                <div class="alert alert-success mt-3">
-                    Valor total do aluguel: <strong>R$ <?= number_format($previsao, 2, ',', '.') ?></strong>
-                </div>
-            <?php endif; ?>
-        </div>
->>>>>>> Stashed changes
             <!-- Formulário de administrador para adicionar novo local de hospedagem -->
             <div class="row same-height-row">
                 <?php if (Auth::isAdmin()): ?>
@@ -696,12 +686,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                 </div>
             <?php endif; ?>
-<<<<<<< Updated upstream
             </div>
-=======
-
-</div>
->>>>>>> Stashed changes
         </div>
     </main>
 

@@ -1,7 +1,6 @@
 <?php
 namespace Models;
 
-// Classe abstrata para todos os tipos de veiculos
 
 abstract class Imovel {
     protected string $nome;
