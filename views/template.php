@@ -15,29 +15,17 @@ use Services\Locadora;
 
 
 $usuario = Auth::getUsuario();
-$locadora = new Locadora(); // ✅ Corrigido: instanciando a classe Locadora
 
-$previsao = null;
-$tipoAluguel = '';
-$diasAluguel = '';
-$mensagem = null; // Inicializado para evitar erro
+//$mensagem = null; // inicializa para evitar erro
+//$locadora = $locadora ?? null; // previne erro se $locadora não estiver definida
 
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['calcular'])) {
-        $tipoAluguel = $_POST['tipo_aluguel'];
-        $diasAluguel = (int) $_POST['quantidade'];
-
-        $precos = [
-            'casa' => 190, // valor por dia
-            'quarto' => 80,
-            'estudio' => 150
-        ];
-
-        $previsao = ($precos[$tipoAluguel] ?? 0) * $diasAluguel;
-    }
-}
-
+// Inicializa variáveis de formulário
+//$previsao = null;
+//$tipoAluguel = '';
+//$diasAluguel = 0;
+//$valorHospedagem = '';
+//$localHospedagem = '';
+//$tipoHospedagem = '';
 
 // Processamento dos formulários
 //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -497,8 +485,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             
         }
+
     </style>
 </head>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.querySelector('form button[name="calcular"]').closest('form');
+        const tipoAluguel = document.getElementById('tipo_aluguel');
+        const quantidade = document.getElementById('quantidade');
+        const resultadoDiv = document.getElementById('previsaoResultado');
+
+        const precos = {
+            casa: 1900,
+            quarto: 800,
+            estudio: 5000
+        };
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault(); // Impede o envio do formulário
+
+            const tipo = tipoAluguel.value;
+            const dias = parseInt(quantidade.value, 10);
+
+            if (!tipo || isNaN(dias) || dias <= 0) {
+                resultadoDiv.innerText = 'Por favor, preencha corretamente os campos.';
+                resultadoDiv.classList.remove('text-primary');
+                resultadoDiv.classList.add('text-danger');
+                return;
+            }
+
+            const valor = precos[tipo] * dias;
+            resultadoDiv.innerText = `Valor estimado: R$ ${valor.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+            resultadoDiv.classList.remove('text-danger');
+            resultadoDiv.classList.add('text-primary');
+        });
+    });
+</script>
+
 <body>
     <!-- Navbar -->
     <header>
@@ -510,12 +533,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav mt-1">
-                            <li class="nav-item"><a class="nav-link" href="../public/paginainicial.php">Início</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Alugar</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#contatos">Contato</a></li>
-                        </ul>
+                <ul class="navbar-nav mt-1">
+                    <li class="nav-item"><a class="nav-link" href="../public/paginainicial.php">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Alugar</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalSobre">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalContato">Contato</a>
+                    </li>
+                </ul>
+
                     </div>
                 </div>
 
@@ -536,6 +564,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </nav>
     </header>
+
+    <div class="modal fade" id="modalSobre" tabindex="-1" aria-labelledby="modalSobreLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalSobreLabel">Sobre</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <p>A Cine&Places é uma empresa brasileira que oferece uma experiência única para apaixonados por cinema e séries. Ela se especializa em alugar imóveis inspirados ou que foram realmente usados em produções cinematográficas e televisivas. Seja para gravar cenas de filmes independentes, séries, ou até mesmo para quem deseja passar dias imersos no ambiente de um set de filmagem, a Cine&Places proporciona um cenário autêntico e memorável.</p>
+        <p>A empresa possui uma vasta gama de imóveis, desde casas e apartamentos que serviram como cenário de filmes famosos até espaços que foram inspirados por cenas icônicas. Isso permite que cineastas, produtores e fãs do universo cinematográfico experimentem, de maneira única, a possibilidade de viver ou criar dentro desses ambientes fantásticos.</p>
+</p>Além de ser uma excelente opção para profissionais da área de produção audiovisual, a Cine&Places também atrai turistas e entusiastas que desejam reviver suas cenas favoritas, seja para férias temáticas ou para momentos especiais, como sessões de fotos ou filmagens caseiras. A empresa une a magia do cinema com a possibilidade de vivenciar a realidade dos sets, criando memórias inesquecíveis e experiências imersivas para todos os tipos de públicos.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalContato" tabindex="-1" aria-labelledby="modalContatoLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalContatoLabel">Contato</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <p>Telefone: (11) 4002-8922</p>
+        <p>E-mail: contato@cineandplaces.com.br</p>
+        <p>Redes Sociais: @cineandplaces (Instagram, Facebook, Twitter)</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
     <main class="container mt-4">
         <?php if ($mensagem): ?>
@@ -612,42 +679,88 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
 
-        <!-- Formulário de cálculo -->
-        <div class="row g-4">
-            <div class="col-<?=Auth::isAdmin() ? 'md-6':'12'?>">
-                <div class="card h-100">
-                    <div class="card-header">
-                        <h4>Calcular previsão de aluguel</h4>
-                    </div>
-                    <div class="card-body">
-                        <form method="post" class="needs-validation" novalidate>
-                            <div class="mb-3">
-                                <label for="tipo_aluguel" class="form-label">Tipo de local:</label>
-                                <select name="tipo_aluguel" id="tipo_aluguel" class="form-select" required>
-                                    <option value="casa" <?= (isset($tipoAluguel) && $tipoAluguel === 'casa') ? 'selected' : '' ?>>Casa</option>
-                                    <option value="quarto" <?= (isset($tipoAluguel) && $tipoAluguel === 'quarto') ? 'selected' : '' ?>>Quarto</option>
-                                    <option value="estudio" <?= (isset($tipoAluguel) && $tipoAluguel === 'estudio') ? 'selected' : '' ?>>Estúdio</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="quantidade" class="form-label">Diárias:</label>
-                                <input type="number" id="quantidade" name="quantidade" value="<?= $diasAluguel ?>" class="form-control" min="1" required>
-                            </div>
-                            <button type="submit" name="calcular" class="btn btn-primary w-100 botaoadd">Calcular</button>
-                            <?php if (!is_null($previsao)): ?>
-                            <div class="alert alert-success mt-3">
-                                Valor total do aluguel: <strong>R$ <?= number_format($previsao, 2, ',', '.') ?></strong>
-                            </div>
-                        <?php endif; ?>
-                        </form>
-                    </div>
-                </div>
+<!-- Formulários lado a lado -->
+<div class="row g-4">
+    <!-- Previsão de aluguel -->
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-header">
+                <h4>Calcular previsão de aluguel</h4>
             </div>
 
   <?php if (!is_null($previsao)): ?>
     <div class="alert alert-success mt-3">
         Valor total do aluguel: <strong>R$ <?= number_format($previsao, 2, ',', '.') ?></strong>
     </div>
+
+<?php
+if (isset($_POST['adicionar'])) {
+    $tipo = htmlspecialchars(trim($_POST['tipo']));
+    $nome = htmlspecialchars(trim($_POST['nome']));
+    $local = htmlspecialchars(trim($_POST['local']));
+    $disponivel = isset($_POST['disponivel']) ? true : false;
+
+    if ($tipo && $nome && $local) {
+        $novoImovel = [
+            "tipo" => $tipo,
+            "nome" => $nome,
+            "local" => $local,
+            "disponivel" => $disponivel
+        ];
+
+        $arquivo = 'imoveis.json';
+
+        if (file_exists($arquivo)) {
+            $conteudo = file_get_contents($arquivo);
+            $dados = json_decode($conteudo, true);
+            if (!is_array($dados)) $dados = [];
+        } else {
+            $dados = [];
+        }
+
+        $dados[] = $novoImovel;
+        file_put_contents($arquivo, json_encode($dados, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+
+        echo "<div class='alert alert-success'>Imóvel cadastrado com sucesso!</div>";
+    } else {
+        echo "<div class='alert alert-danger'>Preencha todos os campos.</div>";
+    }
+}
+?>
+
+<?php if (Auth::isAdmin()): ?>
+<div class="col-md-6">
+    <div class="card h-100">
+        <div class="card-header">
+            <h4>Adicionar nova hospedagem</h4>
+        </div>
+        <div class="card-body">
+            <form method="post" novalidate>
+                <div class="mb-3">
+                    <label for="tipo" class="form-label">Tipo da hospedagem</label>
+                    <select name="tipo" id="tipo" class="form-select" required>
+                        <option value="" selected disabled>Selecione...</option>
+                        <option value="Casa">Casa</option>
+                        <option value="Quarto">Quarto</option>
+                        <option value="Estúdio">Estúdio</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" name="nome" id="nome" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="local" class="form-label">Local</label>
+                    <input type="text" name="local" id="local" class="form-control" required>
+                </div>
+
+                <button type="submit" name="adicionar" class="btn btn-success w-100">Adicionar</button>
+            </form>
+        </div>
+    </div>
+</div>
 <?php endif; ?>
 
 

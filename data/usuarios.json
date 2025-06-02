@@ -13,5 +13,10 @@
         "username": "ju",
         "password": "$2y$12$fRWjuVS1oV90wqEYF80L\/.NdoMkoh.a4r28pzYv1heY\/Is3Zaht8S",
         "perfil": "usuario"
+    },
+    {
+        "username": "ray",
+        "password": "$2y$12$SkKzpV83aEU8WqKA4O8jCuXoI1m9kJRNXFhKu3kv4QMiQopZPMCsu",
+        "perfil": "usuario"
     }
 ]
