@@ -36,9 +36,9 @@
         "disponivel": false
     },
     {
-        "tipo": "Estudio",
-        "nome": "",
-        "local": "",
+        "tipo": "Casa",
+        "nome": "jj",
+        "local": "kk",
         "disponivel": true
     }
 ]

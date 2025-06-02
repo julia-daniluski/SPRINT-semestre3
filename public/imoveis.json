@@ -82,5 +82,11 @@
         "nome": "jj",
         "local": "dde",
         "disponivel": false
+    },
+    {
+        "tipo": "Casa",
+        "nome": "jj",
+        "local": "kk",
+        "disponivel": false
     }
 ]

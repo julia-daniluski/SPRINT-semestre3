@@ -13,7 +13,6 @@ use Services\Locadora;
 
 $usuario = Auth::getUsuario();
 
-
 ?>
 
 <!DOCTYPE html>
@@ -678,6 +677,8 @@ $usuario = Auth::getUsuario();
         </div>
     </div>
 
+    
+
    <!-- adicionar imovel -->
 <?php
 if (isset($_POST['adicionar'])) {
@@ -722,7 +723,9 @@ if (isset($_POST['adicionar'])) {
             <h4>Adicionar nova hospedagem</h4>
         </div>
         <div class="card-body">
-            <form method="post" novalidate>
+            
+
+            <form action="" method="post">
                 <div class="mb-3">
                     <label for="tipo" class="form-label">Tipo da hospedagem</label>
                     <select name="tipo" id="tipo" class="form-select" required>
