@@ -101,8 +101,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body>
+<!-- Navbar -->
     <header>
-        <img src="../img/logo.png" alt="logo da página" class="logo">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-4">
+                    <a href="#"><img src="../img/logo.png" alt="Logo" class="logo mt-2"></a>
+                    <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                </div>
+            </div>
+        </nav>
     </header>
 
     <main>
