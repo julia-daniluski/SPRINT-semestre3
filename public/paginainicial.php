@@ -80,7 +80,7 @@ $usuario = Auth::getUsuario();
 
         /* Cor ao passar o mouse */
         header a:hover {
-            color: #ddd !important;
+            color: #78C2E2 !important;
             text-decoration: none;
         }
 
