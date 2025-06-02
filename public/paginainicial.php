@@ -4,7 +4,18 @@ session_start();
 require_once __DIR__ . '/../services/Auth.php';
 use Services\Auth;
 $usuario = Auth::getUsuario();
+
+if (isset($_GET['logout']) && $_GET['logout'] == 1) {
+    // Destroi todas as variáveis de sessão
+    $_SESSION = [];
+    session_destroy();
+
+    // Redireciona para a página de login
+    header("Location: login.php");
+    exit;
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -389,9 +400,8 @@ $usuario = Auth::getUsuario();
                     <span class="welcome-text">
                         Bem-vindo, <strong><?= htmlspecialchars($usuario['username']) ?></strong>
                     </span>
-                    <a href="?logout=1" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1">
-                        <i class="bi bi-box-arrow-right"></i>
-                        Sair
+                    <a href="?logout=1" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-1">
+                        <i class="bi bi-box-arrow-right"></i> Sair
                     </a>
                 </div>
             </div>
