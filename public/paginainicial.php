@@ -99,14 +99,17 @@ $usuario = Auth::getUsuario();
         }
 
 
+        /* Div do usuário (lado direito) - Estilo que deve ser aplicado em ambas as páginas */
         .usuario {
             display: flex;
             flex-direction: row;
+            border: 1px solid white;  /* Adiciona borda branca */
             border-radius: 40px;
             align-items: center;
-            padding: 10px;
+            padding: 0px 10px;       /* Ajuste no padding para ficar igual nas duas páginas */
+            gap: 10px;               /* Espaço entre os elementos internos */
+            margin-left: auto;       /* Empurra para a direita */
         }
-
 
 
         .quadrado {
@@ -122,6 +125,7 @@ $usuario = Auth::getUsuario();
             background-color: crimson;
             color: white;
             border: none;
+            margin-top: 24px;
             padding: 6px 10px;
             border-radius: 8px;
             transition: background-color 0.3s ease;
@@ -355,110 +359,82 @@ $usuario = Auth::getUsuario();
     </style>
 </head>
 <body>
-
+<!-- Navbar -->
     <header>
         <nav class="navbar navbar-expand-lg">
-            <div class="container d-flex align-items-center justify-content-between w-100">
-
-                <!-- Esquerda: Logo + Menu -->
+            <div class="container d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center gap-4">
-
-                    <!-- Logo -->
-                    <div class="empresa">
-                        <a href="#home">
-                            <img src="../img/logo.png" alt="Logo da página" class="logo mt-2">
-                        </a>
-                    </div>
-
-                    <!-- Botão Mobile -->
+                    <a href="#home"><img src="../img/logo.png" alt="Logo" class="logo mt-2"></a>
                     <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-
-                    <!-- Menu -->
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav navlist mt-1">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#home">Início</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.php">Alugar</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="modal" data-target="#sobreModal">Sobre</a>
-                                <!-- Modal -->
-                                <div class="modal fade" id="sobreModal" tabindex="-1" role="dialog" aria-labelledby="sobreModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="sobreModalLabel">Sobre</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p>A Cine&Places é uma empresa brasileira que oferece uma experiência única para apaixonados por cinema e séries. Ela se especializa em alugar imóveis inspirados ou que foram realmente usados em produções cinematográficas e televisivas. Seja para gravar cenas de filmes independentes, séries, ou até mesmo para quem deseja passar dias imersos no ambiente de um set de filmagem, a Cine\&Places proporciona um cenário autêntico e memorável.
+                <ul class="navbar-nav mt-1">
+                    <li class="nav-item"><a class="nav-link" href="../public/paginainicial.php">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php">Alugar</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalSobre">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalContato">Contato</a>
+                    </li>
+                </ul>
 
-                                                A empresa possui uma vasta gama de imóveis, desde casas e apartamentos que serviram como cenário de filmes famosos até espaços que foram inspirados por cenas icônicas. Isso permite que cineastas, produtores e fãs do universo cinematográfico experimentem, de maneira única, a possibilidade de viver ou criar dentro desses ambientes fantásticos.
-
-                                                Além de ser uma excelente opção para profissionais da área de produção audiovisual, a Cine\&Places também atrai turistas e entusiastas que desejam reviver suas cenas favoritas, seja para férias temáticas ou para momentos especiais, como sessões de fotos ou filmagens caseiras. A empresa une a magia do cinema com a possibilidade de vivenciar a realidade dos sets, criando memórias inesquecíveis e experiências imersivas para todos os tipos de públicos.</p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-<!-- Item de navegação - CONTATO -->
-<li class="nav-item">
-    <a class="nav-link" href="#" data-toggle="modal" data-target="#contatoModal">Contato</a>
-</li>
-
-<!-- Modal CONTATO -->
-<div class="modal fade" id="contatoModal" tabindex="-1" role="dialog" aria-labelledby="contatoModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="contatoModalLabel">Contato</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>
-                    Telefone: (11) 4002-8922<br>
-                    E-mail: contato@cineandplaces.com.br<br>
-                    Redes Sociais: @cineandplaces (Instagram, Facebook, Twitter)
-                </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-                            </li>
-                        </ul>
                     </div>
                 </div>
-
-                <!-- Direita: Usuário -->
-                <div class="d-flex align-items-center gap-3 user-info border p-2 rounded-5 usuario">
+                <div class="d-flex align-items-center gap-3 usuario">
                     <span class="user-icon">
                         <i class="bi bi-person-circle" style="font-size: 24px;"></i>
                     </span>
                     <span class="welcome-text">
                         Bem-vindo, <strong><?= htmlspecialchars($usuario['username']) ?></strong>
                     </span>
-                    <a href="?logout=1" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-3">
-                        <i class="bi bi-box-arrow-right"></i> Sair
+                    <a href="?logout=1" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1">
+                        <i class="bi bi-box-arrow-right"></i>
+                        Sair
                     </a>
                 </div>
             </div>
         </nav>
     </header>
+
+    <div class="modal fade" id="modalSobre" tabindex="-1" aria-labelledby="modalSobreLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalSobreLabel">Sobre</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>A Cine&Places é uma empresa brasileira que oferece uma experiência única para apaixonados por cinema e séries. Ela se especializa em alugar imóveis inspirados ou que foram realmente usados em produções cinematográficas e televisivas. Seja para gravar cenas de filmes independentes, séries, ou até mesmo para quem deseja passar dias imersos no ambiente de um set de filmagem, a Cine&Places proporciona um cenário autêntico e memorável.</p>
+                    <p>A empresa possui uma vasta gama de imóveis, desde casas e apartamentos que serviram como cenário de filmes famosos até espaços que foram inspirados por cenas icônicas. Todos com preços tabelados com os melhores valores para você Isso permite que cineastas, produtores e fãs do universo cinematográfico experimentem, de maneira única, a possibilidade de viver ou criar dentro desses ambientes fantásticos.</p>
+            </p>Além de ser uma excelente opção para profissionais da área de produção audiovisual, a Cine&Places também atrai turistas e entusiastas que desejam reviver suas cenas favoritas, seja para férias temáticas ou para momentos especiais, como sessões de fotos ou filmagens caseiras. A empresa une a magia do cinema com a possibilidade de vivenciar a realidade dos sets, criando memórias inesquecíveis e experiências imersivas para todos os tipos de públicos.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+            <div class="modal fade" id="modalContato" tabindex="-1" aria-labelledby="modalContatoLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalContatoLabel">Contato</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Telefone: (11) 4002-8922</p>
+                    <p>E-mail: contato@cineandplaces.com.br</p>
+                    <p>Redes Sociais: @cineandplaces (Instagram, Facebook, Twitter)</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <?php if ($mensagem):?>
         <div class="alert alert-info alert-dismissible fade show" role="alert">

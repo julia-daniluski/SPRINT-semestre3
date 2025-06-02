@@ -133,9 +133,9 @@ $usuario = Auth::getUsuario();
         .usuario {
             display: flex;
             flex-direction: row;
-            border-radius: 20px;
+            border-radius: 40px !important;
             align-items: center;
-            padding: 10px;
+            padding: 20px 10px !important;
         }
 
         /* Botão sair */
