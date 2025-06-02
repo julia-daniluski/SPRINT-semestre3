@@ -99,14 +99,14 @@ $usuario = Auth::getUsuario();
         }
 
 
-        /* Div do usuário (lado direito) */
         .usuario {
             display: flex;
             flex-direction: row;
-            border-radius: 20px;
+            border-radius: 40px;
             align-items: center;
             padding: 10px;
         }
+
 
 
         .quadrado {

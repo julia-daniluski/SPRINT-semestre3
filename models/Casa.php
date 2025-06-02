@@ -3,7 +3,6 @@
 namespace Models;
 use Interfaces\Locavel;
 
-// Classe que representa um carro
 
 class Casa extends Imovel implements Locavel {
 
