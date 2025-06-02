@@ -18,5 +18,15 @@
         "username": "ray",
         "password": "$2y$12$SkKzpV83aEU8WqKA4O8jCuXoI1m9kJRNXFhKu3kv4QMiQopZPMCsu",
         "perfil": "usuario"
+    },
+    {
+        "username": "dani",
+        "password": "$2y$12$6gXMI54oInO.aN6twTn.cuSCSiN6ZtpHfsnMjB7miCF1oFxnAUtFm",
+        "perfil": "usuario"
+    },
+    {
+        "username": "lais",
+        "password": "$2y$12$ODxSuUJ9TMRlm\/EhMTyHo.bNBAyQpU\/H8Ny505aEfXSTjg7Q0YKo6",
+        "perfil": "usuario"
     }
 ]

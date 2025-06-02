@@ -344,8 +344,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="p-4 bg-light rounded h-100 w-100">
                         <p class="info">Quer um "rolê" diferente? Na Cine&Places você consegue!</p>
                         <div class="ratio ratio-16x9 mb-3">
-                            <iframe src="https://www.youtube.com/embed/ZhlqoygmDLI?si=pxSgXNjmSyKq_ZAy"
-                                title="YouTube video player" allowfullscreen></iframe>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/k3hVqHiHMHU?si=ULDM277TLVWtXTK1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                         <p class="slogan">Aqui, você aluga seus quartos, casas e mansões saídas diretamente de seus filmes e séries favoritos!</p>
                     </div>
