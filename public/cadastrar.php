@@ -322,7 +322,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <nav class="navbar navbar-expand-lg">
             <div class="container d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center gap-4">
-                    <a href="#"><img src="../img/logo.png" alt="Logo" class="logo mt-2"></a>
+                    <a href="../inicio.html"><img src="../img/logo.png" alt="Logo" class="logo mt-2"></a>
                     <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                         <span class="navbar-toggler-icon"></span>
                     </button>
