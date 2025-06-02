@@ -119,49 +119,92 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             background-attachment: fixed;
 
         }
-
-        /*  Cabeçalho */
-        header{
+        /* Cabeçalho */
+        header {
             background-color: #001D47;
             color: #fff;
             padding: 2px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
-
+        /* Logo */
         header .logo {
             max-width: 80px;
             height: 80px;
         }
 
-
-        header .empresa{
+        /* Logo container */
+        header .empresa {
             display: flex;
             flex-direction: row;
         }
 
-        .navlist{
+        /* Menu horizontal */
+        .navlist {
             display: flex;
             flex-direction: row;
         }
 
-        li{
+        /* Todos os links dentro do header */
+        header a {
+            color: #fff !important;
+            text-decoration: none;
+            font-size: 20px; /* tamanho base para todos os links */
+            font-weight: 500;
+        }
+
+        /* Cor ao passar o mouse */
+        header a:hover {
+            color: #ddd !important;
+            text-decoration: none;
+        }
+
+        /* Itens de lista do menu */
+        li {
             list-style-type: none;
         }
 
-        li a{
+        /* Estilo dos links de navegação */
+        li a {
             text-decoration: none;
             margin: 10px;
-            color: #fff;
-            font-size: 22px;
+            font-size: 22px; /* sobrescreve o 20px acima para os itens do menu */
+            font-weight: 500;
+            color: #fff !important;
         }
 
-        .usuario{
+
+        /* Div do usuário (lado direito) */
+        .usuario {
             display: flex;
             flex-direction: row;
+            border-radius: 20px;
+            align-items: center;
+            padding: 10px;
         }
+
+
+        .quadrado {
+            margin: 4rem 4rem 4rem 5rem; /* topo, direita, baixo, esquerda */
+            padding: 1rem;
+            border: 2px solid #ffffff;
+            border-radius: 8px;
+        }
+
+
+        /* Botão sair */
+        #sair {
+            background-color: crimson;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        #sair:hover {
+            background-color: darkred;
+        }
+
 
         .segcontainer{
             height: 520px;
