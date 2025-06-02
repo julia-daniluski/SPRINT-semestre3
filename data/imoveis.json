@@ -34,11 +34,5 @@
         "nome": "Hollywood Arts (Escola Brilhante Victoria)",
         "local": "Los Angeles, Calif\u00f3rnia",
         "disponivel": false
-    },
-    {
-        "tipo": "Casa",
-        "nome": "jj",
-        "local": "kk",
-        "disponivel": true
     }
 ]
