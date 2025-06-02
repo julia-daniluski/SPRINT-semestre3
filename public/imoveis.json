@@ -1,0 +1,62 @@
+[
+    {
+        "tipo": "Quarto",
+        "nome": "Castelo de Alnwick - Hogwarts (Harry Potter)",
+        "local": "Inglaterra",
+        "disponivel": true
+    },
+    {
+        "tipo": "Casa",
+        "nome": "Cabana Tony Stark (Vingadores: Ultimato)",
+        "local": "Bouckaert Farm",
+        "disponivel": true
+    },
+    {
+        "tipo": "Quarto",
+        "nome": "Cenário série Friends",
+        "local": "Califórnia",
+        "disponivel": false
+    },
+    {
+        "tipo": "Quarto",
+        "nome": "Hotel Shrek",
+        "local": "Terras Altas da Escócia",
+        "disponivel": true
+    },
+    {
+        "tipo": "Casa",
+        "nome": "Casa Ainda Estou Aqui",
+        "local": "Bairro da Urca (RJ)",
+        "disponivel": true
+    },
+    {
+        "tipo": "Quarto",
+        "nome": "Hollywood Arts (Escola Brilhante Victoria)",
+        "local": "Los Angeles, Califórnia",
+        "disponivel": false
+    },
+    {
+        "tipo": "Casa",
+        "nome": "Teste",
+        "local": "Londres",
+        "disponivel": true
+    },
+    {
+        "tipo": "Casa",
+        "nome": "Chacara do ursinho cocaina",
+        "local": "ribeirão pires, sp",
+        "disponivel": true
+    },
+    {
+        "tipo": "Casa",
+        "nome": "aaa",
+        "local": "sss",
+        "disponivel": false
+    },
+    {
+        "tipo": "Casa",
+        "nome": "Chacara do ursinho cocaina",
+        "local": "ribeirão pires, sp",
+        "disponivel": false
+    }
+]
