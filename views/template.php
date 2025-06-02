@@ -3,9 +3,6 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-
-
-
 require_once __DIR__ . '/../services/Auth.php';
 require_once __DIR__ . '/../services/Locadora.php'; // Adicione este require se necessário
 
@@ -16,34 +13,7 @@ use Services\Locadora;
 
 $usuario = Auth::getUsuario();
 
-//$mensagem = null; // inicializa para evitar erro
-//$locadora = $locadora ?? null; // previne erro se $locadora não estiver definida
 
-// Inicializa variáveis de formulário
-//$previsao = null;
-//$tipoAluguel = '';
-//$diasAluguel = 0;
-//$valorHospedagem = '';
-//$localHospedagem = '';
-//$tipoHospedagem = '';
-
-// Processamento dos formulários
-//if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//    if (isset($_POST['calcular'])) {
-//        $tipoAluguel = $_POST['tipo_aluguel'];
-//        $diasAluguel = (int) $_POST['quantidade'];
-//
-//        $precos = ['casa' => 1900, 'quarto' => 800, 'estudio' => 5000];
-//        $previsao = ($precos[$tipoAluguel] ?? 0) * $diasAluguel;
-//    }
-
-//    if (isset($_POST['adicionar']) && Auth::isAdmin()) {
-//        $localHospedagem = $_POST['Nome'];
-//        $valorHospedagem = $_POST['Local'];
-//        $tipoHospedagem = $_POST['tipo'];
-//        $mensagem = "Hospedagem adicionada com sucesso!";
-//    }
-//}
 ?>
 
 <!DOCTYPE html>
