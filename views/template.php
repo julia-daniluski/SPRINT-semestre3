@@ -756,7 +756,8 @@ if (isset($_POST['adicionar'])) {
                     <input type="text" name="local" id="local" class="form-control" required>
                 </div>
 
-                <button type="submit" name="adicionar" class="btn btn-success w-100">Adicionar</button>
+
+                <button type="submit" name="adicionar" class="btn btn-primary w-100 botaoadd">Adicionar</button>
             </form>
         </div>
     </div>

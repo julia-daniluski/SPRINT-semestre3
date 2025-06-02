@@ -3,6 +3,7 @@
         "tipo": "Quarto",
         "nome": "Castelo de Alnwick - Hogwarts (Harry Potter)",
         "local": "Inglaterra",
+        
         "disponivel": true
     },
     {
@@ -57,6 +58,18 @@
         "tipo": "Casa",
         "nome": "Chacara do ursinho cocaina",
         "local": "ribeirão pires, sp",
+        "disponivel": false
+    },
+    {
+        "tipo": "Estúdio",
+        "nome": "Chacara do ursinho cocaina",
+        "local": "ribeirão pires, sp",
+        "disponivel": false
+    },
+    {
+        "tipo": "Quarto",
+        "nome": "sonequinha gostosa 2.0",
+        "local": "Los angeles",
         "disponivel": false
     }
 ]
