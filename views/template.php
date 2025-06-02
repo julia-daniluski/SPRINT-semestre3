@@ -349,10 +349,10 @@ $usuario = Auth::getUsuario();
             color: #001D47; /* Cor do texto do rótulo */
         }
 
-
+        /* FOOTER */
         footer {
             background: #001D47;
-            color: #ffffff;
+            color: #FEE7C3;
             text-align: center;
             padding: 20px;
             margin-top: 20px;
@@ -752,15 +752,26 @@ if (isset($_POST['adicionar'])) {
     </main>
 
     <!-- Rodapé -->
-    <footer id="contatos" class="text-center mt-5">
-        <p class="text-muted">Nos encontre nas redes sociais:</p>
-        <div class="d-flex justify-content-center gap-3 mb-2">
-            <a href="#"><i class="bi bi-facebook fs-4"></i></a>
-            <a href="#"><i class="bi bi-instagram fs-4"></i></a>
-            <a href="#"><i class="bi bi-twitter fs-4"></i></a>
+    <footer id="contatos">
+        <p class="secondary-color">Nos encontre nas redes sociais: </p>
+        <br>
+        <div class="row justify-content-center" id="social-icons-container">
+          <div class="col-1">
+            <a href="#"><i class="bi bi-facebook secondary-color"></i></a>
+          </div>
+          <div class="col-1">
+            <a href="#"><i class="bi bi-instagram secondary-color"></i></a>
+          </div>
+          <div class="col-1">
+            <a href="#"><i class="bi bi-twitter secondary-color"></i></a>
+          </div>
+          <br><br><br>
+          <p class="secondary-color">© 2025 Cine&Places. Todos os direitos reservados.</p>
+          <br>
         </div>
-        <p class="text-muted">© 2025 Cine&Places. Todos os direitos reservados.</p>
+        
     </footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
