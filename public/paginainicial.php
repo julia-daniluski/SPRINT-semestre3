@@ -487,7 +487,7 @@ $usuario = Auth::getUsuario();
             <div class="col-xs-12 col-md-4 quadrado">
                 <div class="small-image-container center-image" id="img-2"><img src="../img/Casas De Contos De Fadas Na Vida Real - Mundo Gump.jpg" alt="Casa do Harry Potter"></div>
                 <h3>Aluga-se castelo harry potter</h3>
-                <p class="secondary-color"> US$:17.589,75 - 1 Dia e 1 Noite</p>
+                <p class="secondary-color"> R$:800,00 - 1 Dia e 1 Noite</p>
                 <!-- Botão para Modal -->
                 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
                     Mais informações
@@ -597,7 +597,7 @@ $usuario = Auth::getUsuario();
             <div class="col-xs-12 col-md-4 quadrado">
                 <div class="small-image-container center-image" id="img-3"><img src="../img/victoria.jpg" alt="Escola Brilhante Victoria"></div>
                 <h3>ALUGA-SE ESCOLA  DE BRILHANTE VICTORIA</h3>
-                <p class="secondary-color">US$:3.517,90 - 1 Dia e 1 Noite</p>
+                <p class="secondary-color">R$:5000,00 - 1 Dia e 1 Noite</p>
                 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
                     Mais informações
                 </button>
@@ -696,7 +696,7 @@ $usuario = Auth::getUsuario();
             <div class="col-xs-12 col-md-4 quadrado">
                 <div class="small-image-container center-image" id="img-4"><img src="../img/ainda estou aqui.webp" alt="Casa do Ainda estou aqui"></div>
                 <h3>ALUGA-SE CASA DE AINDA ESTOU AQUI</h3>
-                <p class="secondary-color">US$:879,476 - 1 Dia e 1 Noite</p>
+                <p class="secondary-color">R$:1900,00 - 1 Dia e 1 Noite</p>
                 <!-- Botão para Modal -->
                 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     Mais informações
@@ -783,7 +783,7 @@ $usuario = Auth::getUsuario();
             <div class="col-xs-12 col-md-4 quadrado">
                 <div class="small-image-container center-image" id="img-5"><img src="../img/Casa-da-Monica.jpg" alt="Casa da turma da Mônica"></div>
                 <h3>ALUGA-SE CASA DA MÔNICA</h3>
-                <p class="secondary-color">US$:158,305 - 1 Dia e 1 Noite</p>
+                <p class="secondary-color">R$:1900,00 - 1 Dia e 1 Noite</p>
                 <!-- Botão para Modal -->
                 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop4">
                     Mais informações
@@ -867,7 +867,7 @@ $usuario = Auth::getUsuario();
             <div class="col-xs-12 col-md-4 quadrado">
                 <div class="small-image-container center-image" id="img-6"><img src="../img/Shrek-1.jpg" alt="Casa do Shrek"></div>
                 <h3>ALUGA-SE HOTEL DO BURRO FILME SHREK</h3>
-                <p class="secondary-color"> US$:228,663 - 1 Dia e 1 Noite</p>
+                <p class="secondary-color"> R$:800,00 - 1 Dia e 1 Noite</p>
                 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop5">
                     Mais informações
                 </button>
@@ -942,7 +942,7 @@ $usuario = Auth::getUsuario();
             <div class="col-xs-12 col-md-4 quadrado">
                 <div class="small-image-container center-image" id="img-6"><img src="../img/cabana_tonystark2.webp" alt="Cabana do Tony Stark"></div>
                 <h3>ALUGA-SE CABANA TONY STARK VINGADORES</h3>
-                <p class="secondary-color">US$:351,790 - 1 Dia e 1 Noite</p>
+                <p class="secondary-color">R$:1900,00 - 1 Dia e 1 Noite</p>
                 <!-- Botão para Modal -->
                 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop6">
                     Mais informações
