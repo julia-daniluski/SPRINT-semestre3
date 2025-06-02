@@ -106,5 +106,11 @@
         "nome": "jj",
         "local": "kk",
         "disponivel": false
+    },
+    {
+        "tipo": "Casa",
+        "nome": "jj",
+        "local": "kk",
+        "disponivel": false
     }
 ]

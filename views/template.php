@@ -682,7 +682,6 @@ $usuario = Auth::getUsuario();
    <!-- adicionar imovel -->
 <?php
 if (isset($_POST['adicionar'])) {
-    // Correção aplicada com ?? ''
     $tipo = htmlspecialchars(trim($_POST['tipo'] ?? ''));
     $nome = htmlspecialchars(trim($_POST['nome'] ?? ''));
     $local = htmlspecialchars(trim($_POST['local'] ?? ''));
@@ -708,10 +707,6 @@ if (isset($_POST['adicionar'])) {
 
         $dados[] = $novoImovel;
         file_put_contents($arquivo, json_encode($dados, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-
-        echo "<div class='alert alert-success'>Imóvel cadastrado com sucesso!</div>";
-    } else {
-        echo "<div class='alert alert-danger'>Preencha todos os campos.</div>";
     }
 }
 ?>
