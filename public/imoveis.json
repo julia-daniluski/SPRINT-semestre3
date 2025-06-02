@@ -118,5 +118,11 @@
         "nome": "Lumina Studios",
         "local": "Valparaíso, Chile",
         "disponivel": false
+    },
+    {
+        "tipo": "Quarto",
+        "nome": "hhjgfdfgh",
+        "local": "gfgj",
+        "disponivel": false
     }
 ]
