@@ -400,7 +400,7 @@ if (isset($_GET['logout']) && $_GET['logout'] == 1) {
                     <span class="welcome-text">
                         Bem-vindo, <strong><?= htmlspecialchars($usuario['username']) ?></strong>
                     </span>
-                    <a href="?logout=1" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-1">
+                    <a href="?logout=1" id="sair" class="btn btn-outline-danger d-flex align-items-center gap-1 mt-4">
                         <i class="bi bi-box-arrow-right"></i> Sair
                     </a>
                 </div>
