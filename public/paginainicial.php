@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+// php
 require_once __DIR__ . '/../services/Auth.php';
 use Services\Auth;
 $usuario = Auth::getUsuario();
