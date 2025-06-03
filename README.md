@@ -24,4 +24,8 @@ uma foto do nosso site:
 
 ##  Sprint 3:
   
-  Nessa 
+  Nessa sprint 3 executamos todo o back-end fazendo todas as funcionalidades funcionarem como exemplo a de add um casa para aluguel a outra funcionalidade de só se você faz o cadastro é possivel fazer login entre muitas outras funçoes que nessa sprint foram cumpridas finalizando o projeto.
+
+  ![image](https://github.com/user-attachments/assets/6fcba822-540c-43aa-b411-7d7d89fc5a90)
+exemplo de funcionalidade
+  
