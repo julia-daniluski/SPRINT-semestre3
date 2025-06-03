@@ -1008,7 +1008,7 @@ if (isset($_GET['logout']) && $_GET['logout'] == 1) {
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary fecha" data-bs-dismiss="modal">Fechar</button>
-                                    <a href=".index.php"><button type="button" class="btn btn-primary">Alugar</button></a>
+                                    <a href="index.php"><button type="button" class="btn btn-primary">Alugar</button></a>
                                 </div>
                         </div>
                     </div>
