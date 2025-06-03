@@ -235,6 +235,44 @@ $usuario = Auth::getUsuario();
             padding: 20px;
         }
 
+                .modal-header {
+            background-color: #f0f8ff;
+            border-bottom: 1px solid #444;
+            color: #1d4378;
+        }
+
+        /* Corpo do modal */
+        .modal-body {
+            background-color: #ffffff;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        /* Rodapé do modal */
+        .modal-footer {
+            background-color: #f0f8ff;
+            border-top: 1px solid #444;
+        }
+
+                .fecha{
+            display: flex;
+            justify-content: center;
+            text-decoration: none;
+            background-color: #78C2E2;
+            color: #001D47;
+            padding: 7px 18px;
+            border-radius: 40px;
+            margin-bottom: 20px;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .fecha:hover{
+            background-color: #FEE7C3;
+            color: #001D47;
+            transform: scale(1.03);
+        }
+
+
         .action-wrapper{
             display: flex;
             align-items: center;
@@ -547,7 +585,7 @@ $usuario = Auth::getUsuario();
 </p>Além de ser uma excelente opção para profissionais da área de produção audiovisual, a Cine&Places também atrai turistas e entusiastas que desejam reviver suas cenas favoritas, seja para férias temáticas ou para momentos especiais, como sessões de fotos ou filmagens caseiras. A empresa une a magia do cinema com a possibilidade de vivenciar a realidade dos sets, criando memórias inesquecíveis e experiências imersivas para todos os tipos de públicos.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-secondary fecha" data-bs-dismiss="modal">Fechar</button>
       </div>
     </div>
   </div>
@@ -566,7 +604,7 @@ $usuario = Auth::getUsuario();
         <p>Redes Sociais: @cineandplaces (Instagram, Facebook, Twitter)</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-secondary fecha" data-bs-dismiss="modal">Fechar</button>
       </div>
     </div>
   </div>

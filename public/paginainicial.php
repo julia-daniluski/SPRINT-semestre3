@@ -255,21 +255,21 @@ if (isset($_GET['logout']) && $_GET['logout'] == 1) {
 
         /* Cabeçalho */
         .modal-header {
-            background: linear-gradient(0deg, rgba(71, 191, 158, 1)  0%, rgba(254, 231, 195, 1) 100%);
+            background-color: #f0f8ff;
             border-bottom: 1px solid #444;
             color: #1d4378;
         }
 
         /* Corpo do modal */
         .modal-body {
-            background: linear-gradient(0deg, rgba(71, 191, 158, 1)  0%, rgba(254, 231, 195, 1) 100%);
+            background-color: #ffffff;
             padding: 20px;
             line-height: 1.6;
         }
 
         /* Rodapé do modal */
         .modal-footer {
-            background: linear-gradient(0deg, rgba(71, 191, 158, 1)  0%, rgba(254, 231, 195, 1) 100%);
+            background-color: #f0f8ff;
             border-top: 1px solid #444;
         }
 
